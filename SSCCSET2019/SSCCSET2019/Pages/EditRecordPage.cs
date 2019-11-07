@@ -8,6 +8,6 @@ namespace SSCCSET2019.Pages
 {
     class EditRecordPage
     {
-        int a = 0;
+        
     }
 }
