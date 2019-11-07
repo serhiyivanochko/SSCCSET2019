@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Driver.cs" />
-    <Compile Include="Pages\EditRecordPage.cs" />
+    <Compile Include="Pages\AllPosts.cs" />
     <Compile Include="Test.cs" />
   </ItemGroup>
   <ItemGroup>
