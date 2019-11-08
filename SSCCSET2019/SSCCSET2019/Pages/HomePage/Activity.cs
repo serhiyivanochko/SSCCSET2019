@@ -32,7 +32,19 @@ namespace SSCCSET2019.Pages.HomePage
         IWebElement spamcoment;
         IWebElement pendingComent;
         
-        IWebElement replyTollbar;
+        IWebElement TollbarBtn_b;
+        IWebElement TollbarBtn_i;
+        IWebElement TollbarBtn_link;
+        IWebElement TollbarBtn_qoute;
+        IWebElement TollbarBtn_del;
+        IWebElement TollbarBtn_ins;
+        IWebElement TollbarBtn_img;
+        IWebElement TollbarBtn_ul;
+        IWebElement TollbarBtn_ol;
+        IWebElement TollbarBtn_li;
+        IWebElement TollbarBtn_code;
+        IWebElement TollbarBtn_closeTag;
+
         IWebElement replyTextField;
         IWebElement reply_approve;
         IWebElement reply_cancel;
@@ -58,16 +70,30 @@ namespace SSCCSET2019.Pages.HomePage
             approvedComent = driver.FindElement(By.XPath(@"//*[@id='latest - comments']/ul[2]/li[4]/a"));
             spamcoment = driver.FindElement(By.XPath(@"//*[@id='latest - comments']/ul[2]/li[5]/a"));
             trashComent = driver.FindElement(By.XPath(@"//*[@id='latest - comments']/ul[2]/li[6]/a"));
-            
-            
 
-            replyTollbar= driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input']"));
+
+
+            TollbarBtn_b = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[1]']"));
+            TollbarBtn_i = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[2]']"));
+            TollbarBtn_link = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[3]']"));
+            TollbarBtn_qoute = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[4]']"));
+            TollbarBtn_del = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[5]']"));
+            TollbarBtn_ins = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[6]']"));
+            TollbarBtn_img = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[7]']"));
+            TollbarBtn_ul = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[8]']"));
+            TollbarBtn_ol = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[9]']"));
+            TollbarBtn_li = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[10]']"));
+            TollbarBtn_code = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[11]']"));
+            TollbarBtn_closeTag = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[12]']"));
+            
             replyTextField = driver.FindElement(By.XPath(@"//*[@id='replycontent']"));
             reply_approve = driver.FindElement(By.Id("replybtn"));
             reply_cancel = driver.FindElement(By.XPath(@"//*[@id='replysubmit']/p/button[2]"));
-
+            
 
         }
+
+
 
 
 
