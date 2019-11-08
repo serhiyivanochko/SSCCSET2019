@@ -40,8 +40,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Driver.cs" />
     <Compile Include="Pages\Posts\Tags.cs" />
-    <Compile Include="Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
