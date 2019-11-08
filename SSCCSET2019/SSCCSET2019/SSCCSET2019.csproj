@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Driver.cs" />
     <Compile Include="Pages\HomePage\Activity.cs" />
+    <Compile Include="Pages\HomePage\AtGlance.cs" />
     <Compile Include="Pages\UpdatesPage.cs" />
     <Compile Include="Test.cs" />
   </ItemGroup>
