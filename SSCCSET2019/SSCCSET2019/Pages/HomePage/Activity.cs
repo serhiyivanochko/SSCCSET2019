@@ -94,34 +94,34 @@ namespace SSCCSET2019.Pages.HomePage
 
         }
 
-        public void hideShow()
+        public void HideOrShowActivity()
         {
             hide_show.Click();
         }
 
-        public void writeReply(string str)
+        public void WriteReply(string str)
         {
 
             replyTextField.SendKeys(str);
         }
 
-        public string getComentText()
+        public string GetComentText()
         {
 
             return comment.Text;
         }
 
-        public void approveComent() {
+        public void ApproveComent() {
             approve.Click();
         }
-        public void unapproveComent() {
+        public void UnapproveComent() {
             unapprove.Click();
         }
-        public void approveReply()
+        public void ApproveReplyToComment()
         {
             reply_approve.Click();
         }
-        public void replyCancel()
+        public void CancelReplyToComment()
         {
             reply_cancel.Click();
         }
