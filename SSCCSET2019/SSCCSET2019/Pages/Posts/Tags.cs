@@ -10,7 +10,7 @@ namespace SSCCSET2019.Pages.Tags
 {
     class Tags
     {
-        IWebDriver driver = new ChromeDriver();
+        IWebDriver driver = Driver.GetDriver();
 
         IWebElement bulkActionSelectorTop;
         IWebElement bulkActionSelectorBotton;
