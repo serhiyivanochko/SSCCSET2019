@@ -9,7 +9,7 @@ namespace SSCCSET2019.Pages.HomePage
 {
     class AtGlance
     {
-        IWebDriver driver = Driver.GetInstance().driver;
+        IWebDriver driver;
 
         IWebElement hide_show;
         IWebElement post;
