@@ -36,33 +36,33 @@ namespace SSCCSET2019.Pages.HomePage
         }
 
 
-        public void hideShow() {
+        public void HideOrShow() {
             
             hide_show.Click();
         }
 
-        public void viewAllComments() {
+        public void ViewAllComments() {
 
             comment.Click();
         }
-         public void viewAllPosts() {
+         public void ViewAllPosts() {
 
             post.Click();
         }
-        public void viewAllPagas() {
+        public void ViewAllPagas() {
 
             page.Click();
         } 
-        public void viewAllThemes() {
+        public void ViewAllThemes() {
 
             themes_count.Click();
         }
-         public string getWpVersion() {
+         public string GetWpVersion() {
 
             return version.Text;
         }
 
-        public void seatingSearchEngine()
+        public void GoToSeatingSearchEngine()
         {
             search_engins.Click();
         }
