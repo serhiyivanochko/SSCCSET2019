@@ -11,7 +11,7 @@ namespace SSCCSET2019.Pages.HomePage
     {
         IWebDriver driver = Driver.GetInstance().driver;
 
-        
+
         IWebElement hideBtn;
         IWebElement comentator;
         IWebElement coment;
@@ -24,14 +24,14 @@ namespace SSCCSET2019.Pages.HomePage
         IWebElement edit;
         IWebElement undo;
 
-       
-        IWebElement allComent;
+
+        IWebElement allComents;
         IWebElement mineComent;
         IWebElement approvedComent;
         IWebElement trashComent;
         IWebElement spamcoment;
         IWebElement pendingComent;
-        
+
         IWebElement TollbarBtn_b;
         IWebElement TollbarBtn_i;
         IWebElement TollbarBtn_link;
@@ -50,7 +50,8 @@ namespace SSCCSET2019.Pages.HomePage
         IWebElement reply_cancel;
 
 
-        public Activity() {
+        public Activity()
+        {
 
             hideBtn = driver.FindElement(By.XPath(@"//*[@id='dashboard_activity']/button/span[2]"));
             comentator = driver.FindElement(By.XPath(@"//*[@id='comment - 1']/div/p[1]/cite/a"));
@@ -61,10 +62,10 @@ namespace SSCCSET2019.Pages.HomePage
             edit = driver.FindElement(By.XPath(@"//*[@id='comment - 1']/div/p[2]/span[4]"));
             spam = driver.FindElement(By.XPath(@"//*[@id='comment - 1']/div/p[2]/span[5]"));
             trash = driver.FindElement(By.XPath(@"//*[@id='comment - 1']/div/p[2]/span[6]"));
-            view = driver.FindElement(By.XPath(@"//*[@id='comment - 1']/div/p[2]/span[7]")); 
+            view = driver.FindElement(By.XPath(@"//*[@id='comment - 1']/div/p[2]/span[7]"));
             undo = driver.FindElement(By.XPath(@"//*[@id='undo - 1']/div/span/a"));
 
-            allComent = driver.FindElement(By.XPath(@"//*[@id='latest - comments']/ul[2]/li[1]/a"));
+            allComents = driver.FindElement(By.XPath(@"//*[@id='latest - comments']/ul[2]/li[1]/a"));
             mineComent = driver.FindElement(By.XPath(@"//*[@id='latest - comments']/ul[2]/li[2]/a"));
             pendingComent = driver.FindElement(By.XPath(@"//*[@id='latest - comments']/ul[2]/li[3]/a"));
             approvedComent = driver.FindElement(By.XPath(@"//*[@id='latest - comments']/ul[2]/li[4]/a"));
@@ -85,20 +86,42 @@ namespace SSCCSET2019.Pages.HomePage
             TollbarBtn_li = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[10]']"));
             TollbarBtn_code = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[11]']"));
             TollbarBtn_closeTag = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[12]']"));
-            
+
             replyTextField = driver.FindElement(By.XPath(@"//*[@id='replycontent']"));
             reply_approve = driver.FindElement(By.Id("replybtn"));
             reply_cancel = driver.FindElement(By.XPath(@"//*[@id='replysubmit']/p/button[2]"));
-            
+
 
         }
 
 
+        public void writeReply(string str)
+        {
+
+            replyTextField.SendKeys(str);
+        }
+
+        public string getComentText()
+        {
+
+            return coment.Text;
+        }
+
+        public void approveComent() {
+            approve.Click();
+        }
+        public void unapproveComent() {
+            unapprove.Click();
+        }
+        public void approveReply()
+        {
+            reply_approve.Click();
+        }
+        public void replyCancel()
+        {
+            reply_cancel.Click();
+        }
 
 
-
-
-
-
-    }  
-}
+    }
+}  
