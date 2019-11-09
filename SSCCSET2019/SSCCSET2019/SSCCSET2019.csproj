@@ -32,6 +32,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Driver.cs" />
+    <Compile Include="Pages\NewMediaPage.cs" />
+    <Compile Include="Pages\NewPage.cs" />
+    <Compile Include="Pages\NewPostPage.cs" />
+    <Compile Include="Pages\NewUserPage.cs" />
     <Compile Include="Pages\TopBarPage.cs" />
     <Compile Include="Test.cs" />
   </ItemGroup>
