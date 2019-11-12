@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 using OpenQA.Selenium;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,10 +29,6 @@ namespace SSCCSET2019.Pages.Tags
         IWebElement textUnderBottonBulkAction;
         IWebElement noItemsLabel;
         IWebElement hyperlink;
-
-        List<IWebElement> listOfAddedTags;
-        IWebElement tagsTable;
-
         IWebElement screenOptionsDropDown;
         IWebElement helpDropDown;
         IWebElement nameEdit;
@@ -46,6 +42,8 @@ namespace SSCCSET2019.Pages.Tags
         IWebElement textUnderTheSlugLabel;
         IWebElement textUnderTheDescriptionLabel;
 
+        List<IWebElement> listOfAddedTags;
+        IWebElement tagsTable;
 
         public Tags(IWebDriver driver)
         {
