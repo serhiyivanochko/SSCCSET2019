@@ -1,27 +1,14 @@
 <<<<<<< HEAD
-﻿using OpenQA.Selenium;
+using OpenQA.Selenium;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace SSCCSET2019.Pages.Tags
-=======
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 
-namespace SSCCSET2019.Pages
->>>>>>> Polishchuk
 {
     class Tags
     {
         IWebDriver driver;
-
-<<<<<<< HEAD
 
         IWebElement bulkActionSelectorTop;
         IWebElement bulkActionSelectorBotton;
@@ -45,7 +32,7 @@ namespace SSCCSET2019.Pages
 
         List<IWebElement> listOfAddedTags;
         IWebElement tagsTable;
-=======
+
         IWebElement screenOptionsDropDown;
         IWebElement helpDropDown;
         IWebElement nameEdit;
@@ -58,12 +45,12 @@ namespace SSCCSET2019.Pages
         IWebElement textUnderTheNameLabel;
         IWebElement textUnderTheSlugLabel;
         IWebElement textUnderTheDescriptionLabel;
->>>>>>> Polishchuk
+
 
         public Tags(IWebDriver driver)
         {
             this.driver = driver;
-<<<<<<< HEAD
+
             bulkActionSelectorTop = driver.FindElement(By.Id("bulk-action-selector-top"));
             doActionTopButton = driver.FindElement(By.Id("doaction1"));
             bulkActionSelectorBotton = driver.FindElement(By.Id("bulk - action - selector - bottom"));
@@ -80,7 +67,7 @@ namespace SSCCSET2019.Pages
             tagsTable = driver.FindElement(By.Id("the-list"));
 
             listOfAddedTags = tagsTable.FindElements(By.TagName("tr")).ToList();
-      
+
 
             sortingIndicatorTop4 = driver.FindElement(By.TagName("tfoot")).FindElement(By.Id("posts"));
             sortingIndicatorTop3 = driver.FindElement(By.TagName("tfoot")).FindElement(By.Id("slug"));
@@ -92,6 +79,19 @@ namespace SSCCSET2019.Pages
 
             textUnderBottonBulkAction = driver.FindElement(By.XPath(@"//*[@id='col - right']/div/div/p"));
             hyperlink = driver.FindElement(By.XPath(@"/html/body/div[2]/div[2]/div[2]/div[1]/div[3]/div[2]/div[2]/div/div/p/a"));
+
+            screenOptionsDropDown = driver.FindElement(By.Id("show-settings-link"));
+            helpDropDown = driver.FindElement(By.Id("contextual-help-link-wrap"));
+            nameEdit = driver.FindElement(By.Id("tag-name"));
+            slugEdit = driver.FindElement(By.Id("tag-slug"));
+            descriptionEdit = driver.FindElement(By.Id("tag-description"));
+            addNewTagButton = driver.FindElement(By.Id("submit"));
+            tagsLabel = driver.FindElement(By.XPath("//*[@id='wpbody - content']/div[3]/h1"));
+            addNewTagLabel = driver.FindElement(By.XPath("//*[@id='col - left']/div/div/h2"));
+            nameLabel = driver.FindElement(By.XPath("//*[@id='addtag']/div[1]/label"));
+            textUnderTheNameLabel = driver.FindElement(By.XPath("//*[@id='addtag']/div[1]/p"));
+            textUnderTheSlugLabel = driver.FindElement(By.XPath("//*[@id='addtag']/div[2]/p"));
+            textUnderTheDescriptionLabel = driver.FindElement(By.XPath("//*[@id='addtag']/div[3]/p"));
         }
 
         public void ClearSearchTagsBox()
@@ -124,30 +124,6 @@ namespace SSCCSET2019.Pages
             doActionBottonButton.Click();
         }
 
-
-
-
-
-
-
-    }
-}
-=======
-
-            screenOptionsDropDown = driver.FindElement(By.Id("show-settings-link"));
-            helpDropDown = driver.FindElement(By.Id("contextual-help-link-wrap"));
-            nameEdit = driver.FindElement(By.Id("tag-name"));
-            slugEdit = driver.FindElement(By.Id("tag-slug"));
-            descriptionEdit = driver.FindElement(By.Id("tag-description"));
-            addNewTagButton = driver.FindElement(By.Id("submit"));
-            tagsLabel = driver.FindElement(By.XPath("//*[@id='wpbody - content']/div[3]/h1"));
-            addNewTagLabel = driver.FindElement(By.XPath("//*[@id='col - left']/div/div/h2"));
-            nameLabel = driver.FindElement(By.XPath("//*[@id='addtag']/div[1]/label"));
-            textUnderTheNameLabel = driver.FindElement(By.XPath("//*[@id='addtag']/div[1]/p"));
-            textUnderTheSlugLabel = driver.FindElement(By.XPath("//*[@id='addtag']/div[2]/p"));
-            textUnderTheDescriptionLabel = driver.FindElement(By.XPath("//*[@id='addtag']/div[3]/p"));
-        }
-
         public string GetTagsLabel()
         {
             return tagsLabel.Text;
@@ -172,7 +148,7 @@ namespace SSCCSET2019.Pages
         {
             return textUnderTheSlugLabel.Text;
         }
-       
+
         public string GetTextUnderTheDescriptionLabel()
         {
             return textUnderTheDescriptionLabel.Text;
@@ -182,6 +158,7 @@ namespace SSCCSET2019.Pages
         {
             addNewTagButton.Click();
         }
+
     }
-} 
->>>>>>> Polishchuk
+
+}
