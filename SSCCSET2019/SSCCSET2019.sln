@@ -1,6 +1,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
+<<<<<<< HEAD
 VisualStudioVersion = 15.0.28307.779
+=======
+VisualStudioVersion = 15.0.28307.102
+>>>>>>> Polishchuk
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSCCSET2019", "SSCCSET2019\SSCCSET2019.csproj", "{8B922C88-1BB1-4461-8956-BE3AB13AA550}"
 EndProject
@@ -19,6 +23,10 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+<<<<<<< HEAD
 		SolutionGuid = {28B46501-DC10-4228-92EA-D2F411386851}
+=======
+		SolutionGuid = {A832B316-CE4C-4DB7-8798-3C7746386AD2}
+>>>>>>> Polishchuk
 	EndGlobalSection
 EndGlobal

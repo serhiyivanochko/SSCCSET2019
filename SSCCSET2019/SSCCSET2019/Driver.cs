@@ -13,7 +13,7 @@ namespace SSCCSET2019
     class Driver
     {
         private static IWebDriver instance;
-        private Driver()   {  }
+        private Driver() { }
 
         public static IWebDriver GetDriver()
         {
@@ -21,8 +21,8 @@ namespace SSCCSET2019
             {
                 instance = new ChromeDriver();
             }
-           return instance;
-        
+            return instance;
+
         }
     }
 }
