@@ -11,60 +11,67 @@ namespace SSCCSET2019.Pages.HomePage
     {
         IWebDriver driver;
 
-        IWebElement hide_show;
+        IWebElement hideShow;
         IWebElement post;
         IWebElement comment;
         IWebElement page;
 
-        IWebElement themes_count;
-        IWebElement search_engins;
+        IWebElement themesCount;
+        IWebElement updtBtn;
         IWebElement version;
 
         public AtGlance() {
            
-            hide_show = driver.FindElement(By.XPath(@"//*[@id='dashboard_right_now']/button"));
+            hideShow = driver.FindElement(By.XPath(@"//*[@id='dashboard_right_now']/button"));
             post = driver.FindElement(By.XPath(@"//*[@id='dashboard_right_now']/div/div/ul/li[1]/a"));
             page = driver.FindElement(By.XPath(@"//*[@id='dashboard_right_now']/div/div/ul/li[2]/a"));
             comment = driver.FindElement(By.XPath(@"//*[@id='dashboard_right_now']/div/div/ul/li[3]/a"));
 
-            themes_count = driver.FindElement(By.XPath(@"//*[@id='wp - version']/a"));
+            themesCount = driver.FindElement(By.XPath(@"//*[@id='wp - version']/a"));
             version = driver.FindElement(By.XPath(@"//*[@id='wp - version']/text()[1]"));
-            search_engins = driver.FindElement(By.XPath(@"//*[@id='dashboard_right_now']/div/div/p[2]/a"));
+            updtBtn = driver.FindElement(By.XPath(@"//*[@id='wp - version - message']/a"));
 
 
 
         }
 
 
-        public void HideOrShow() {
+        public void HideOrShow() 
+        {
             
-            hide_show.Click();
+            hideShow.Click();
         }
 
-        public void ViewAllComments() {
-
+        public CommentPage ClickComments()
+        {
             comment.Click();
+            return new CommentPage();
         }
-         public void ViewAllPosts() {
-
+         public PostsPage ClickPosts()
+        {
             post.Click();
+            return new PostsPage();
         }
-        public void ViewAllPagas() {
-
+        public PagesPage  ViewAllPages() 
+        {
             page.Click();
+            return new PagesPage();
         } 
-        public void ViewAllThemes() {
-
-            themes_count.Click();
+        public ThemesPage ViewAllThemes()
+        {
+            themesCount.Click();
+            return new ThemesPage();
         }
-         public string GetWpVersion() {
-
+         public string GetWpVersion() 
+        {
             return version.Text;
         }
 
-        public void GoToSeatingSearchEngine()
+        public UpdatesPage ClickUpdateBtn()
         {
-            search_engins.Click();
+            updtBtn.Click();
+            return new UpdatesPage();
+
         }
 
 

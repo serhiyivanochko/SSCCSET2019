@@ -12,7 +12,7 @@ namespace SSCCSET2019.Pages.HomePage
         IWebDriver driver;
 
 
-        IWebElement hide_show;
+        IWebElement hideShow;
         IWebElement commentator;
         IWebElement comment;
         IWebElement view;
@@ -32,28 +32,28 @@ namespace SSCCSET2019.Pages.HomePage
         IWebElement spamcomment;
         IWebElement pendingComment;
 
-        IWebElement TollbarBtn_b;
-        IWebElement TollbarBtn_i;
-        IWebElement TollbarBtn_link;
-        IWebElement TollbarBtn_qoute;
-        IWebElement TollbarBtn_del;
-        IWebElement TollbarBtn_ins;
-        IWebElement TollbarBtn_img;
-        IWebElement TollbarBtn_ul;
-        IWebElement TollbarBtn_ol;
-        IWebElement TollbarBtn_li;
-        IWebElement TollbarBtn_code;
-        IWebElement TollbarBtn_closeTag;
+        IWebElement TollbarBtnB;
+        IWebElement TollbarBtnI;
+        IWebElement TollbarBtnLink;
+        IWebElement TollbarBtnQoute;
+        IWebElement TollbarBtnDel;
+        IWebElement TollbarBtnIns;
+        IWebElement TollbarBtnImg;
+        IWebElement TollbarBtnUl;
+        IWebElement TollbarBtnOl;
+        IWebElement TollbarBtnLi;
+        IWebElement TollbarBtnCode;
+        IWebElement TollbarBtnCloseTag;
 
         IWebElement replyTextField;
-        IWebElement reply_approve;
-        IWebElement reply_cancel;
+        IWebElement replyApprove;
+        IWebElement replyCancel;
 
 
         public Activity()
         {
 
-            hide_show = driver.FindElement(By.XPath(@"//*[@id='dashboard_activity']/button/span[2]"));
+            hideShow = driver.FindElement(By.XPath(@"//*[@id='dashboard_activity']/button/span[2]"));
             commentator = driver.FindElement(By.XPath(@"//*[@id='comment - 1']/div/p[1]/cite/a"));
             comment = driver.FindElement(By.XPath(@"//*[@id='comment - 1']/div/blockquote/p"));
             approve = driver.FindElement(By.XPath(@"//*[@id='comment - 1']/div/p[2]/span[1]"));
@@ -74,35 +74,54 @@ namespace SSCCSET2019.Pages.HomePage
 
 
 
-            TollbarBtn_b = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[1]']"));
-            TollbarBtn_i = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[2]']"));
-            TollbarBtn_link = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[3]']"));
-            TollbarBtn_qoute = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[4]']"));
-            TollbarBtn_del = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[5]']"));
-            TollbarBtn_ins = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[6]']"));
-            TollbarBtn_img = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[7]']"));
-            TollbarBtn_ul = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[8]']"));
-            TollbarBtn_ol = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[9]']"));
-            TollbarBtn_li = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[10]']"));
-            TollbarBtn_code = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[11]']"));
-            TollbarBtn_closeTag = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[12]']"));
+            TollbarBtnB = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[1]']"));
+            TollbarBtnI = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[2]']"));
+            TollbarBtnLink = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[3]']"));
+            TollbarBtnQoute = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[4]']"));
+            TollbarBtnDel = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[5]']"));
+            TollbarBtnIns = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[6]']"));
+            TollbarBtnImg = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[7]']"));
+            TollbarBtnUl = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[8]']"));
+            TollbarBtnOl = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[9]']"));
+            TollbarBtnLi = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[10]']"));
+            TollbarBtnCode = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[11]']"));
+            TollbarBtnCloseTag = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[12]']"));
 
             replyTextField = driver.FindElement(By.XPath(@"//*[@id='replycontent']"));
-            reply_approve = driver.FindElement(By.Id("replybtn"));
-            reply_cancel = driver.FindElement(By.XPath(@"//*[@id='replysubmit']/p/button[2]"));
+            replyApprove = driver.FindElement(By.Id("replybtn"));
+            replyCancel = driver.FindElement(By.XPath(@"//*[@id='replysubmit']/p/button[2]"));
 
 
         }
 
-        public void HideOrShowActivity()
+        public Activity HideOrShowActivity()
         {
-            hide_show.Click();
+            hideShow.Click();
+            return this;
         }
-
-        public void WriteReply(string str)
+        
+        public Activity SetTextInReplyTextField(string str)
         {
 
             replyTextField.SendKeys(str);
+            return this;
+        }
+         public Activity ClickOnReplyTextField()
+        {
+
+            replyTextField.Click();
+            return this;
+        }
+
+        public Activity ClearReplyTextField()
+        {
+
+            replyTextField.Clear();
+            return this;
+        }
+        public string GetTeaxtFromReplyTextField()
+        {
+            return replyTextField.Text;
         }
 
         public string GetComentText()
@@ -111,19 +130,25 @@ namespace SSCCSET2019.Pages.HomePage
             return comment.Text;
         }
 
-        public void ApproveComent() {
+        public Activity ClickToApproveComent() 
+        {
             approve.Click();
+            return this;
         }
-        public void UnapproveComent() {
+        public Activity ClickToUnapproveComent() 
+        {
             unapprove.Click();
+            return this;
         }
-        public void ApproveReplyToComment()
+        public Activity ClickTApproveReplyToComment()
         {
-            reply_approve.Click();
+            replyApprove.Click();
+            return this;
         }
-        public void CancelReplyToComment()
+        public Activity ClickCancelReplyToComment()
         {
-            reply_cancel.Click();
+            replyCancel.Click();
+            return this;
         }
 
 
