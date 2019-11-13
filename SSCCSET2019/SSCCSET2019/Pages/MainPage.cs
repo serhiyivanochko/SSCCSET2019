@@ -1,13 +1,13 @@
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support.PageObjects;
+﻿using OpenQA.Selenium;
+//using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Chrome;
 
-namespace WordPressTest.Pages
+namespace SSCCSET2019.Pages
 {
-    class Main_Page
+    class MainPage
     {
         static IWebDriver Driver;
-       
+
         //Header
         IWebElement button_settings = Driver.FindElement(By.XPath("//*[@id='welcome - panel']/div/div/div[1]/a[1]"));
         IWebElement link_theme = Driver.FindElement(By.XPath("//*[@id='welcome - panel']/div/div/div[1]/p/a"));
@@ -38,12 +38,13 @@ namespace WordPressTest.Pages
         IWebElement link_3 = Driver.FindElement(By.XPath("//*[@id='dashboard_primary']/div/div[4]/div[2]/ul/li[2]/a"));
         IWebElement link_4 = Driver.FindElement(By.XPath("//*[@id='dashboard_primary']/div/div[4]/div[2]/ul/li[3]/a"));
         IWebElement link_meetings = Driver.FindElement(By.XPath("//*[@id='dashboard_primary']/div/p/a[1]"));
-        IWebElement link_meetings = Driver.FindElement(By.XPath("//*[@id='dashboard_primary']/div/p/a[2]"));
-        IWebElement link_wordcamp = Driver.FindElement(By.XPath("//*[@id='dashboard_primary']/div/p/a[3]"));
+        IWebElement link_wordcamp = Driver.FindElement(By.XPath("//*[@id='dashboard_primary']/div/p/a[2]"));
+        IWebElement link_news = Driver.FindElement(By.XPath("//*[@id='dashboard_primary']/div/p/a[3]"));
 
 
         //Atomic methods
 
+        //Header
         public void buttonClick()
         {
             button_settings.Click();
@@ -84,6 +85,7 @@ namespace WordPressTest.Pages
         {
             link_learnMore.Click();
         }
+        //Quick Draft
         public string Get_headline()
         {
             return headline.Text;
@@ -101,6 +103,7 @@ namespace WordPressTest.Pages
         {
             button_hide.Click();
         }
+        //News
         public void Button_close()
         {
             button_close.Click();
