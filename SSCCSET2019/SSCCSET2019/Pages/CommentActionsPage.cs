@@ -9,13 +9,13 @@ namespace SSCCSET2019.SSCCSET2019.Pages.CommentActionsPage
     public class CommentActionsPage : ATopCommentAndResponse 
     {
         public const string VALUE_ATTRIBUTE = "value";
-        public SelectElement CommentTypeSelect { get; private set; }
-        public IWebElement CommentTypeSubmitButton { get; private set; }
-        public SelectElement FilterTypeSelect { get; private set; }
-        public IWebElement FilterTypeSubmitButton { get; private set; }
-        public IWebElement CountElementsLabel { get; private set; }
-        public IWebElement SearchTop { get; private set; }
-        public IWebElement ButtonSearch { get; private set; }
+        public SelectElement CommentTypeSelect;
+        public IWebElement CommentTypeSubmitButton;
+        public SelectElement FilterTypeSelect;
+        public IWebElement FilterTypeSubmitButton;
+        public IWebElement CountElementsLabel;
+        public IWebElement SearchTop;
+        public IWebElement ButtonSearch;
         public CommentActionsPage(IWebDriver driver) : base(driver)
         {          
             CommentTypeSelect = new SelectElement(driver.FindElement(By.Id("bulk-action-selector-top")));
@@ -26,7 +26,6 @@ namespace SSCCSET2019.SSCCSET2019.Pages.CommentActionsPage
             IWebElement SearchTop = driver.FindElement(By.Id("comment-search-input"));
             IWebElement ButtonSearch = driver.FindElement(By.Id("search-submit"));
         }
-
         public string GetCountElementsLabelText()
         {
             return CountElementsLabel.Text;
