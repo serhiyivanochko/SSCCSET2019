@@ -11,20 +11,20 @@ namespace SSCCSET2019.Pages
 {
     class Tags
     {
-        IWebDriver driver;
+       private IWebDriver driver;
 
-        IWebElement screenOptionsDropDown;
-        IWebElement helpDropDown;
-        IWebElement nameEdit;
-        IWebElement slugEdit;
-        IWebElement descriptionEdit;
-        IWebElement addNewTagButton;
-        IWebElement tagsLabel;
-        IWebElement addNewTagLabel;
-        IWebElement nameLabel;
-        IWebElement textUnderTheNameLabel;
-        IWebElement textUnderTheSlugLabel;
-        IWebElement textUnderTheDescriptionLabel;
+        protected IWebElement screenOptionsDropDown;
+        protected IWebElement helpDropDown;
+        protected IWebElement nameEdit;
+        protected IWebElement slugEdit;
+        protected IWebElement descriptionEdit;
+        protected IWebElement addNewTagButton;
+        protected IWebElement tagsLabel;
+        protected IWebElement addNewTagLabel;
+        protected IWebElement nameLabel;
+        protected IWebElement textUnderTheNameLabel;
+        protected IWebElement textUnderTheSlugLabel;
+        protected IWebElement textUnderTheDescriptionLabel;
 
         public Tags(IWebDriver driver)
         {
@@ -72,6 +72,16 @@ namespace SSCCSET2019.Pages
         public string GetTextUnderTheDescriptionLabel()
         {
             return textUnderTheDescriptionLabel.Text;
+        }
+
+        public void ClickScreenOptionsDropDown()
+        {
+            screenOptionsDropDown.Click();
+        }
+
+        public void ClickHelpDropDown()
+        {
+            helpDropDown.Click();
         }
 
         public void ClickAddNewTagButton()
