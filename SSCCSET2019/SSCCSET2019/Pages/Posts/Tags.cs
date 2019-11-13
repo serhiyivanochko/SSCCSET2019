@@ -1,65 +1,68 @@
-
 using OpenQA.Selenium;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace SSCCSET2019.Pages.Tags
-
 {
     class Tags
     {
-        IWebDriver driver;
+        private IWebDriver driver;
 
-        IWebElement bulkActionSelectorTop;
-        IWebElement bulkActionSelectorBotton;
-        IWebElement doActionTopButton;
-        IWebElement doActionBottonButton;
-        IWebElement checkBoxAllTop;
-        IWebElement checkBoxAllBotton;
-        IWebElement sortingIndicatorTop1;
-        IWebElement sortingIndicatorTop2;
-        IWebElement sortingIndicatorTop3;
-        IWebElement sortingIndicatorTop4;
-        IWebElement sortingIndicatorBotton1;
-        IWebElement sortingIndicatorBotton2;
-        IWebElement sortingIndicatorBotton3;
-        IWebElement sortingIndicatorBotton4;
-        IWebElement searchBoxTags;
-        IWebElement searchTagsButton;
-        IWebElement textUnderBottonBulkAction;
-        IWebElement noItemsLabel;
-        IWebElement hyperlink;
-        IWebElement screenOptionsDropDown;
-        IWebElement helpDropDown;
-        IWebElement nameEdit;
-        IWebElement slugEdit;
-        IWebElement descriptionEdit;
-        IWebElement addNewTagButton;
-        IWebElement tagsLabel;
-        IWebElement addNewTagLabel;
-        IWebElement nameLabel;
-        IWebElement textUnderTheNameLabel;
-        IWebElement textUnderTheSlugLabel;
-        IWebElement textUnderTheDescriptionLabel;
+        protected IWebElement actionSelectorTop;
+        protected IWebElement actionSelectorBotton;
+        protected IWebElement doActionTopButton;
+        protected IWebElement doActionBottonButton;
+        protected IWebElement checkBoxAllTop;
+        protected IWebElement checkBoxAllBotton;
+        protected IWebElement nameSortingIndicatorTop;
+        protected IWebElement descriptionSortingIndicatorTop;
+        protected IWebElement slugSortingIndicatorTop;
+        protected IWebElement countSortingIndicatorTop;
+        protected IWebElement nameSortingIndicatorBotton;
+        protected IWebElement descriptionSortingIndicatorBotton;
+        protected IWebElement slugSortingIndicatorBotton;
+        protected IWebElement countSortingIndicatorBotton;
+        protected IWebElement searchBoxTags;
+        protected IWebElement searchTagsButton;
+        protected IWebElement textUnderBottonBulkAction;
+        protected IWebElement noItemsLabel;
+        protected IWebElement convertHyperlink;
+        protected IWebElement displayingNumberOfTags;
+        protected IWebElement nameOfVersion;
 
-        List<IWebElement> listOfAddedTags;
-        IWebElement tagsTable;
+        protected IWebElement screenOptionsDropDown;
+        protected IWebElement helpDropDown;
+        protected IWebElement nameEdit;
+        protected IWebElement slugEdit;
+        protected IWebElement descriptionEdit;
+        protected IWebElement addNewTagButton;
+        protected IWebElement tagsLabel;
+        protected IWebElement addNewTagLabel;
+        protected IWebElement nameLabel;
+        protected IWebElement textUnderTheNameLabel;
+        protected IWebElement textUnderTheSlugLabel;
+        protected IWebElement textUnderTheDescriptionLabel;
+
+        protected List<IWebElement> listOfAddedTags;
+        protected IWebElement tagsTable;
 
         public Tags(IWebDriver driver)
         {
             this.driver = driver;
 
-            bulkActionSelectorTop = driver.FindElement(By.Id("bulk-action-selector-top"));
+            actionSelectorTop = driver.FindElement(By.Id("bulk-action-selector-top"));
             doActionTopButton = driver.FindElement(By.Id("doaction1"));
-            bulkActionSelectorBotton = driver.FindElement(By.Id("bulk - action - selector - bottom"));
+            actionSelectorBotton = driver.FindElement(By.Id("bulk - action - selector - bottom"));
             doActionBottonButton = driver.FindElement(By.Id("doaction2"));
             checkBoxAllBotton = driver.FindElement(By.Id("cb - select - all - 2"));
             checkBoxAllTop = driver.FindElement(By.Id("cb - select - all - 1"));
 
-            sortingIndicatorBotton4 = driver.FindElement(By.TagName("thead")).FindElement(By.Id("posts"));
-            sortingIndicatorBotton3 = driver.FindElement(By.TagName("thead")).FindElement(By.Id("slug"));
-            sortingIndicatorBotton2 = driver.FindElement(By.TagName("thead")).FindElement(By.Id("description"));
-            sortingIndicatorBotton1 = driver.FindElement(By.TagName("thead")).FindElement(By.Id("name"));
+            countSortingIndicatorBotton = driver.FindElement(By.TagName("thead")).FindElement(By.Id("posts"));
+            slugSortingIndicatorBotton = driver.FindElement(By.TagName("thead")).FindElement(By.Id("slug"));
+            descriptionSortingIndicatorBotton = driver.FindElement(By.TagName("thead")).FindElement(By.Id("description"));
+            nameSortingIndicatorBotton = driver.FindElement(By.TagName("thead")).FindElement(By.Id("name"));
+            displayingNumberOfTags = driver.FindElement(By.ClassName("displaying-num"));
+            nameOfVersion = driver.FindElement(By.Id("footer-upgrade"));
 
 
             tagsTable = driver.FindElement(By.Id("the-list"));
@@ -67,16 +70,16 @@ namespace SSCCSET2019.Pages.Tags
             listOfAddedTags = tagsTable.FindElements(By.TagName("tr")).ToList();
 
 
-            sortingIndicatorTop4 = driver.FindElement(By.TagName("tfoot")).FindElement(By.Id("posts"));
-            sortingIndicatorTop3 = driver.FindElement(By.TagName("tfoot")).FindElement(By.Id("slug"));
-            sortingIndicatorTop2 = driver.FindElement(By.TagName("tfoot")).FindElement(By.Id("description"));
-            sortingIndicatorTop1 = driver.FindElement(By.TagName("tfoot")).FindElement(By.Id("name"));
+            countSortingIndicatorTop = driver.FindElement(By.TagName("tfoot")).FindElement(By.Id("posts"));
+            slugSortingIndicatorTop = driver.FindElement(By.TagName("tfoot")).FindElement(By.Id("slug"));
+            descriptionSortingIndicatorTop = driver.FindElement(By.TagName("tfoot")).FindElement(By.Id("description"));
+            nameSortingIndicatorTop = driver.FindElement(By.TagName("tfoot")).FindElement(By.Id("name"));
 
             searchBoxTags = driver.FindElement(By.Id("tag-search-input"));
             searchTagsButton = driver.FindElement(By.Id("search-submit"));
 
             textUnderBottonBulkAction = driver.FindElement(By.XPath(@"//*[@id='col - right']/div/div/p"));
-            hyperlink = driver.FindElement(By.XPath(@"/html/body/div[2]/div[2]/div[2]/div[1]/div[3]/div[2]/div[2]/div/div/p/a"));
+            convertHyperlink = driver.FindElement(By.XPath(@"/html/body/div[2]/div[2]/div[2]/div[1]/div[3]/div[2]/div[2]/div/div/p/a"));
 
             screenOptionsDropDown = driver.FindElement(By.Id("show-settings-link"));
             helpDropDown = driver.FindElement(By.Id("contextual-help-link-wrap"));
@@ -122,6 +125,59 @@ namespace SSCCSET2019.Pages.Tags
             doActionBottonButton.Click();
         }
 
+        public void ClickTopNameSortingIndicator()
+        {
+            nameSortingIndicatorTop.Click();
+        }
+        public void ClickTopDescriptionSortingIndicator()
+        {
+            descriptionSortingIndicatorTop.Click();
+        }
+        public void ClickTopSlugSortingIndicator()
+        {
+            slugSortingIndicatorTop.Click();
+        }
+        public void ClickTopCountSortingIndicator()
+        {
+            countSortingIndicatorTop.Click();
+        }
+        public void ClickBottonNameSortingIndicator()
+        {
+            nameSortingIndicatorBotton.Click();
+        }
+        public void ClickBottonDescriptionSortingIndicator()
+        {
+            descriptionSortingIndicatorBotton.Click();
+        }
+        public void ClickBottonSlugSortingIndicator()
+        {
+            slugSortingIndicatorBotton.Click();
+        }
+        public void ClickBottonCountSortingIndicator()
+        {
+            countSortingIndicatorBotton.Click();
+        }
+
+        public void ClickTopActionSelector()
+        {
+            actionSelectorTop.Click();
+        }
+
+        public void ClickBottonActionSelector()
+        {
+            actionSelectorBotton.Click();
+        }
+
+        public void ClickHyperLink()
+        {
+            convertHyperlink.Click();
+        }
+
+        public void ClickGetVersionLink()
+        {
+            nameOfVersion.Click();
+        }
+
         public string GetTagsLabel()
         {
             return tagsLabel.Text;
@@ -157,6 +213,10 @@ namespace SSCCSET2019.Pages.Tags
             addNewTagButton.Click();
         }
 
+        public void ClickCheckAll()
+        {
+            checkBoxAllTop.Click();
+        }
     }
 
 }
