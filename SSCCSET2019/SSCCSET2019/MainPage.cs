@@ -4,11 +4,10 @@ using OpenQA.Selenium.Chrome;
 
 namespace WordPressTest.Pages
 {
-    class Console_Page
+    class Main_Page
     {
-        static IWebDriver Driver = new ChromeDriver();
-        //Оголошення головних елеметів сторінки
-
+        static IWebDriver Driver;
+       
         //Header
         IWebElement button_settings = Driver.FindElement(By.XPath("//*[@id='welcome - panel']/div/div/div[1]/a[1]"));
         IWebElement link_theme = Driver.FindElement(By.XPath("//*[@id='welcome - panel']/div/div/div[1]/p/a"));
@@ -27,8 +26,24 @@ namespace WordPressTest.Pages
         IWebElement content = Driver.FindElement(By.Id("content"));
         IWebElement button_save = Driver.FindElement(By.Id("save-post"));
         IWebElement button_hide = Driver.FindElement(By.XPath("//*[@id='dashboard_quick_press']/button"));
+        //News 
 
-        //Подивитись до типу повернення адаптивних методів 
+        IWebElement button_close = Driver.FindElement(By.ClassName("toggle-indicator"));
+        IWebElement button_edit = Driver.FindElement(By.ClassName("dashicons dashicons-edit"));
+        IWebElement town_input = Driver.FindElement(By.Id("community-events-location"));
+        IWebElement button_send = Driver.FindElement(By.Id("community-events-submit"));
+        IWebElement button_cancel = Driver.FindElement(By.ClassName("community-events-cancel button-link"));
+        IWebElement link_1 = Driver.FindElement(By.XPath("//*[@id='dashboard_primary']/div/div[4]/div[1]/ul/li/a"));
+        IWebElement link_2 = Driver.FindElement(By.XPath("//*[@id='dashboard_primary']/div/div[4]/div[2]/ul/li[1]/a"));
+        IWebElement link_3 = Driver.FindElement(By.XPath("//*[@id='dashboard_primary']/div/div[4]/div[2]/ul/li[2]/a"));
+        IWebElement link_4 = Driver.FindElement(By.XPath("//*[@id='dashboard_primary']/div/div[4]/div[2]/ul/li[3]/a"));
+        IWebElement link_meetings = Driver.FindElement(By.XPath("//*[@id='dashboard_primary']/div/p/a[1]"));
+        IWebElement link_meetings = Driver.FindElement(By.XPath("//*[@id='dashboard_primary']/div/p/a[2]"));
+        IWebElement link_wordcamp = Driver.FindElement(By.XPath("//*[@id='dashboard_primary']/div/p/a[3]"));
+
+
+        //Atomic methods
+
         public void buttonClick()
         {
             button_settings.Click();
@@ -85,6 +100,10 @@ namespace WordPressTest.Pages
         public void Button_hide()
         {
             button_hide.Click();
+        }
+        public void Button_close()
+        {
+            button_close.Click();
         }
 
 
