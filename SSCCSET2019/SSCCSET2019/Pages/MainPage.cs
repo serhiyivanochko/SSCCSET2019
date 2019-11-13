@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-//using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Chrome;
 
 namespace SSCCSET2019.Pages
@@ -20,14 +19,16 @@ namespace SSCCSET2019.Pages
         IWebElement link_menu = Driver.FindElement(By.XPath("//*[@id='welcome - panel']/div/div/div[3]/ul/li[1]/div/a[2]"));
         IWebElement link_turnOffComments = Driver.FindElement(By.XPath("//*[@id='welcome - panel']/div/div/div[3]/ul/li[2]/a"));
         IWebElement link_learnMore = Driver.FindElement(By.ClassName("welcome-panel-close"));
-        //Quick draft
 
+        IWebElement button_header_close = Driver.FindElement(By.XPath("//*[@id='welcome-panel']/a"));
+
+        //Quick draft
         IWebElement headline = Driver.FindElement(By.Id("title"));
         IWebElement content = Driver.FindElement(By.Id("content"));
         IWebElement button_save = Driver.FindElement(By.Id("save-post"));
         IWebElement button_hide = Driver.FindElement(By.XPath("//*[@id='dashboard_quick_press']/button"));
+        
         //News 
-
         IWebElement button_close = Driver.FindElement(By.ClassName("toggle-indicator"));
         IWebElement button_edit = Driver.FindElement(By.ClassName("dashicons dashicons-edit"));
         IWebElement town_input = Driver.FindElement(By.Id("community-events-location"));
@@ -40,7 +41,6 @@ namespace SSCCSET2019.Pages
         IWebElement link_meetings = Driver.FindElement(By.XPath("//*[@id='dashboard_primary']/div/p/a[1]"));
         IWebElement link_wordcamp = Driver.FindElement(By.XPath("//*[@id='dashboard_primary']/div/p/a[2]"));
         IWebElement link_news = Driver.FindElement(By.XPath("//*[@id='dashboard_primary']/div/p/a[3]"));
-
 
         //Atomic methods
 
@@ -85,13 +85,21 @@ namespace SSCCSET2019.Pages
         {
             link_learnMore.Click();
         }
-        //Quick Draft
-        public string Get_headline()
+        public void Button_header_close()
         {
-            return headline.Text;
+            button_header_close.Click();
+        }
+
+        //Quick Draft
+        public void writeTo_headline(string str)
+        {
+            headline.Click();
+            headline.Clear();
+            headline.SendKeys(str);
         }
         public void write_Content(string str)
         {
+            content.Click();
             content.Clear();
             content.SendKeys(str);
         }
@@ -108,7 +116,51 @@ namespace SSCCSET2019.Pages
         {
             button_close.Click();
         }
-
-
+        public void Button_edit()
+        {
+            button_edit.Click();
+        }
+        public void Town_input(string str)
+        {
+            town_input.Click();
+            town_input.Clear();
+            town_input.SendKeys(str);
+        }
+        public void Button_send()
+        {
+            button_send.Click();
+        }
+        public void Button_cancel()
+        {
+            button_cancel.Click();
+        }
+        public void Link_1()
+        {
+            link_1.Click();
+        }
+        public void Link_2()
+        {
+            link_2.Click();
+        }
+        public void Link_3()
+        {
+            link_3.Click();
+        }
+        public void Link_4()
+        {
+            link_4.Click();
+        }
+        public void Link_meetings()
+        {
+            link_meetings.Click();
+        }
+        public void Link_wordcamp()
+        {
+            link_wordcamp.Click();
+        }
+        public void Link_news()
+        {
+            link_news.Click();
+        }
     }
 }

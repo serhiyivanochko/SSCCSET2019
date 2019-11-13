@@ -39,6 +39,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Logic\MainPageLogic.cs" />
+    <Compile Include="Pages\MainPage.cs" />
     <Compile Include="Test.cs" />
   </ItemGroup>
   <ItemGroup>
