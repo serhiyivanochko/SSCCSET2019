@@ -115,47 +115,57 @@ namespace SSCCSET2019.Pages.Tags
             searchBoxTags.Click();
         }
 
-        public void ClickDoActionTopButton()
+        public Tags ClickDoActionTopButton()
         {
             doActionTopButton.Click();
+            return this;
         }
 
-        public void ClickDoActionBottonButton()
+        public Tags ClickDoActionBottonButton()
         {
             doActionBottonButton.Click();
+            return this;
         }
 
-        public void ClickTopNameSortingIndicator()
+        public Tags ClickTopNameSortingIndicator()
         {
             nameSortingIndicatorTop.Click();
+            return this;
         }
-        public void ClickTopDescriptionSortingIndicator()
+        public Tags ClickTopDescriptionSortingIndicator()
         {
             descriptionSortingIndicatorTop.Click();
+            return this;
         }
-        public void ClickTopSlugSortingIndicator()
+        public Tags ClickTopSlugSortingIndicator()
         {
             slugSortingIndicatorTop.Click();
+            return this;
         }
-        public void ClickTopCountSortingIndicator()
+        public Tags ClickTopCountSortingIndicator()
         {
             countSortingIndicatorTop.Click();
+            return this;
         }
-        public void ClickBottonNameSortingIndicator()
+        public Tags ClickBottonNameSortingIndicator()
         {
             nameSortingIndicatorBotton.Click();
+            return this;
         }
-        public void ClickBottonDescriptionSortingIndicator()
+        public Tags ClickBottonDescriptionSortingIndicator()
         {
             descriptionSortingIndicatorBotton.Click();
+            return this;
         }
-        public void ClickBottonSlugSortingIndicator()
+        public Tags ClickBottonSlugSortingIndicator()
         {
             slugSortingIndicatorBotton.Click();
+            return this;
         }
-        public void ClickBottonCountSortingIndicator()
+        public Tags ClickBottonCountSortingIndicator()
         {
             countSortingIndicatorBotton.Click();
+            return this;
         }
 
         public void ClickTopActionSelector()
