@@ -6,14 +6,6 @@ using OpenQA.Selenium.Interactions;
 
 namespace SSCCSET2019.SSCCSET2019.Pages.CommentActionsPage
 {
-    public abstract class ATopCommentAndResponse 
-    {
-                IWebDriver driver;   
-        protected ATopCommentAndResponse(IWebDriver driver)
-        {
-
-        }
-    }
     public class CommentActionsPage : ATopCommentAndResponse 
     {
         public const string VALUE_ATTRIBUTE = "value";
@@ -87,14 +79,10 @@ namespace SSCCSET2019.SSCCSET2019.Pages.CommentActionsPage
         {
             SearchTop.Click();
             SearchTop.Clear();
-            SearchTop.SendKeys(text);
         }
         public void ClearSearchTop()
         {
             SearchTop.Clear();
         }
     }
-    
-
-
 }
