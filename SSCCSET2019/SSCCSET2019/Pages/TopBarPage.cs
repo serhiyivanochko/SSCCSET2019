@@ -1,4 +1,5 @@
 ﻿
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,7 +55,20 @@ namespace SSCCSET2019.Pages
 
         }
 
+        public void OpenSitePage()
+        {
+            barSiteName.Click();
+        }
+        public void OpenUpDatesPage()
+        {
+            barUpDates.Click();
+        }
+        public void OpenCommentsPage()
+        {
+            barComments.Click();
+        }
 
+        
 
     }
 }

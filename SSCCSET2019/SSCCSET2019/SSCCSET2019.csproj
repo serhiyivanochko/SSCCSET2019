@@ -30,13 +30,13 @@
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Driver.cs" />
-    <Compile Include="Pages\NewMediaPage.cs" />
-    <Compile Include="Pages\NewPage.cs" />
-    <Compile Include="Pages\NewPostPage.cs" />
-    <Compile Include="Pages\NewUserPage.cs" />
     <Compile Include="Pages\TopBarPage.cs" />
     <Compile Include="Test.cs" />
   </ItemGroup>
