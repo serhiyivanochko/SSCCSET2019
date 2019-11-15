@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace SSCCSET2019
 {
-    class Constants
+    class ApplicationSource
     { 
         public static string BrowserName { get; private set; }
-        public void SetBrowser(string browserName)
+        public static void SetBrowser(string browserName)
         {
             BrowserName = browserName;
         }

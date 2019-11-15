@@ -15,15 +15,15 @@ namespace SSCCSET2019
         {
             if (driver == null)
             {
-                if (Constants.BrowserName.ToLower().Equals("chrome"))
+                if (ApplicationSource.BrowserName.ToLower().Equals("chrome"))
                 {
                     driver = new ChromeDriver();
                 }
-                else if (Constants.BrowserName.ToLower().Equals("firefox"))
+                else if (ApplicationSource.BrowserName.ToLower().Equals("firefox"))
                 {
                     driver = new FirefoxDriver();
                 }
-                else if(Constants.BrowserName.ToLower().Equals("internet_explorer"))
+                else if(ApplicationSource.BrowserName.ToLower().Equals("internet_explorer"))
                 {
                     driver = new InternetExplorerDriver();
                 }
