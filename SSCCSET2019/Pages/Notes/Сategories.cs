@@ -18,26 +18,7 @@ namespace SSCCSET2019.Pages.Notes
         private IWebElement submit;
         private IWebElement WordPressURL;
 
-
-        private IWebElement screenSettings;
-        private IWebElement column;
-        private IWebElement includeDecription;
-        private IWebElement includePartURL;
-        private IWebElement includeCount;
-        private IWebElement maxNumber;
-        private IWebElement btnSubmitSettings;
-
-
-        private IWebElement help;
-        private IWebElement overviewHelp;
-        private IWebElement addCategoriesHelp;
-        private IWebElement addCategoriesTextHelp;
-        private IWebElement documentationHelp;
-        private IWebElement forumHelp;
-        private IWebElement rightPanelHelp;
-
-
-        private IWebElement editCategoryToFind;
+        private IWebElement enterCategoryToFind;
         private IWebElement btnFindCategory;
 
 
@@ -66,27 +47,13 @@ namespace SSCCSET2019.Pages.Notes
             this.nameDescription = driver.FindElement(By.Id("//*[@id=\"addtag\"]/div[1]/p"));
             this.partOfURL = driver.FindElement(By.Id("tag-slug"));
             this.partOfURLDescription = driver.FindElement(By.Id("//*[@id=\"addtag\"]/div[2]/p"));
-            this.fatherCategory =driver.FindElement(By.Id("parent"));
+            this.fatherCategory = driver.FindElement(By.Id("parent"));
             this.fatherCategoryDescription = driver.FindElement(By.Id("//*[@id=\"addtag\"]/div[3]/p"));
             this.description = driver.FindElement(By.Id("tag-description"));
-            this.descriptionForDescription =  driver.FindElement(By.XPath("//*[@id=\"addtag\"]/div[4]/p"));
+            this.descriptionForDescription = driver.FindElement(By.XPath("//*[@id=\"addtag\"]/div[4]/p"));
             this.submit = driver.FindElement(By.Id("submit"));
             WordPressURL = driver.FindElement(By.XPath("//*[@id=/\"footer-thankyou\"]/a"));
-            this.screenSettings = driver.FindElement(By.Id("show-settings-link"));
-            this.column = driver.FindElement(By.XPath("//*[@id=\"adv - settings\"]/fieldset[1]/legend"));
-            this.includeDecription = driver.FindElement(By.Id("description-hide"));
-            this.includePartURL = driver.FindElement(By.Id("slug-hide"));
-            this.includeCount = driver.FindElement(By.Id("posts-hide"));
-            this.maxNumber = driver.FindElement(By.Id("edit_category_per_page"));
-            this.btnSubmitSettings = driver.FindElement(By.Id("screen-options-apply"));
-            this.help = driver.FindElement(By.Id("contextual-help-link"));
-            this.overviewHelp = driver.FindElement(By.XPath("//*[@id=\"tab - link - overview\"]/a"));
-            this.addCategoriesHelp = driver.FindElement(By.XPath("//*[@id=\"tab - link - adding - terms\"]/a"));
-            this.addCategoriesTextHelp = driver.FindElement(By.Id("tab-panel-adding-terms"));
-            this.documentationHelp = driver.FindElement(By.XPath("//*[@id=\"contextual - help - columns\"]/div[2]/p[2]/a"));
-            this.forumHelp = driver.FindElement(By.XPath("//*[@id=\"contextual - help - columns\"]/div[2]/p[3]/a"));
-            this.rightPanelHelp = driver.FindElement(By.XPath("//*[@id=\"contextual - help - columns\"]/div[2]"));
-            this.editCategoryToFind = driver.FindElement(By.Id("tag-search-input"));
+            this.enterCategoryToFind = driver.FindElement(By.Id("tag-search-input"));
             this.btnFindCategory = driver.FindElement(By.Id("search-submit"));
             this.checkBoxSelectAll_upper = driver.FindElement(By.Id("cb-select-all-1"));
             this.checkBoxSelectAll_lower = driver.FindElement(By.Id("cb-select-all-2"));
@@ -103,6 +70,223 @@ namespace SSCCSET2019.Pages.Notes
             this.transformCategoryInMarkURL = driver.FindElement(By.XPath("//*[@id=\"col - right\"]/div/div/p[2]/a"));
             this.descriptionBox = driver.FindElement(By.XPath("//*[@id=\"col-right\"]/div/div"));
             this.version = driver.FindElement(By.Id("footer-upgrade"));
+        }
+
+        public void ClickName()
+        {
+            name.Click();
+        }
+
+        public bool IsNameEnable()
+        {
+            return name.Enabled;
+        }
+
+        public bool IsNameDescriptionDisplayed()
+        {
+            return nameDescription.Displayed;
+        }
+
+        public void PartOfURLClick()
+        {
+            partOfURL.Click();
+        }
+
+        public bool PartOfURLEnable()
+        {
+            return partOfURL.Enabled;
+        }
+
+        public bool PartOfURLDescriptionDisplayed()
+        {
+            return partOfURLDescription.Displayed;
+        }
+
+        public void FatherCategoryClick()
+        {
+            fatherCategory.Click();
+        }
+
+        public bool FatherCategoryEnable()
+        {
+            return fatherCategory.Enabled;
+        }
+
+        public bool FatherCategoryDescriptionDisplayed()
+        {
+            return fatherCategoryDescription.Displayed;
+        }
+        
+        public void DescriptionClick()
+        {
+            description.Click();
+        }
+        public bool DescriptionEnable()
+        {
+           return description.Enabled;
+        }
+        public bool DescriptionForDescriptionDisplayed()
+        {
+            return descriptionForDescription.Displayed;
+        }
+
+        public void SubmitClick()
+        {
+            submit.Click();
+        }
+        public bool SubmitEnable()
+        {
+            return submit.Displayed;
+        }
+        public void WordpressURLClick()
+        {
+            WordPressURL.Click();
+        }
+        public bool WordpressURLEnable()
+        {
+            return WordPressURL.Enabled;
+        }
+        public void EnterCategoryToFindClick()
+        {
+            enterCategoryToFind.Click();
+        }
+        public bool enterCategoryToFindEnable()
+        {
+            return enterCategoryToFind.Enabled;
+        }
+        public void BtnFindCategoryClick()
+        {
+            btnFindCategory.Click();
+        }
+        public bool BtnFindCategoryEnable()
+        {
+            return btnFindCategory.Enabled;
+        }
+        public void CheckBoxSelectAll_upperClick()
+        {
+            checkBoxSelectAll_upper.Click();
+        }
+        public bool CheckBoxSelectAll_upperEnable()
+        {
+            return checkBoxSelectAll_upper.Enabled;
+        }
+        public bool checkBoxSelectAll_upperChecked()
+        {
+            return checkBoxSelectAll_upper.Selected;
+        }
+        public void CheckBoxSelectAll_lowerClick()
+        {
+            checkBoxSelectAll_lower.Click();
+        }
+        public bool CheckBoxSelectAll_lowerEnable()
+        {
+            return checkBoxSelectAll_lower.Enabled;
+        }
+        public bool checkBoxSelectAll_lowerChecked()
+        {
+            return checkBoxSelectAll_lower.Selected;
+        }
+        public void SortByName_upperClick()
+        {
+            sortByName_upper.Click();
+        }
+
+        public bool SortByName_upperEnable()
+        {
+             return  sortByName_upper.Enabled;
+        }
+        public void SortByName_lowerClick()
+        {
+            sortByName_lower.Click();
+        }
+
+        public bool SortByName_lowerEnable()
+        {
+            return sortByName_lower.Enabled;
+        }
+
+        public void SortByURL_upperClick()
+        {
+            sortByURL_upper.Click();
+        }
+
+        public bool SortByURL_upperEnable()
+        {
+            return sortByURL_upper.Enabled;
+        }
+        public void SortByURL_lowerClick()
+        {
+            sortByURL_lower.Click();
+        }
+
+        public bool SortByURL_lowerEnable()
+        {
+            return sortByURL_lower.Enabled;
+        }
+        public void ActionSelector_upperClick()
+        {
+            actionSelector_upper.Click();
+        }
+        public bool ActionSelector_upperEnable()
+        {
+            return actionSelector_upper.Enabled;
+        }
+        public void ActionSelector_lowerClick()
+        {
+            actionSelector_lower.Click();
+        }
+        public bool ActionSelector_lowerEnable()
+        {
+            return actionSelector_lower.Enabled;
+        }
+        public void Apply_upperClick()
+        {
+            apply_upper.Click();
+        }
+        public bool Apply_upperEnable()
+        {
+            return apply_upper.Enabled;
+        }
+        public void Apply_lowerClick()
+        {
+            apply_lower.Click();
+        }
+        public bool Apply_lowerEnable()
+        {
+            return apply_lower.Enabled;
+        }
+        public void NumberOfElements_upperClick()
+        {
+            numberOfElements_upper.Click();
+        }
+        public bool NumberOfElements_upperEnable()
+        {
+            return numberOfElements_upper.Enabled;
+        }
+
+        public void NumberOfElements_lowerClick()
+        {
+            numberOfElements_lower.Click();
+        }
+        public bool NumberOfElements_lowerEnable()
+        {
+            return numberOfElements_lower.Enabled;
+        }
+        public void TransformCategoryInMarkURLClick()
+        {
+            transformCategoryInMarkURL.Click();
+        }
+        public bool TransformCategoryInMarkURLEnable()
+        {
+            return transformCategoryInMarkURL.Enabled;
+        }
+        public bool DescriptionBoxDisplayed()
+        {
+            return descriptionBox.Displayed;
+        }
+        public bool VersionDisplayed()
+        {
+            return version.Displayed;
         }
     }
 }
