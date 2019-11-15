@@ -54,8 +54,8 @@
   <ItemGroup>
     <Compile Include="ApplicationSource.cs" />
     <Compile Include="Driver.cs" />
-    <Compile Include="Pages\Posts\Tags.cs" />
     <Compile Include="Test.cs" />
+    <Compile Include="Pages\Posts\Tags.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
