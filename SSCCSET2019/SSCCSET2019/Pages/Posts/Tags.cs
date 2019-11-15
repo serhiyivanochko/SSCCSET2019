@@ -38,6 +38,7 @@ namespace SSCCSET2019.Pages.Tags
         public Tags(IWebDriver driver)
         {
             this.driver = driver;
+
             actionSelector = driver.FindElement(By.Id("bulk-action-selector-top"));
             doActionButton = driver.FindElement(By.Id("doaction"));
             checkBoxAll = driver.FindElement(By.Id("cb-select-all-1"));
