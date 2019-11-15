@@ -52,10 +52,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationSource.cs" />
-    <Compile Include="Driver.cs" />
-    <Compile Include="Test.cs" />
     <Compile Include="Pages\Posts\Tags.cs" />
+    <Compile Include="Tests\Test.cs" />
+    <Compile Include="Tools\Driver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
