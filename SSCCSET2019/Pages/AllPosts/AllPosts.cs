@@ -17,9 +17,9 @@ namespace SSCCSET2019.Pages
         protected IWebElement screenOptionsDropDown;
         protected IWebElement helpDropDown;
 
-         protected IWebElement applyButton;
+        protected IWebElement applyButton;
 
-        protected IWebElement searchTextField;
+        public IWebElement searchTextField;
         protected IWebElement searchButton;
 
         protected SelectElement bulkActionSelectorDown;
@@ -45,6 +45,8 @@ namespace SSCCSET2019.Pages
 
 
         }
+        public AllPosts()
+        { }
 
 
         public string GetPostLabel()
@@ -103,9 +105,9 @@ namespace SSCCSET2019.Pages
             return list;
         }
 
-        public AllPosts SetaBulkActionSelectorValue(string value)
+        public AllPosts SetaBulkActionSelectorByIndex(int index)
         {
-            bulkActionSelectorDown.DeselectByValue(value);
+            bulkActionSelectorDown.SelectByIndex(index);
             return this;
         }
 
