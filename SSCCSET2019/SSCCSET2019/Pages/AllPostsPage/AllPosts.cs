@@ -9,106 +9,65 @@ namespace SSCCSET2019.Pages.AllPostsPage
     class AllPosts
     {
         private IWebDriver driver;
-
-        protected IWebElement AllLabelText { get; set; }
-        protected IWebElement PublishedLabelText { get; set; }
-        protected IWebElement AllPostsCountText { get; set; }
-        protected IWebElement PublishedPostsCountText { get; set; }
-        //TODO: public IWebElement BulkActionSelectorTop { get; set; } Проверить сделал ли макс список 
-
-
-        protected List<IWebElement> ApplyBtn { get; set; }
-
-
-
-
-
-        protected SelectElement SelectDate { get; set; }
-        protected SelectElement SelectCategory { get; set; }
-
-
-
-        protected IWebElement FilterBtn { get; set; }
-
-
-        //TODO:Добавить нижнюю лейблу
-        protected IWebElement DisplayingSumLabel { get; set; }
-
-
-
+        private IWebElement AllLabelText;
+        private IWebElement PublishedLabelText;
+        private IWebElement AllPostsCountText;
+        private IWebElement PublishedPostsCountText;
+        private List<IWebElement> ApplyBtn;
+        private SelectElement SelectDate;
+        private SelectElement SelectCategory;
+        private IWebElement FilterBtn;
+        private IWebElement DisplayingSumLabel;
         #region TableHeaders
-        public List<IWebElement> SelectAllRecordsCheck { get; set; }
-        public List<IWebElement> TableHeaderNameBtns { get; set; }
-        public List<IWebElement> TableHeaderNameText { get; set; }
-
-        public List<IWebElement> TableHeaderAuthorText { get; set; }
-
-        public List<IWebElement> TableHeaderCategoriesText { get; set; }
-
-        public List<IWebElement> TableHeaderTegsText { get; set; }
-
-        public List<IWebElement> TableHeaderCommentsBtns { get; set; }
-
-        public List<IWebElement> TableHeaderDateBtns { get; set; }
-        public List<IWebElement> TableHeaderDateText { get; set; }
+        private List<IWebElement> SelectAllRecordsCheck;
+        private List<IWebElement> TableHeaderNameBtns;
+        private List<IWebElement> TableHeaderNameText;
+        private List<IWebElement> TableHeaderAuthorText;
+        private List<IWebElement> TableHeaderCategoriesText;
+        private List<IWebElement> TableHeaderTegsText;
+        private List<IWebElement> TableHeaderCommentsBtns;
+        private List<IWebElement> TableHeaderDateBtns;
+        private List<IWebElement> TableHeaderDateText;
         #endregion
+        private List<RecordItem> Records;
 
 
 
-
-        public List<RecordItem> Records { get; set; }
-
-
-
-        public AllPosts(IWebDriver myDriver)
+        public AllPosts()
         {
-            driver = myDriver;
+            //driver = myDriver;
+
             AllLabelText = driver.FindElement(By.XPath("//li[@class='all']/a"));
             AllPostsCountText = driver.FindElement(By.XPath("//li[@class='all']/a/span"));
             PublishedLabelText = driver.FindElement(By.XPath("//li[@class='publish']/a"));
             PublishedPostsCountText = driver.FindElement(By.XPath(@"//li[@class='publish']/a/span"));
-            //BulkActionSelectorTop = driver.FindElement(By.Id("bulk-action-selector-top"));
-
             ApplyBtn = new List<IWebElement>();
             ApplyBtn.Add(driver.FindElement(By.Id("doaction")));
             ApplyBtn.Add(driver.FindElement(By.Id("doaction2")));
-
-
             SelectDate = new SelectElement(driver.FindElement(By.Id("filter-by-date")));
             SelectCategory = new SelectElement(driver.FindElement(By.Id("cat")));
             FilterBtn = driver.FindElement(By.Id("post-query-submit"));
             DisplayingSumLabel = driver.FindElement(By.XPath("//span[@class='displaying-num']"));
-
             Records = InitializeRecordsList(driver.FindElements(By.ClassName("iedit")));
-
-
             SelectAllRecordsCheck = new List<IWebElement>();
             SelectAllRecordsCheck.AddRange(driver.FindElements(By.ClassName("column-cb")));
-
             TableHeaderNameBtns = new List<IWebElement>();
             TableHeaderNameBtns.AddRange(driver.FindElements(By.XPath("//th[contains(@class, 'manage-column') and contains(@class, 'column-title')]/a")));
             TableHeaderNameText = new List<IWebElement>();
             TableHeaderNameText.AddRange(driver.FindElements(By.XPath("//th[contains(@class, 'manage-column') and contains(@class, 'column-title')]/a/span")));
-
             TableHeaderAuthorText = new List<IWebElement>();
             TableHeaderAuthorText.AddRange(driver.FindElements(By.XPath("//th[contains(@class, 'manage-column') and contains(@class, 'column-author')]")));
-
             TableHeaderCategoriesText = new List<IWebElement>();
             TableHeaderCategoriesText.AddRange(driver.FindElements(By.XPath("//th[contains(@class, 'manage-column') and contains(@class, 'column-categories')]")));
-
-
             TableHeaderTegsText = new List<IWebElement>();
             TableHeaderTegsText.AddRange(driver.FindElements(By.XPath("//th[contains(@class, 'manage-column') and contains(@class, 'column-tags')]")));
-
             TableHeaderCommentsBtns = new List<IWebElement>();
             TableHeaderCommentsBtns.AddRange(driver.FindElements(By.XPath("//th[contains(@class, 'manage-column') and contains(@class, 'column-comments')]/a")));
-
             TableHeaderDateBtns = new List<IWebElement>();
             TableHeaderDateBtns.AddRange(driver.FindElements(By.XPath("//th[contains(@class, 'manage-column') and contains(@class, 'column-date')]/a")));
             TableHeaderDateText = new List<IWebElement>();
             TableHeaderDateText.AddRange(driver.FindElements(By.XPath("//th[contains(@class, 'manage-column') and contains(@class, 'column-date')]/a/span[1]")));
         }
-
 
         private List<RecordItem> InitializeRecordsList(IReadOnlyCollection<IWebElement> elements)
         {
@@ -120,7 +79,6 @@ namespace SSCCSET2019.Pages.AllPostsPage
 
             return records;
         }
-
 
         public string GetTextFromAllRecordsLabel()
         {
@@ -144,7 +102,6 @@ namespace SSCCSET2019.Pages.AllPostsPage
             return this;
         }
 
-        //TODO: Добавить нижнюю лейблу в лист 
         public string GetTextFromAllPostsCount()
         {
             return AllPostsCountText.Text;
@@ -160,16 +117,12 @@ namespace SSCCSET2019.Pages.AllPostsPage
             ApplyBtn[index].Click();
             return this;
         }
-        public AllPosts FocusApplyButton(int index)
+
+        public List<IWebElement> GetApplyButtons()
         {
-            Actions builder = new Actions(driver);
-            builder.MoveToElement(ApplyBtn[index]);
-            builder.Perform();
-            return this;
+            return ApplyBtn;
         }
 
-
-        //DATE SELECT
         public List<string> GetListOfDates()
         {
             List<string> dates = new List<string>();
@@ -201,7 +154,6 @@ namespace SSCCSET2019.Pages.AllPostsPage
             return this;
         }
 
-        //CATEGORY SELECT
         public List<string> GetListOfCategories()
         {
             List<string> categories = new List<string>();
@@ -241,20 +193,16 @@ namespace SSCCSET2019.Pages.AllPostsPage
             FilterBtn.Click();
             return this;
         }
-        public AllPosts FocusApplyFiltersButton()
+
+        public IWebElement GetFinterBtn()
         {
-            Actions builder = new Actions(driver);
-            builder.MoveToElement(FilterBtn);
-            builder.Perform();
-            return this;
+            return FilterBtn;
         }
 
-        //TODO:Добавить лист
         public string GetDisplayingNumText()
         {
             return DisplayingSumLabel.Text;
         }
-
 
         public AllPosts CheckAllRecordsInTable(int index)
         {
