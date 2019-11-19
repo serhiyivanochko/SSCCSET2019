@@ -124,12 +124,12 @@ namespace SSCCSET2019.Pages.Tags
             nameSortingIndicator.Click();
             return this;
         }
-        public Tags ClickTDescriptionSortingIndicator()
+        public Tags ClickDescriptionSortingIndicator()
         {
             descriptionSortingIndicator.Click();
             return this;
         }
-        public Tags ClickTSlugSortingIndicator()
+        public Tags ClickSlugSortingIndicator()
         {
             slugSortingIndicator.Click();
             return this;
@@ -174,6 +174,51 @@ namespace SSCCSET2019.Pages.Tags
         public Tags ClickCheckAll()
         {
             checkBoxAll.Click();
+            return this;
+        }
+        public Tags InputName(string tagName)
+        {
+            nameEdit.SendKeys(tagName);
+            return this;
+        }
+        public Tags InputSlug(string slug)
+        {
+            slugEdit.SendKeys(slug);
+            return this;
+        }
+        public Tags InputDescription(string description)
+        {
+            descriptionEdit.SendKeys(description);
+            return this;
+        }
+        public Tags ClearNameEdit()
+        {
+            nameEdit.Clear();
+            return this;
+        }
+        public Tags ClearSlugEdit()
+        {
+            slugEdit.Clear();
+            return this;
+        }
+        public Tags ClearDescriptionEdit()
+        {
+            descriptionEdit.Clear();
+            return this;
+        }
+        public Tags ClickNameEdit()
+        {
+            nameEdit.Click();
+            return this;
+        }
+        public Tags ClickSlugEdit()
+        {
+            slugEdit.Click();
+            return this;
+        }
+        public Tags ClickDescriptionEdit()
+        {
+            descriptionEdit.Click();
             return this;
         }
     }
