@@ -52,6 +52,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\ApplicationSource.cs" />
+    <Compile Include="Pages\Posts\AddedTags.cs" />
     <Compile Include="Pages\Posts\Tags.cs" />
     <Compile Include="Tests\Test.cs" />
     <Compile Include="Tools\Driver.cs" />
@@ -59,7 +61,9 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Logic\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
