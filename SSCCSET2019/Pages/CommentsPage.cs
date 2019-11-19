@@ -31,34 +31,40 @@ namespace SSCCSET2019
           
         }
          
-        public void ClickAllButton()
+        public CommentsPage ClickAllButton()
         {
             AllButton.Click();
+            return this;
         }
        
-        public void ClickMyButton()
+        public CommentsPage ClickMyButton()
         {
             MyButton.Click();
+            return this;
         }
 
-        public void ClickInWaitButton()
+        public CommentsPage ClickInWaitButton()
         {
             InWaitButton.Click();
+            return this;
         }
 
-        public void ClickApprovedButton()
+        public CommentsPage ClickApprovedButton()
         {
             ApprovedButton.Click();
+            return this;
         }
 
-        public void ClickSpamButton()
+        public CommentsPage ClickSpamButton()
         {
             ApprovedButton.Click();
+            return this;
         }
 
-        public void ClickTrashButton()
+        public CommentsPage ClickTrashButton()
         {
             TrashButton.Click();
+            return this;
         }
 
     }
