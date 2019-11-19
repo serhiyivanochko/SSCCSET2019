@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.572
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29424.173
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSCCSET2019", "SSCCSET2019\SSCCSET2019.csproj", "{8B922C88-1BB1-4461-8956-BE3AB13AA550}"
 EndProject
@@ -19,6 +19,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {F07C5C2C-6542-4054-A153-533071E38C21}
+		SolutionGuid = {6ECEF229-8FBE-418D-8753-57A56B348330}
 	EndGlobalSection
 EndGlobal
