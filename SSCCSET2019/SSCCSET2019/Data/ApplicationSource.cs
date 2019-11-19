@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SSCCSET2019
+namespace SSCCSET2019.Data.ApplicationSource
 {
     class ApplicationSource
     { 
