@@ -1,31 +1,60 @@
-﻿using System;
-using SSCCSET2019.Pages;
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
+using SSCCSET2019.Pages.AllPostsPage;
+
 namespace SSCCSET2019.Logic
 {
-    public class AllPostsPageLogic
+    class AllPostsPageLogic
     {
-        public AllPosts SearchPage(string pageTitle)
-        {
-            AllPosts page = new AllPosts();
-            page.searchTextField.Clear();
-            page.SetTextInSearchTextField(pageTitle);
-            page.ClickSearchButton();
-            return page;
-        }
-        public AllPosts BulkActionsSelect(int index)
-        {
-            AllPosts page = new AllPosts();
-            page.SetaBulkActionSelectorByIndex(index);
-            page.ClickApplyButton();
-            return page;
+        private IWebDriver driver;
 
-        }
 
         public AllPostsPageLogic()
         {
         }
 
+        public AllPosts FocusApplyButton(int index)
+        {
+            AllPosts allPosts = new AllPosts();
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(allPosts.GetApplyButtons()[index]);
+            builder.Perform();
+            return allPosts;
+        }
 
+        public AllPosts FocusFiltersButton()
+        {
+            AllPosts allPosts = new AllPosts();
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(allPosts.GetFinterBtn());
+            builder.Perform();
+            return allPosts;
+        }
 
+        public AllPosts DisplayAllPosts()
+        {
+            AllPosts allPosts = new AllPosts();
+            allPosts.ClickAllPostsLabel();
+            return allPosts;
+        }
+
+        public AllPosts DisplayPublishedPosts()
+        {
+            AllPosts allPosts = new AllPosts();
+            allPosts.ClickAllPostsLabel();
+            return allPosts;
+        }
+
+        public AllPosts Filter(int dateIndex = -1, int categoryIndex = -1)
+        { 
+            AllPosts allPosts = new AllPosts();
+            if (dateIndex != -1)
+                allPosts.SetDateByIndex(dateIndex);
+            if (categoryIndex != -1)
+                allPosts.SetCategoryByIndex(categoryIndex);
+
+            allPosts.ClickApplyFilters();
+            return new AllPosts();
+        }
     }
 }
