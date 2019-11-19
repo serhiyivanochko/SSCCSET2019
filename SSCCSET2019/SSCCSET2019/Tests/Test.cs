@@ -1,12 +1,14 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 using System;
 using System.Threading;
 using SSCCSET2019.Pages.Tags;
+using SSCCSET2019.Tools.Driver;
+using SSCCSET2019.Data.ApplicationSource;
 
 
-namespace SSCCSET2019
+namespace SSCCSET2019.Tests.Test
 {
     [TestFixture()]
     class Test
@@ -31,6 +33,7 @@ namespace SSCCSET2019
             submit.Click();
 
             Tags tagsPage = new Tags(driver);
+
         }
         [TearDown]
         public void Close()
