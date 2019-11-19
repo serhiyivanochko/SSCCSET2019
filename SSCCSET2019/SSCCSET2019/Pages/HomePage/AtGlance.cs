@@ -1,9 +1,4 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SSCCSET2019.Pages.HomePage
 {
@@ -20,8 +15,9 @@ namespace SSCCSET2019.Pages.HomePage
         IWebElement updtBtn;
         IWebElement version;
 
-        public AtGlance() {
-           
+        public AtGlance()
+        {
+
             hideShow = driver.FindElement(By.XPath(@"//*[@id='dashboard_right_now']/button"));
             post = driver.FindElement(By.XPath(@"//*[@id='dashboard_right_now']/div/div/ul/li[1]/a"));
             page = driver.FindElement(By.XPath(@"//*[@id='dashboard_right_now']/div/div/ul/li[2]/a"));
@@ -36,9 +32,9 @@ namespace SSCCSET2019.Pages.HomePage
         }
 
 
-        public void HideOrShow() 
+        public void HideOrShow()
         {
-            
+
             hideShow.Click();
         }
 
@@ -47,22 +43,22 @@ namespace SSCCSET2019.Pages.HomePage
             comment.Click();
             return new CommentPage();
         }
-         public PostsPage ClickPosts()
+        public PostsPage ClickPosts()
         {
             post.Click();
             return new PostsPage();
         }
-        public PagesPage  ViewAllPages() 
+        public PagesPage ViewAllPages()
         {
             page.Click();
             return new PagesPage();
-        } 
+        }
         public ThemesPage ViewAllThemes()
         {
             themesCount.Click();
             return new ThemesPage();
         }
-         public string GetWpVersion() 
+        public string GetWpVersion()
         {
             return version.Text;
         }

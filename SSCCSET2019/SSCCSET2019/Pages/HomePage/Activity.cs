@@ -1,9 +1,4 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SSCCSET2019.Pages.HomePage
 {
@@ -99,14 +94,14 @@ namespace SSCCSET2019.Pages.HomePage
             hideShow.Click();
             return this;
         }
-        
+
         public Activity SetTextInReplyTextField(string str)
         {
 
             replyTextField.SendKeys(str);
             return this;
         }
-         public Activity ClickOnReplyTextField()
+        public Activity ClickOnReplyTextField()
         {
 
             replyTextField.Click();
@@ -130,12 +125,12 @@ namespace SSCCSET2019.Pages.HomePage
             return comment.Text;
         }
 
-        public Activity ClickToApproveComent() 
+        public Activity ClickToApproveComent()
         {
             approve.Click();
             return this;
         }
-        public Activity ClickToUnapproveComent() 
+        public Activity ClickToUnapproveComent()
         {
             unapprove.Click();
             return this;
@@ -153,4 +148,4 @@ namespace SSCCSET2019.Pages.HomePage
 
 
     }
-}  
+}

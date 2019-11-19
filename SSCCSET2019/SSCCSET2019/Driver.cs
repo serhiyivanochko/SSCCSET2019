@@ -17,7 +17,9 @@ namespace SSCCSET2019
         public static Driver GetInstance()
         {
             if (instance == null)
+            {
                 instance = new Driver();
+            }
 
             return instance;
         }
