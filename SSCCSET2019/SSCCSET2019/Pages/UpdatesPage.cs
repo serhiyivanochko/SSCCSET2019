@@ -1,10 +1,9 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
+using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SSCCSET2019.Pages
 {
@@ -45,8 +44,9 @@ namespace SSCCSET2019.Pages
         IWebElement thanksText;
         IWebElement wordPressLink;
         IWebElement version;
-        public UpdatesPage()
+        public UpdatesPage(IWebDriver driver)
         {
+            this.driver = driver;
             title = driver.FindElement(By.XPath("//*[@id=\"wpbody - content\"]/div[3]/h1"));
             lastcheckText = driver.FindElement(By.XPath("//*[@id=\"wpbody - content\"]/div[3]/p[1]/text()"));
             checkButton = driver.FindElement(By.XPath("//*[@id=\"wpbody - content\"]/div[3]/p[1]/a"));
@@ -77,33 +77,49 @@ namespace SSCCSET2019.Pages
             wordPressLink = driver.FindElement(By.XPath("//*[@id=\"footer - thankyou\"]/a"));
             version = driver.FindElement(By.Id("footer-upgrade"));
         }
-        public void checkUpdates()
+        public string Title()
+        {
+            return title.Text;
+        }
+        public string CheckUpdates()
         {
             checkButton.Click();
+            return "http://localhost/wp1/wp-admin/update-core.php?force-check=1";
         }
-        public void reinstallUpdates()
+        public string ReinstallUpdates()
         {
             redownloadButton.Click();
+            return "http://localhost/wp1/wp-admin/update-core.php?action=do-core-reinstall";
         }
-        public void hideUpdates()
+        public string HideUpdates()
         {
             hideButton.Click();
+            return "http://localhost/wp1/wp-admin/update-core.php?action=upgrade-core&_wpnonce=7393171d49";
         }
-        public void updatePlagins()
+        public string UpdatePlugins()
         {
             updatePluginsButton.Click();
+            return "http://localhost/wp1/wp-admin/update-core.php?action=do-plugin-upgrade";
         }
-        public void selectAllPlugins()
+        public UpdatesPage SelectAllPlugins()
         {
             pluginsSelectAllButton.Click();
+            return this;
         }
-        public void untiSpamSelect()
+        public UpdatesPage UntiSpamSelect()
         {
             untiSpamPluginButton.Click();
+            return this;
         }
-        public void help()
+        public string WordPressLink()
+        {
+            wordPressLink.Click();
+            return "https://uk.wordpress.org/";
+        }
+        public UpdatesPage Help()
         {
             helpButton.Click();
+            return this;
         }
     }
 }
