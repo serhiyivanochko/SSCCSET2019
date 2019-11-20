@@ -18,15 +18,12 @@ namespace SSCCSET2019.Pages.HomePage
         IWebElement unapprove;
         IWebElement edit;
         IWebElement undo;
-
-
         IWebElement allComments;
         IWebElement mineComment;
         IWebElement approvedComment;
         IWebElement trashComment;
         IWebElement spamcomment;
         IWebElement pendingComment;
-
         IWebElement TollbarBtnB;
         IWebElement TollbarBtnI;
         IWebElement TollbarBtnLink;
@@ -39,36 +36,28 @@ namespace SSCCSET2019.Pages.HomePage
         IWebElement TollbarBtnLi;
         IWebElement TollbarBtnCode;
         IWebElement TollbarBtnCloseTag;
-
         IWebElement replyTextField;
         IWebElement replyApprove;
         IWebElement replyCancel;
-
-
         public Activity()
         {
-
             hideShow = driver.FindElement(By.XPath(@"//*[@id='dashboard_activity']/button/span[2]"));
-            commentator = driver.FindElement(By.XPath(@"//*[@id='comment - 1']/div/p[1]/cite/a"));
-            comment = driver.FindElement(By.XPath(@"//*[@id='comment - 1']/div/blockquote/p"));
-            approve = driver.FindElement(By.XPath(@"//*[@id='comment - 1']/div/p[2]/span[1]"));
-            unapprove = driver.FindElement(By.XPath(@"//*[@id='comment - 1']/div/p[2]/span[2]"));
-            reply = driver.FindElement(By.XPath(@"//*[@id='comment - 1']/div/p[2]/span[3]"));
-            edit = driver.FindElement(By.XPath(@"//*[@id='comment - 1']/div/p[2]/span[4]"));
-            spam = driver.FindElement(By.XPath(@"//*[@id='comment - 1']/div/p[2]/span[5]"));
-            trash = driver.FindElement(By.XPath(@"//*[@id='comment - 1']/div/p[2]/span[6]"));
-            view = driver.FindElement(By.XPath(@"//*[@id='comment - 1']/div/p[2]/span[7]"));
-            undo = driver.FindElement(By.XPath(@"//*[@id='undo - 1']/div/span/a"));
-
-            allComments = driver.FindElement(By.XPath(@"//*[@id='latest - comments']/ul[2]/li[1]/a"));
-            mineComment = driver.FindElement(By.XPath(@"//*[@id='latest - comments']/ul[2]/li[2]/a"));
-            pendingComment = driver.FindElement(By.XPath(@"//*[@id='latest - comments']/ul[2]/li[3]/a"));
-            approvedComment = driver.FindElement(By.XPath(@"//*[@id='latest - comments']/ul[2]/li[4]/a"));
-            spamcomment = driver.FindElement(By.XPath(@"//*[@id='latest - comments']/ul[2]/li[5]/a"));
-            trashComment = driver.FindElement(By.XPath(@"//*[@id='latest - comments']/ul[2]/li[6]/a"));
-
-
-
+            commentator = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/p[1]/cite/a"));
+            comment = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/blockquote/p"));
+            approve = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/p[2]/span[1]"));
+            unapprove = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/p[2]/span[2]"));
+            reply = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/p[2]/span[3]"));
+            edit = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/p[2]/span[4]"));
+            spam = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/p[2]/span[5]"));
+            trash = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/p[2]/span[6]"));
+            view = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/p[2]/span[7]"));
+            undo = driver.FindElement(By.XPath(@"//*[@id='undo-1']/div/span/a"));
+            allComments = driver.FindElement(By.XPath(@"//*[@id='latest-comments']/ul[2]/li[1]/a"));
+            mineComment = driver.FindElement(By.XPath(@"//*[@id='latest-comments']/ul[2]/li[2]/a"));
+            pendingComment = driver.FindElement(By.XPath(@"//*[@id='latest-comments']/ul[2]/li[3]/a"));
+            approvedComment = driver.FindElement(By.XPath(@"//*[@id='latest-comments']/ul[2]/li[4]/a"));
+            spamcomment = driver.FindElement(By.XPath(@"//*[@id='latest-comments']/ul[2]/li[5]/a"));
+            trashComment = driver.FindElement(By.XPath(@"//*[@id='latest-comments']/ul[2]/li[6]/a"));
             TollbarBtnB = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[1]']"));
             TollbarBtnI = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[2]']"));
             TollbarBtnLink = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[3]']"));
@@ -81,12 +70,9 @@ namespace SSCCSET2019.Pages.HomePage
             TollbarBtnLi = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[10]']"));
             TollbarBtnCode = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[11]']"));
             TollbarBtnCloseTag = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[12]']"));
-
             replyTextField = driver.FindElement(By.XPath(@"//*[@id='replycontent']"));
             replyApprove = driver.FindElement(By.Id("replybtn"));
             replyCancel = driver.FindElement(By.XPath(@"//*[@id='replysubmit']/p/button[2]"));
-
-
         }
 
         public Activity HideOrShowActivity()
@@ -97,20 +83,17 @@ namespace SSCCSET2019.Pages.HomePage
 
         public Activity SetTextInReplyTextField(string str)
         {
-
             replyTextField.SendKeys(str);
             return this;
         }
         public Activity ClickOnReplyTextField()
         {
-
             replyTextField.Click();
             return this;
         }
 
         public Activity ClearReplyTextField()
         {
-
             replyTextField.Clear();
             return this;
         }
@@ -121,7 +104,6 @@ namespace SSCCSET2019.Pages.HomePage
 
         public string GetComentText()
         {
-
             return comment.Text;
         }
 
@@ -145,7 +127,5 @@ namespace SSCCSET2019.Pages.HomePage
             replyCancel.Click();
             return this;
         }
-
-
     }
 }

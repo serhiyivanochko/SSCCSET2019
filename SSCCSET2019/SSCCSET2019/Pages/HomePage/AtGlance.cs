@@ -1,43 +1,48 @@
 ﻿using OpenQA.Selenium;
+using System.Threading;
 
 namespace SSCCSET2019.Pages.HomePage
 {
     class AtGlance
     {
         IWebDriver driver;
-
         IWebElement hideShow;
         IWebElement post;
         IWebElement comment;
         IWebElement page;
-
         IWebElement themesCount;
         IWebElement updtBtn;
-        IWebElement version;
-
-        public AtGlance()
+        public AtGlance(IWebDriver driver)
         {
-
-            hideShow = driver.FindElement(By.XPath(@"//*[@id='dashboard_right_now']/button"));
-            post = driver.FindElement(By.XPath(@"//*[@id='dashboard_right_now']/div/div/ul/li[1]/a"));
-            page = driver.FindElement(By.XPath(@"//*[@id='dashboard_right_now']/div/div/ul/li[2]/a"));
-            comment = driver.FindElement(By.XPath(@"//*[@id='dashboard_right_now']/div/div/ul/li[3]/a"));
-
-            themesCount = driver.FindElement(By.XPath(@"//*[@id='wp - version']/a"));
-            version = driver.FindElement(By.XPath(@"//*[@id='wp - version']/text()[1]"));
-            updtBtn = driver.FindElement(By.XPath(@"//*[@id='wp - version - message']/a"));
-
-
-
+            this.driver = driver;
+            if (IsVisible(driver))
+            {
+                post = driver.FindElement(By.XPath(@"//*[@id='dashboard_right_now']/div/div/ul/li[1]/a"));
+                page = driver.FindElement(By.XPath(@"//*[@id='dashboard_right_now']/div/div/ul/li[2]/a"));
+                comment = driver.FindElement(By.XPath(@"//*[@id='dashboard_right_now']/div/div/ul/li[3]/a"));
+                themesCount = driver.FindElement(By.XPath(@"//*[@id='wp-version']/a"));
+                updtBtn = driver.FindElement(By.XPath(@"//*[@id='wp-version-message']/a"));
+            }
+            else
+            {
+                HideOrShow();
+                post = driver.FindElement(By.XPath(@"//*[@id='dashboard_right_now']/div/div/ul/li[1]/a"));
+                page = driver.FindElement(By.XPath(@"//*[@id='dashboard_right_now']/div/div/ul/li[2]/a"));
+                comment = driver.FindElement(By.XPath(@"//*[@id='dashboard_right_now']/div/div/ul/li[3]/a"));
+                themesCount = driver.FindElement(By.XPath(@"//*[@id='wp-version']/a"));
+                updtBtn = driver.FindElement(By.XPath(@"//*[@id='wp-version-message']/a"));
+            }
         }
-
 
         public void HideOrShow()
         {
-
-            hideShow.Click();
+           hideShow.Click();
         }
-
+        public static bool IsVisible(IWebDriver driver )
+        {
+            IWebElement hideShow = driver.FindElement(By.XPath(@"//*[@id='dashboard_right_now']/button"));
+            return (hideShow.GetAttribute("aria-expanded") == "true");
+        }
         public CommentPage ClickComments()
         {
             comment.Click();
@@ -58,18 +63,12 @@ namespace SSCCSET2019.Pages.HomePage
             themesCount.Click();
             return new ThemesPage();
         }
-        public string GetWpVersion()
-        {
-            return version.Text;
-        }
-
         public UpdatesPage ClickUpdateBtn()
         {
             updtBtn.Click();
             return new UpdatesPage();
-
         }
-
-
     }
 }
+   
+
