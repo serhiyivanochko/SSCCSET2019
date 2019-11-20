@@ -33,7 +33,7 @@ namespace SSCCSET2019.Pages.AllPostsPage
 
 
 
-        public AllPosts()
+        public AllPosts(int quickEditPostIndex = -1)
         {
             //driver = myDriver;
 

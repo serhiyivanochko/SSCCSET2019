@@ -52,9 +52,18 @@ namespace SSCCSET2019.Logic
                 allPosts.SetDateByIndex(dateIndex);
             if (categoryIndex != -1)
                 allPosts.SetCategoryByIndex(categoryIndex);
-
             allPosts.ClickApplyFilters();
             return new AllPosts();
+        }
+
+        public AllPosts HoverPost(int index)
+        {
+            AllPosts allPostsPage = new AllPosts();
+            var posts = allPostsPage.GetRecordsList();
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(posts[index-1].GetPostElement());
+            builder.Perform();
+            return new AllPosts(index-1);
         }
     }
 }
