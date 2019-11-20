@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Logic\MainPageLogic.cs" />
+    <Compile Include="Pages\HomePage\AtGlanceElements.cs" />
     <Compile Include="Pages\MainPage.cs" />
     <Compile Include="Driver.cs" />
     <Compile Include="Pages\HomePage\Activity.cs" />

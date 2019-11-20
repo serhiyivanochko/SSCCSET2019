@@ -7,16 +7,22 @@ using System.Threading;
 namespace SSCCSET2019
 {
     [TestFixture()]
+
     class Test
     {
-       
+        private IWebDriver driver;
 
+        [SetUp]
+        public void Setup()
+        {
        
-       
-        
+            driver = Driver.GetInstance().driver;
+        }
         [Test]
         public void TestCase()
         {
+            AtGlance at = new AtGlance(driver);
+            
           
         }
         
