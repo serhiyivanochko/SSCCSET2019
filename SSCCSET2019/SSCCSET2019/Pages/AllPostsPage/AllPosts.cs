@@ -16,6 +16,7 @@ namespace SSCCSET2019.Pages.AllPostsPage
         private List<IWebElement> ApplyBtn;
         private SelectElement SelectDate;
         private SelectElement SelectCategory;
+        private List<SelectElement> SelectBulkAction;
         private IWebElement FilterBtn;
         private IWebElement DisplayingSumLabel;
         #region TableHeaders
@@ -31,11 +32,9 @@ namespace SSCCSET2019.Pages.AllPostsPage
         #endregion
         private List<RecordItem> Records;
 
-
-
-        public AllPosts(int quickEditPostIndex = -1)
+        public AllPosts(IWebDriver driver,int quickEditPostIndex = -1)
         {
-            //driver = myDriver;
+            this.driver = driver;
 
             AllLabelText = driver.FindElement(By.XPath("//li[@class='all']/a"));
             AllPostsCountText = driver.FindElement(By.XPath("//li[@class='all']/a/span"));

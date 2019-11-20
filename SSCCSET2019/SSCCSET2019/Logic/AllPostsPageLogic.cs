@@ -6,64 +6,66 @@ namespace SSCCSET2019.Logic
 {
     class AllPostsPageLogic
     {
+        AllPosts allPostsPage;
         private IWebDriver driver;
 
-
-        public AllPostsPageLogic()
+        public AllPostsPageLogic(IWebDriver driver)
         {
+            this.driver = driver;
+            allPostsPage = new AllPosts(driver);
         }
 
         public AllPosts FocusApplyButton(int index)
         {
-            AllPosts allPosts = new AllPosts();
             Actions builder = new Actions(driver);
-            builder.MoveToElement(allPosts.GetApplyButtons()[index]);
+            builder.MoveToElement(allPostsPage.GetApplyButtons()[index]);
             builder.Perform();
-            return allPosts;
+
+            return allPostsPage;
         }
 
         public AllPosts FocusFiltersButton()
         {
-            AllPosts allPosts = new AllPosts();
             Actions builder = new Actions(driver);
-            builder.MoveToElement(allPosts.GetFinterBtn());
+            builder.MoveToElement(allPostsPage.GetFinterBtn());
             builder.Perform();
-            return allPosts;
+
+            return allPostsPage;
         }
 
         public AllPosts DisplayAllPosts()
         {
-            AllPosts allPosts = new AllPosts();
-            allPosts.ClickAllPostsLabel();
-            return allPosts;
+            allPostsPage.ClickAllPostsLabel();
+
+            return allPostsPage;
         }
 
         public AllPosts DisplayPublishedPosts()
         {
-            AllPosts allPosts = new AllPosts();
-            allPosts.ClickAllPostsLabel();
-            return allPosts;
+            allPostsPage.ClickAllPostsLabel();
+
+            return allPostsPage;
         }
 
         public AllPosts Filter(int dateIndex = -1, int categoryIndex = -1)
         { 
-            AllPosts allPosts = new AllPosts();
             if (dateIndex != -1)
-                allPosts.SetDateByIndex(dateIndex);
+                allPostsPage.SetDateByIndex(dateIndex-1);
             if (categoryIndex != -1)
-                allPosts.SetCategoryByIndex(categoryIndex);
-            allPosts.ClickApplyFilters();
-            return new AllPosts();
+                allPostsPage.SetCategoryByIndex(categoryIndex-1);
+            allPostsPage.ClickApplyFilters();
+
+            return allPostsPage;
         }
 
         public AllPosts HoverPost(int index)
         {
-            AllPosts allPostsPage = new AllPosts();
             var posts = allPostsPage.GetRecordsList();
             Actions builder = new Actions(driver);
             builder.MoveToElement(posts[index-1].GetPostElement());
             builder.Perform();
-            return new AllPosts(index-1);
+
+            return new AllPosts(driver,index-1);
         }
     }
 }

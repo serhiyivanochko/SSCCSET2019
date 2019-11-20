@@ -11,6 +11,7 @@ namespace SSCCSET2019.Pages.AllPostsPage
 
         #region Always visible elements
         private IWebElement recordCheck;
+        private IWebElement title;
         private IWebElement authorName;
         private IWebElement categoryName;
         private List<IWebElement> tegs;
@@ -32,6 +33,7 @@ namespace SSCCSET2019.Pages.AllPostsPage
 
             #region Always visible elements initialization
             recordCheck = record.FindElement(By.XPath(".//th[@class='check-column']/input"));
+            title = record.FindElement(By.ClassName("row-title"));
             authorName = record.FindElement(By.ClassName("row-title"));
             categoryName = record.FindElement(By.XPath(".//td[contains(@class, 'categories') and contains(@class, 'column-categories')]/a"));
             tegs = new List<IWebElement>();
