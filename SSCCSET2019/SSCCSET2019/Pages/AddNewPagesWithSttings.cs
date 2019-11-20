@@ -6,7 +6,7 @@ namespace SSCCSET2019.Pages
 {
     class AddNewPagesWithSttings
     {
-        IWebDriver driver = new ChromeDriver();
+        IWebDriver driver;
 
         IWebElement document;
         IWebElement statusVisibility;
@@ -47,147 +47,172 @@ namespace SSCCSET2019.Pages
 
 
 
-        public AddNewPagesWithSttings()
+        public AddNewPagesWithSttings(IWebDriver driver)
         {
+            this.driver = driver;
             document = driver.FindElement(By.ClassName("components-button components-panel__body-toggle"));
-            statusVisibility = driver.FindElement(By.ClassName("components-button components-panel__body-toggle")).FindElement(By.LinkText("Status & Visibility"));
+            statusVisibility = driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/div/div/div/div[4]/div/div[3]/div[1]/h2/button"));
             arrowOne = driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div/div/div/div[4]/div/div[3]/div[1]/h2/button/span/svg"));
             buttonPublic = driver.FindElement(By.ClassName("components-button edit-post-post-visibility__toggle is-link"));
             immediately = driver.FindElement(By.Id("edit-post-post-schedule__toggle-0"));
             checkboxControlOne = driver.FindElement(By.XPath(@"//*[@id='inspector - checkbox - control - 0']"));
-            stickToTheTop = driver.FindElement(By.ClassName("components-checkbox-control__label")).FindElement(By.LinkText("Stick to the top of the blog"));
+            stickToTheTop = driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/div/div/div/div[4]/div/div[3]/div[1]/div[3]/div/div/label"));
             checkboxControlTwo = driver.FindElement(By.XPath(@"//*[@id='inspector - checkbox - control - 1']"));
-            pendingReview = driver.FindElement(By.ClassName("components -checkbox-control__label")).FindElement(By.LinkText("Pending Review"));
+            pendingReview = driver.FindElement(By.ClassName("/html/body/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/div/div/div/div[4]/div/div[3]/div[1]/div[4]/div/div/label"));
 
-            categories = driver.FindElement(By.ClassName("components-button components-panel__body-toggle")).FindElement(By.LinkText("Categories"));
+            categories = driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/div/div/div/div[4]/div/div[3]/div[2]/h2/button"));
             arrowTwo = driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div/div/div/div[4]/div/div[3]/div[2]/h2/button/span/svg"));
             checkboxThree = driver.FindElement(By.Id("editor-post-taxonomies-hierarchical-term-1"));
-            withoutHeading = driver.FindElement(By.LinkText("Без рубрики"));
+            withoutHeading = driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/div/div/div/div[4]/div/div[3]/div[2]/div/div/label"));
             addNewCategori = driver.FindElement(By.ClassName("components-button editor-post-taxonomies__hierarchical-terms-add is-link"));
 
-            tags = driver.FindElement(By.ClassName("components-button components-panel__body-toggle")).FindElement(By.LinkText("Tags"));
+            tags = driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/div/div/div/div[4]/div/div[3]/div[3]/h2/button"));
             arrowThree = driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div/div/div/div[4]/div/div[3]/div[3]/h2/button/span/svg"));
             addNewTag = driver.FindElement(By.ClassName("components-form-token-field__label"));
             componentsFormToken = driver.FindElement(By.Id("components-form-token-input-1"));
 
-            featuredImage = driver.FindElement(By.ClassName("components-button components-panel__body-toggle")).FindElement(By.LinkText("Featured Image"));
+            featuredImage = driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/div/div/div/div[4]/div/div[3]/div[4]/h2/button"));
             arrowFour = driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div/div/div/div[4]/div/div[3]/div[4]/h2/button/span/svg"));
             buttonFeaturedImage = driver.FindElement(By.ClassName("components-button editor-post-featured-image__toggle"));
 
-            excerpt = driver.FindElement(By.ClassName("components-button components-panel__body-toggle")).FindElement(By.LinkText("Excerpt"));
+            excerpt = driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/div/div/div/div[4]/div/div[3]/div[5]/h2/button"));
             arrowFive = driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div/div/div/div[4]/div/div[3]/div[5]/h2/button/span/svg"));
             writeAnExecerpt = driver.FindElement(By.ClassName("components-base-control__label"));
             learnMore= driver.FindElement(By.ClassName("components-external-link"));
             textareaControl = driver.FindElement(By.Id("inspector-textarea-control-2"));
             externalLink = driver.FindElement(By.ClassName("components-external-link"));
 
-            discussion = driver.FindElement(By.ClassName("components-button components-panel__body-toggle")).FindElement(By.LinkText("Discussion"));
+            discussion = driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/div/div/div/div[4]/div/div[3]/div[6]/h2/button"));
             arrowSix = driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div/div/div/div[4]/div/div[3]/div[1]/h2/button/span/svg"));
             checkboxControlFour = driver.FindElement(By.XPath(@"//*[@id='inspector - checkbox - control - 2']"));
             checkboxControlFive = driver.FindElement(By.XPath(@"//*[@id='inspector - checkbox - control - 3']"));
 
-            block = driver.FindElement(By.ClassName("edit-post-sidebar__panel-tab ")).FindElement(By.LinkText("block"));
+            block = driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/div/div/div/div[4]/div/div[2]/ul/li[2]/button "));
             noBlock = driver.FindElement(By.ClassName("edit-post-sidebar__panel-tab "));
             close = driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div/div/div/div[4]/div/div[2]/button/svg"));
 
         
 
         }
-        public void ClickDocument()
+        public AddNewPagesWithSttings ClickDocument()
         {
             document.Click();
+            return this;
         }
-        public void ClickPublic()
+        public AddNewPagesWithSttings ClickPublic()
         {
             buttonPublic.Click();
+            return this;
         }
-        public void ClickImmediately()
+        public AddNewPagesWithSttings ClickImmediately()
         {
             immediately.Click();
+            return this;
         }
-        public void ClickcCheckboxControlOne()
+        public AddNewPagesWithSttings ClickcCheckboxControlOne()
         {
             checkboxControlOne.Click();
+            return this;
         }
-        public void ClickcCheckboxControlTwo()
+        public AddNewPagesWithSttings ClickcCheckboxControlTwo()
         {
             checkboxControlTwo.Click();
+            return this;
         }
-        public void ClickcCategories()
+        public AddNewPagesWithSttings ClickcCategories()
         {
             categories.Click();
+            return this;
         }
-        public void ClickcCheckboxControlThree()
+        public AddNewPagesWithSttings ClickcCheckboxControlThree()
         {
             checkboxThree.Click();
+            return this;
         }
-        public void ClickAddNewCategori()
+        public AddNewPagesWithSttings ClickAddNewCategori()
         {
             addNewCategori.Click();
+            return this;
         }
-        public void ClickTags()
+        public AddNewPagesWithSttings ClickTags()
         {
             tags.Click();
+            return this;
         }
-        public void ClickComponentsForm()
+        public AddNewPagesWithSttings ClickComponentsForm()
         {
             componentsFormToken.Click();
+            return this;
         }
-        public void ClearComponentsForm()
+        public AddNewPagesWithSttings ClearComponentsForm()
         {
             componentsFormToken.Clear();
+            return this;
         }
-        public void InputComponentsForm(string text)
+        public AddNewPagesWithSttings InputComponentsForm(string text)
         {
             componentsFormToken.SendKeys(text);
+            return this;
         }
-        public void SubmitComponentsForm()
+        public AddNewPagesWithSttings SubmitComponentsForm()
         {
             componentsFormToken.Submit();
+            return this;
         }
-        public void ClickFeaturedImage()
+        public AddNewPagesWithSttings ClickFeaturedImage()
         {
             featuredImage.Click();
+            return this;
         }
-        public void ClickButtonFeaturedImage()
+        public AddNewPagesWithSttings ClickButtonFeaturedImage()
         {
             buttonFeaturedImage.Click();
+            return this;
         }
-        public void ClickExcerpt()
+        public AddNewPagesWithSttings ClickExcerpt()
         {
             excerpt.Click();
+            return this;
         }
-        public void ClickTextarea()
+        public AddNewPagesWithSttings ClickTextarea()
         {
             textareaControl.Click();
+            return this;
         }
-        public void ClearTextarea()
+        public AddNewPagesWithSttings ClearTextarea()
         {
             textareaControl.Clear();
+            return this;
         }
-        public void ClickExternalLink()
+        public AddNewPagesWithSttings ClickExternalLink()
         {
             externalLink.Click();
+            return this;
         }
-        public void ClickDiscussion()
+        public AddNewPagesWithSttings ClickDiscussion()
         {
             discussion.Click();
+            return this;
         }
-        public void ClickcCheckboxControlFour()
+        public AddNewPagesWithSttings ClickcCheckboxControlFour()
         {
             checkboxControlFour.Click();
+            return this;
         }
-        public void ClickcCheckboxControlFive()
+        public AddNewPagesWithSttings ClickcCheckboxControlFive()
         {
             checkboxControlFive.Click();
+            return this;
         }
-        public void ClickcBlock()
+        public AddNewPagesWithSttings ClickcBlock()
         {
             block.Click();
+            return this;
         }
-        public void ClickcClose()
+        public AddNewPagesWithSttings ClickcClose()
         {
             close.Click();
+            return this;
         }
     }
 }
