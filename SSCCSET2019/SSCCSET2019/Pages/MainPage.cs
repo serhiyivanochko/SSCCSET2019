@@ -26,7 +26,7 @@ namespace SSCCSET2019.Pages
         IWebElement content = Driver.FindElement(By.Id("content"));
         IWebElement button_save = Driver.FindElement(By.Id("save-post"));
         IWebElement button_hide = Driver.FindElement(By.XPath("//*[@id='dashboard_quick_press']/button"));
-        
+
         //News 
         IWebElement button_close = Driver.FindElement(By.ClassName("toggle-indicator"));
         IWebElement button_edit = Driver.FindElement(By.ClassName("dashicons dashicons-edit"));
@@ -44,140 +44,174 @@ namespace SSCCSET2019.Pages
         //Atomic methods
 
         //Header
-        public void buttonClick()
+        public MainPage buttonClick()
         {
             button_settings.Click();
+            return this;
         }
-        public void clickOn_Link_theme()
+        public MainPage clickOn_Link_theme()
         {
             link_theme.Click();
+            return this;
         }
-        public void Link_firstRecord()
+        public MainPage Link_firstRecord()
         {
             link_firstRecord.Click();
+            return this;
         }
-        public void Link_createPage()
+        public MainPage Link_createPage()
         {
             link_createPage.Click();
+            return this;
         }
-        public void Link_setMainPage()
+        public MainPage Link_setMainPage()
         {
             link_setMainPage.Click();
+            return this;
         }
-        public void Link_lookSite()
+        public MainPage Link_lookSite()
         {
             link_lookSite.Click();
+            return this;
         }
-        public void Link_vidgets()
+        public MainPage Link_vidgets()
         {
             link_vidgets.Click();
+            return this;
         }
-        public void Link_menu()
+        public MainPage Link_menu()
         {
             link_menu.Click();
+            return this;
         }
-        public void Link_turnOffComments()
+        public MainPage Link_turnOffComments()
         {
             link_turnOffComments.Click();
+            return this;
         }
-        public void Link_learnMore()
+        public MainPage Link_learnMore()
         {
             link_learnMore.Click();
+            return this;
         }
-        public void Button_header_close()
+        public MainPage Button_header_close()
         {
             button_header_close.Click();
+            return this;
         }
         //Quick Draft
-        public void click_on_input_in_headline()
+        public MainPage click_on_input_in_headline()
         {
             headline.Click();
+            return this;
 
         }
-        public void clear_input_in_headline()
+        public MainPage clear_input_in_headline()
         {
             headline.Clear();
+            return this;
+
         }
-        public void sendKeys_in_input_in_headline(string str)
+        public MainPage sendKeys_in_input_in_headline(string str)
         {
             headline.SendKeys(str);
+            return this;
         }
-        public void click_on_input_Content()
+        public MainPage click_on_input_Content()
         {
             content.Click();
+            return this;
         }
-        public void clear_input_Content()
+        public MainPage clear_input_Content()
         {
             content.Clear();
+            return this;
         }
-        public void sendKeys_in_input_Content(string str)
+        public MainPage sendKeys_in_input_Content(string str)
         {
             content.SendKeys(str);
+            return this;
         }
-        public void Button_save()
+        public MainPage Button_save()
         {
             button_save.Click();
+            return this;
         }
-        public void Button_hide()
+        public MainPage Button_hide()
         {
             button_hide.Click();
+            return this;
         }
         //News
-        public void Button_close()
+        public MainPage Button_close()
         {
             button_close.Click();
+            return this;
         }
-        public void Button_edit()
+        public MainPage Button_edit()
         {
             button_edit.Click();
+            return this;
         }
-        public void click_on_town_input()
+        public MainPage click_on_town_input()
         {
             town_input.Click();
+            return this;
         }
-        public void clear_town_input()
+        public MainPage clear_town_input()
         {
             town_input.Clear();
+            return this;
         }
-        public void sendKeys_in_town_input(string str)
+        public MainPage sendKeys_in_town_input(string str)
         {
             town_input.SendKeys(str);
+            return this;
         }
-        public void Button_send()
+        public MainPage Button_send()
         {
             button_send.Click();
+            return this;
         }
-        public void Button_cancel()
+        public MainPage Button_cancel()
         {
             button_cancel.Click();
+            return this;
         }
-        public void click_Link_1()
+        public MainPage click_Link_1()
         {
             link_1.Click();
+            return this;
         }
-        public void click_Link_2()
+        public MainPage click_Link_2()
         {
             link_2.Click();
+            return this;
         }
-        public void click_Link_3()
+        public MainPage click_Link_3()
         {
             link_3.Click();
+            return this;
         }
-        public void click_Link_4()
+        public MainPage click_Link_4()
         {
             link_4.Click();
+            return this;
         }
-        public void click_Link_meetings()
+        public MainPage click_Link_meetings()
         {
             link_meetings.Click();
+            return this;
         }
-        public void click_Link_wordcamp()
+        public MainPage click_Link_wordcamp()
         {
             link_wordcamp.Click();
+            return this;
         }
-        public void click_Link_news()
+        public MainPage click_Link_news()
         {
             link_news.Click();
+            return this;
         }
     }
 }
