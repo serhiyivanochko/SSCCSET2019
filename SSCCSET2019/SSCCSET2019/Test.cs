@@ -9,6 +9,7 @@ namespace SSCCSET2019
         [Test]
         public void TestCase()
         {
+            MainPage.Driver.Navigate.GoToUrl("https://www.google.com.ua/");
 
         }
     }
