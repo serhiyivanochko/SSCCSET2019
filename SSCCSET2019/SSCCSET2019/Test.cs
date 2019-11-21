@@ -1,13 +1,15 @@
 ﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using System;
 namespace SSCCSET2019
 {
-    [TestFixture()]
+    [TestFixture]
     public class Test
     {
-        [Test()]
+        [Test]
         public void TestCase()
         {
+
         }
     }
 }

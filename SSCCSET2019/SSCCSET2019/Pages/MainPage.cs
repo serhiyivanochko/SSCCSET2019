@@ -5,7 +5,7 @@ namespace SSCCSET2019.Pages
 {
     class MainPage
     {
-        static IWebDriver Driver;
+        static IWebDriver Driver = new ChromeDriver();
 
         //Header
         IWebElement button_settings = Driver.FindElement(By.XPath("//*[@id='welcome - panel']/div/div/div[1]/a[1]"));
@@ -14,7 +14,6 @@ namespace SSCCSET2019.Pages
         IWebElement link_createPage = Driver.FindElement(By.XPath("//*[@id='welcome - panel']/div/div/div[2]/ul/li[2]/a"));
         IWebElement link_setMainPage = Driver.FindElement(By.XPath("//*[@id='welcome - panel']/div/div/div[2]/ul/li[3]/a"));
         IWebElement link_lookSite = Driver.FindElement(By.XPath("//*[@id='welcome - panel']/div/div/div[2]/ul/li[4]/a"));
-
         IWebElement link_vidgets = Driver.FindElement(By.XPath("//*[@id='welcome - panel']/div/div/div[3]/ul/li[1]/div/a[1]"));
         IWebElement link_menu = Driver.FindElement(By.XPath("//*[@id='welcome - panel']/div/div/div[3]/ul/li[1]/div/a[2]"));
         IWebElement link_turnOffComments = Driver.FindElement(By.XPath("//*[@id='welcome - panel']/div/div/div[3]/ul/li[2]/a"));
