@@ -9,7 +9,10 @@ namespace SSCCSET2019
         [Test]
         public void TestCase()
         {
-            MainPage.Driver.Navigate.GoToUrl("https://www.google.com.ua/");
+            MainPageLogic mpl = new MainPageLogic();
+            MainPage.Driver.Navigate().GoToUrl("http://localhost/wordpress/wp-admin/");
+
+            mpl.login();//Валідні дані одразу в логіці
 
         }
     }

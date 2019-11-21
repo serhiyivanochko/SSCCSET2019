@@ -48,7 +48,7 @@ namespace SSCCSET2019.Pages
         {
             button_settings.Click();
         }
-        public void Link_theme()
+        public void clickOn_Link_theme()
         {
             link_theme.Click();
         }
@@ -88,18 +88,30 @@ namespace SSCCSET2019.Pages
         {
             button_header_close.Click();
         }
-
         //Quick Draft
-        public void writeTo_headline(string str)
+        public void click_on_input_in_headline()
         {
             headline.Click();
+
+        }
+        public void clear_input_in_headline()
+        {
             headline.Clear();
+        }
+        public void sendKeys_in_input_in_headline(string str)
+        {
             headline.SendKeys(str);
         }
-        public void write_Content(string str)
+        public void click_on_input_Content()
         {
             content.Click();
+        }
+        public void clear_input_Content()
+        {
             content.Clear();
+        }
+        public void sendKeys_in_input_Content(string str)
+        {
             content.SendKeys(str);
         }
         public void Button_save()
@@ -119,10 +131,16 @@ namespace SSCCSET2019.Pages
         {
             button_edit.Click();
         }
-        public void Town_input(string str)
+        public void click_on_town_input()
         {
             town_input.Click();
+        }
+        public void clear_town_input()
+        {
             town_input.Clear();
+        }
+        public void sendKeys_in_town_input(string str)
+        {
             town_input.SendKeys(str);
         }
         public void Button_send()
@@ -133,31 +151,31 @@ namespace SSCCSET2019.Pages
         {
             button_cancel.Click();
         }
-        public void Link_1()
+        public void click_Link_1()
         {
             link_1.Click();
         }
-        public void Link_2()
+        public void click_Link_2()
         {
             link_2.Click();
         }
-        public void Link_3()
+        public void click_Link_3()
         {
             link_3.Click();
         }
-        public void Link_4()
+        public void click_Link_4()
         {
             link_4.Click();
         }
-        public void Link_meetings()
+        public void click_Link_meetings()
         {
             link_meetings.Click();
         }
-        public void Link_wordcamp()
+        public void click_Link_wordcamp()
         {
             link_wordcamp.Click();
         }
-        public void Link_news()
+        public void click_Link_news()
         {
             link_news.Click();
         }
