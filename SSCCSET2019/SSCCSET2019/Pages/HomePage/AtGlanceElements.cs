@@ -44,30 +44,71 @@ namespace SSCCSET2019.Pages.HomePage
             }
             return this;
         }
-        public CommentPage ClickComments()
+    /*    public CommentPage ClickComments()
         {
-            comment.Click();
-            return new CommentPage();
+            if (isVisible)
+            {
+                comment.Click();
+                return new CommentPage();
+            }
+            else 
+            {
+                return null;
+            }
+           
         }
         public PostsPage ClickPosts()
         {
-            post.Click();
-            return new PostsPage();
+            if (isVisible)
+            {
+                post.Click();
+                return new PostsPage();
+            }
+            else
+            {
+                return null;
+            }
+            
         }
         public PagesPage ViewAllPages()
         {
-            page.Click();
-            return new PagesPage();
+            if (isVisible)
+            {
+                page.Click();
+                return new PagesPage();
+            }
+            else
+            {
+                return null;
+            }
+            
         }
+
         public ThemesPage ViewAllThemes()
         {
-            themesCount.Click();
-            return new ThemesPage();
-        }
+            if (isVisible)
+            {
+                themesCount.Click();
+                return new ThemesPage();
+            }
+            else
+            {
+                return null;
+            }
+            
+        }*/
         public UpdatesPage ClickUpdateBtn()
         {
-            updtBtn.Click();
-            return new UpdatesPage();
+            if (isVisible)
+            {
+                updtBtn.Click();
+                return new UpdatesPage();
+            }
+            else
+            {
+                return null;
+            }
+            
         }
     }
 }

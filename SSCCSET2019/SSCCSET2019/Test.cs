@@ -2,6 +2,8 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using SSCCSET2019.Pages.HomePage;
+using SSCCSET2019.Pages.LogInPage;
+using SSCCSET2019.Logic;
 using System;
 using System.Threading;
 namespace SSCCSET2019
@@ -21,9 +23,11 @@ namespace SSCCSET2019
         [Test]
         public void TestCase()
         {
-            AtGlance at = new AtGlance(driver);
-            
-          
+            driver.Navigate().GoToUrl("http://localhost/wordpress/wp-admin/edit-tags.php?taxonomy=post_tag");
+            LoginPageLogic logIn = new LoginPageLogic();
+            logIn.LogInWordPress("root", "root", driver);
+
+
         }
         
       
