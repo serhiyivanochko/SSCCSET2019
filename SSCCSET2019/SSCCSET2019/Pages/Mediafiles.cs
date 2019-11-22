@@ -16,6 +16,7 @@ using OpenQA.Selenium.Support.UI;
         {
             driver = new FirefoxDriver();
         }
+
         private IWebElement media__lib;
         private IWebElement add_new;
         private SelectElement all_mediafiles;
@@ -23,6 +24,7 @@ using OpenQA.Selenium.Support.UI;
         private IWebElement screen_setting;
         private IWebElement search_object;
         private IWebElement help;
+
         public Mediafiles(){
             media__lib = driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div[2]/div[1]/div[3]/h1"));
             add_new= driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div[2]/div[1]/div[3]/a"));
@@ -44,13 +46,18 @@ using OpenQA.Selenium.Support.UI;
         {
             search_object.SendKeys(data);
         }
+        public void SubmitSearchObjecField()
+        {
+            search_object.Submit();
+        }
         public void ClickFilter()
         {
             filter.Click();
         }
-        public void AddNewElement()
+        public AddNewElement  AddNewElement()
         {
             add_new.Click();
+            return new AddNewElement();
         }
         public void DeselectMediafiles()
         {
@@ -102,9 +109,9 @@ using OpenQA.Selenium.Support.UI;
         {
             date.Click();
         }
-        public void InputNumbersOfNotes(string number)
+        public string InputNumbersOfNotes()
         {
-            numbers_of_notes.SendKeys(number);
+            return numbers_of_notes.Text;
         }
         public void ApplyClick()
         {
