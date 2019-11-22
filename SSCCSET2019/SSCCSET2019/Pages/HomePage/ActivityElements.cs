@@ -4,12 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OpenQA.Selenium.Interactions;
+using System.Threading;
 
 namespace SSCCSET2019.Pages.HomePage
 {
     class ActivityElements
     {
         private bool isVisible = true;
+        public ReplyElements replyElements = null;
         private IWebDriver driver;
         private IWebElement hideShow;
         private IWebElement commentator;
@@ -22,6 +25,181 @@ namespace SSCCSET2019.Pages.HomePage
         private IWebElement unapprove;
         private IWebElement edit;
         private IWebElement undo;
+        Actions actions;
+        
+        public ActivityElements(IWebDriver driver)
+        {
+            actions = new Actions(driver);
+            this.driver = driver;
+            hideShow = driver.FindElement(By.XPath(@"//*[@id='dashboard_activity']/button/span[2]"));
+            commentator = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/p[1]/cite/a"));
+            comment = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/blockquote/p"));
+            approve = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/p[2]/span[1]"));
+            unapprove = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/p[2]/span[2]"));
+            reply = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/p[2]/span[3]/button"));
+            edit = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/p[2]/span[4]"));
+            spam = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/p[2]/span[5]"));
+            trash = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/p[2]/span[6]"));
+            view = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/p[2]/span[7]"));
+            //undo = driver.FindElement(By.XPath(@"//*[@id='undo-1']/div/span/a"));
+           
+        }
+
+        public ActivityElements HideOrShowActivity()
+        {
+            hideShow.Click();
+            if (hideShow.GetAttribute("aria-expanded") == "true")
+            {
+                isVisible = false;
+            }
+            else
+            {
+                isVisible = true;
+            }
+            return this;
+        }
+
+        public ActivityElements ClickOnReply()
+        {
+            actions.MoveToElement(comment);
+            actions.Perform();
+            Thread.Sleep(5000);
+            reply.Click();
+            if (replyElements==null)
+            {
+                replyElements = new ReplyElements(driver);
+                return this;
+            }
+            else
+            {
+                replyElements = null;
+                return null;
+            }
+
+        }
+       /* public ActivityElements SetTextInReplyTextField(string str)
+        {
+            if (isVisible)
+            {
+                replyTextField.SendKeys(str);
+                return this;
+            }
+            else
+            {
+                return null;
+            }
+            
+        }
+        public ActivityElements ClickOnReplyTextField()
+        {
+            if (isVisible)
+            {
+                replyTextField.Click();
+                return this;
+            }
+            else
+            {
+                return null;
+            }
+            
+        }
+
+        public ActivityElements ClearReplyTextField()
+        {
+            if (isVisible)
+            {
+                replyTextField.Clear();
+                return this;
+            }
+            else
+            {
+                return null;
+            }
+            
+        }
+        public string GetTeaxtFromReplyTextField()
+        {
+            if (isVisible)
+            {
+                return replyTextField.Text;
+            }
+            else
+            {
+                return null;
+            }
+            
+        }
+*/
+        public string GetComentText()
+        {
+            if (isVisible)
+            {
+                return comment.Text;
+            }
+            else
+            {
+                return null;
+            }
+           
+        }
+
+        public ActivityElements ClickToApproveComent()
+        {
+            if (isVisible)
+            {
+                approve.Click();
+                return this;
+            }
+            else
+            {
+                return null;
+            }
+            
+        }
+        public ActivityElements ClickToUnapproveComent()
+        {
+            if (isVisible)
+            {
+                unapprove.Click();
+                return this;
+            }
+            else
+            {
+                return null;
+            }
+            
+        }
+       /* public ActivityElements ClickTApproveReplyToComment()
+        {
+            if (isVisible)
+            {
+                replyApprove.Click();
+                return this;
+            }
+            else
+            {
+                return null;
+            }
+           
+        }
+        public ActivityElements ClickCancelReplyToComment()
+        {
+            if (isVisible)
+            {
+                replyCancel.Click();
+                return this;
+            }
+            else
+            {
+                return null;
+            }
+            
+        }*/
+    }
+
+    class ReplyElements : ActivityElements
+    {
+        IWebDriver driver;
         private IWebElement allComments;
         private IWebElement mineComment;
         private IWebElement approvedComment;
@@ -43,101 +221,36 @@ namespace SSCCSET2019.Pages.HomePage
         private IWebElement replyTextField;
         private IWebElement replyApprove;
         private IWebElement replyCancel;
-        public ActivityElements(IWebDriver driver)
+        public ReplyElements(IWebDriver driver):base(driver)
         {
-            hideShow = driver.FindElement(By.XPath(@"//*[@id='dashboard_activity']/button/span[2]"));
-            commentator = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/p[1]/cite/a"));
-            comment = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/blockquote/p"));
-            approve = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/p[2]/span[1]"));
-            unapprove = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/p[2]/span[2]"));
-            reply = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/p[2]/span[3]"));
-            edit = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/p[2]/span[4]"));
-            spam = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/p[2]/span[5]"));
-            trash = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/p[2]/span[6]"));
-            view = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/p[2]/span[7]"));
-            undo = driver.FindElement(By.XPath(@"//*[@id='undo-1']/div/span/a"));
+            this.driver = driver;
             allComments = driver.FindElement(By.XPath(@"//*[@id='latest-comments']/ul[2]/li[1]/a"));
             mineComment = driver.FindElement(By.XPath(@"//*[@id='latest-comments']/ul[2]/li[2]/a"));
             pendingComment = driver.FindElement(By.XPath(@"//*[@id='latest-comments']/ul[2]/li[3]/a"));
             approvedComment = driver.FindElement(By.XPath(@"//*[@id='latest-comments']/ul[2]/li[4]/a"));
             spamcomment = driver.FindElement(By.XPath(@"//*[@id='latest-comments']/ul[2]/li[5]/a"));
             trashComment = driver.FindElement(By.XPath(@"//*[@id='latest-comments']/ul[2]/li[6]/a"));
-            TollbarBtnB = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[1]']"));
-            TollbarBtnI = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[2]']"));
-            TollbarBtnLink = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[3]']"));
-            TollbarBtnQoute = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[4]']"));
-            TollbarBtnDel = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[5]']"));
-            TollbarBtnIns = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[6]']"));
-            TollbarBtnImg = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[7]']"));
-            TollbarBtnUl = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[8]']"));
-            TollbarBtnOl = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[9]']"));
-            TollbarBtnLi = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[10]']"));
-            TollbarBtnCode = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[11]']"));
-            TollbarBtnCloseTag = driver.FindElement(By.XPath(@"//*[@id='qt_replycontent_toolbar/input[12]']"));
+            TollbarBtnB = driver.FindElement(By.Id("qt_replycontent_strong"));
+            TollbarBtnI = driver.FindElement(By.Id("qt_replycontent_em"));
+            TollbarBtnLink = driver.FindElement(By.Id("qt_replycontent_link"));
+            TollbarBtnQoute = driver.FindElement(By.Id("qt_replycontent_block"));
+            TollbarBtnDel = driver.FindElement(By.Id("qt_replycontent_del"));
+            TollbarBtnIns = driver.FindElement(By.Id("qt_replycontent_ins"));
+            TollbarBtnImg = driver.FindElement(By.Id("qt_replycontent_img"));
+            TollbarBtnUl = driver.FindElement(By.Id("qt_replycontent_ul"));
+            TollbarBtnOl = driver.FindElement(By.Id("qt_replycontent_ol"));
+            TollbarBtnLi = driver.FindElement(By.Id("qt_replycontent_li"));
+            TollbarBtnCode = driver.FindElement(By.Id("qt_replycontent_code"));
+            TollbarBtnCloseTag = driver.FindElement(By.Id("qt_replycontent_close"));
             replyTextField = driver.FindElement(By.XPath(@"//*[@id='replycontent']"));
             replyApprove = driver.FindElement(By.Id("replybtn"));
             replyCancel = driver.FindElement(By.XPath(@"//*[@id='replysubmit']/p/button[2]"));
         }
-
-        public ActivityElements HideOrShowActivity()
-        {
-            hideShow.Click();
-            if (hideShow.GetAttribute("aria-expanded") == "true")
-            {
-                isVisible = false;
-            }
-            else
-            {
-                isVisible = true;
-            }
-            return this;
-        }
-
-        public ActivityElements SetTextInReplyTextField(string str)
-        {
-            replyTextField.SendKeys(str);
-            return this;
-        }
-        public ActivityElements ClickOnReplyTextField()
-        {
-            replyTextField.Click();
-            return this;
-        }
-
-        public ActivityElements ClearReplyTextField()
-        {
-            replyTextField.Clear();
-            return this;
-        }
-        public string GetTeaxtFromReplyTextField()
-        {
-            return replyTextField.Text;
-        }
-
-        public string GetComentText()
-        {
-            return comment.Text;
-        }
-
-        public ActivityElements ClickToApproveComent()
-        {
-            approve.Click();
-            return this;
-        }
-        public ActivityElements ClickToUnapproveComent()
-        {
-            unapprove.Click();
-            return this;
-        }
-        public ActivityElements ClickTApproveReplyToComment()
-        {
-            replyApprove.Click();
-            return this;
-        }
-        public ActivityElements ClickCancelReplyToComment()
+        public ActivityElements ClickCancelReplyButton() 
         {
             replyCancel.Click();
-            return this;
+            replyElements = null;
+            return new ActivityElements(driver);
         }
     }
 }

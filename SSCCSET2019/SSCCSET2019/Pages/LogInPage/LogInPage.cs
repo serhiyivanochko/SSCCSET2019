@@ -22,8 +22,8 @@ namespace SSCCSET2019.Pages.LogInPage
             pswrd = driver.FindElement(By.Id("user_pass"));
             rmbrCheckBox = driver.FindElement(By.Id("rememberme"));
             lgBtn = driver.FindElement(By.Id("wp-submit"));
-            lostPswrd = driver.FindElement(By.XPath(@"//*[@id='nav']/at"));
-            back = driver.FindElement(By.Id(@"//*[@id='backtoblog']/a"));
+            lostPswrd = driver.FindElement(By.XPath(@"//*[@id='nav']/a"));
+            back = driver.FindElement(By.XPath(@"//*[@id='backtoblog']/a"));
         }
 
         public LoginPage ClickOnLoginField()

@@ -11,11 +11,10 @@ namespace SSCCSET2019.Logic
 {
     class LoginPageLogic
     {
-
-
-
-        public void LogInWordPress(string login, string password, IWebDriver driver)
+        IWebDriver driver = Driver.GetInstance().driver;
+        public void LogInWordPress(string login, string password)
         {
+            driver.Navigate().GoToUrl("http://localhost/wordpress/wp-admin/edit-tags.php?taxonomy=post_tag");
             LoginPage logIn = new LoginPage(driver);            
             logIn.ClickOnLoginField();
             logIn.ClearLoginField();
@@ -25,6 +24,7 @@ namespace SSCCSET2019.Logic
             logIn.SetTextInPasswordField(password);
             logIn.ClickSubmitButton();
             //return new MainPage();
+            driver.Navigate().GoToUrl("http://localhost/wordpress/wp-admin/");
         }
     }
 }

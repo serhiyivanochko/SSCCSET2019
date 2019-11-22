@@ -17,15 +17,12 @@ namespace SSCCSET2019
         [SetUp]
         public void Setup()
         {
-       
-            driver = Driver.GetInstance().driver;
         }
         [Test]
         public void TestCase()
         {
-            driver.Navigate().GoToUrl("http://localhost/wordpress/wp-admin/edit-tags.php?taxonomy=post_tag");
-            LoginPageLogic logIn = new LoginPageLogic();
-            logIn.LogInWordPress("root", "root", driver);
+            
+            
 
 
         }
