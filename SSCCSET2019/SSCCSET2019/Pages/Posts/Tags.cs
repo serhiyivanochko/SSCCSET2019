@@ -35,7 +35,7 @@ namespace SSCCSET2019.Pages.Tags
         private IWebElement nameLabel;
         private IWebElement tagsTable;
         private SelectElement elementAction;
-        private List<AddedTags> listOfAddedTags;
+        public List<AddedTags> listOfAddedTags;
 
         public Tags(IWebDriver driver)
         {
@@ -76,8 +76,8 @@ namespace SSCCSET2019.Pages.Tags
             }
             catch (NoSuchElementException)
             {
-                return InitializeTagsList(driver.FindElements(By.ClassName("the-list")));
-                //listOfAddedTags = tagsTable.FindElements(By.TagName("tr")).ToList();
+                return InitializeTagsList(tagsTable.FindElements(By.TagName("tr")).ToList());
+         
             }
         }
         private List<AddedTags> InitializeTagsList(IReadOnlyCollection<IWebElement> elements)

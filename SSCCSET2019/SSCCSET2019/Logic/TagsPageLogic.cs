@@ -9,13 +9,13 @@ using SSCCSET2019.Tools.Driver;
 using SSCCSET2019.Data.ApplicationSource;
 using OpenQA.Selenium;
 
-namespace SSCCSET2019.Logic
+namespace SSCCSET2019.Logic.TagsPageLogic
 {
     class TagsPageLogic
     {
-        public Tags AddNewTagsWithSlugAndDescription(string tagName, string slug, string description, IWebDriver driver)
+        public Tags AddNewTagsWithSlugAndDescription(string tagName, string slug, string description)
         {
-            Tags tags = new Tags(driver);
+            Tags tags = new Tags(Driver.GetDriver());
             tags.ClearNameEdit();
             tags.ClickNameEdit();
             tags.InputName(tagName);
@@ -26,11 +26,11 @@ namespace SSCCSET2019.Logic
             tags.ClickDescriptionEdit();
             tags.InputDescription(description);
             tags.ClickAddNewTagButton();
-            return tags;
+            return new Tags(Driver.GetDriver());
         }
-        public Tags AddNewTagsWithSlug(string tagName, string slug, IWebDriver driver)
+        public Tags AddNewTagsWithSlug(string tagName, string slug)
         {
-            Tags tags = new Tags(driver);
+            Tags tags = new Tags(Driver.GetDriver());
             tags.ClearNameEdit();
             tags.ClickNameEdit();
             tags.InputName(tagName);
@@ -38,8 +38,12 @@ namespace SSCCSET2019.Logic
             tags.ClickSlugEdit();
             tags.InputSlug(slug);
             tags.ClickAddNewTagButton();
-            return tags;
+            return new Tags(Driver.GetDriver());
         }
-
+        public string GetNameTag()
+        {
+            Tags tags = new Tags(Driver.GetDriver());
+            return tags.listOfAddedTags.FirstOrDefault().GetTagsName();
+        }
     }
 }
