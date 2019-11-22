@@ -76,8 +76,7 @@ namespace SSCCSET2019.Pages.Tags
             }
             catch (NoSuchElementException)
             {
-                return InitializeTagsList(tagsTable.FindElements(By.TagName("tr")).ToList());
-         
+                return InitializeTagsList(tagsTable.FindElements(By.TagName("tr")).ToList());       
             }
         }
         private List<AddedTags> InitializeTagsList(IReadOnlyCollection<IWebElement> elements)

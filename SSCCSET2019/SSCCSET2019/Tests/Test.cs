@@ -24,19 +24,17 @@ namespace SSCCSET2019.Tests.Test
         [Test]
         public void TestCase()
         {
-            TagsPageLogic tagsPage = new TagsPageLogic();
-            string tagName = "Test Tag";
-            string tagSlug = "Test Slug";
-            string tagDescription = "Test Description";
-            tagsPage.AddNewTagsWithSlugAndDescription(tagName, tagSlug, tagDescription);
-            Thread.Sleep(5000);
-            Assert.AreEqual(tagsPage.GetNameTag(), tagName);
-           
+            //TagsPageLogic tagsPage = new TagsPageLogic();
+            //string tagName = "Test Tag";
+            //string tagSlug = "Test Slug";
+            //string tagDescription = "Test Description";
+            //tagsPage.AddNewTagsWithSlugAndDescription(tagName, tagSlug, tagDescription);
+            //Assert.AreEqual(tagsPage.GetNameTag(), tagName); 
         }
         [TearDown]
         public void Close()
         {
-            // driver.Close();
+            Driver.GetDriver().Close();
         }
     }
 }
