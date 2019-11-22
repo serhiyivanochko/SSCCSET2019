@@ -40,18 +40,17 @@ namespace Wordpress
             _plupload_browse_button = driver.FindElement(By.Id("plupload-browse-button"));
             //Інформація який повинен бути файл
             _flash_bypass = driver.FindElement(By.ClassName("upload-flash-bypass"));
-            _url_browser_loader = driver.FindElement(By.CssSelector(".upload-flash-bypass > a:nth-child(1)"));
+            _url_browser_loader = driver.FindElement(By.LinkText("загрузчик браузера"));
             _max_size = driver.FindElement(By.ClassName("max-upload-size"));
             //Нижня частина сторінки
-            _thankyou = driver.FindElement(By.Id("footer-thankyou"));
+            _thankyou = driver.FindElement(By.Id("WordPress"));
             _url_wordpress = driver.FindElement(By.CssSelector("#footer-thankyou > a:nth-child(1)"));
             _version = driver.FindElement(By.Id("footer-upgrade"));
         }
-
-        public void ClicOnTheButHelpLink()
+        public PageObgectMedia ClicOnTheButHelpLink()
         {
-
             _helper_link.Click();
+            return this;
         }
 
         public PageObgectMedia ClickOnThePluploadBrowseBut()
@@ -60,14 +59,16 @@ namespace Wordpress
             return this;
         }
 
-        public void ClickOnTheLinkBrowserLoader()
+        public PageObgectMedia ClickOnTheLinkBrowserLoader()
         {
             _url_browser_loader.Click();
+            return this;
         }
 
-        public void ClickOnTheLinkWordpress()
+        public PageObgectMedia ClickOnTheLinkWordpress()
         {
             _url_wordpress.Click();
+            return this;
         }
     }
 }
