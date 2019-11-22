@@ -15,12 +15,13 @@ namespace SSCCSET2019.Tests
         [SetUp]
         public void Setup()
         {
+
         }
         [Test]
         public void Test()
         {
-            driver.Navigate().GoToUrl("http://localhost/wp1/wp-admin/update-core.php");
             LoginPageLogic log1 = new LoginPageLogic();
+            driver.Navigate().GoToUrl("http://localhost/wp1/wp-admin/update-core.php");
             log1.Login();
             //UpdatesPageLogic up1 = new UpdatesPageLogic();
             //up1.MainUpdatesCheck();
