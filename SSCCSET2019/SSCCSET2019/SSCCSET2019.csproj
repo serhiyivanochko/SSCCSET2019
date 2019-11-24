@@ -37,6 +37,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Driver.cs" />
+    <Compile Include="Logic\MenuLogic.cs" />
+    <Compile Include="Pages\Item.cs" />
     <Compile Include="Pages\TopBarPage.cs" />
     <Compile Include="Test.cs" />
   </ItemGroup>
@@ -44,7 +46,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Logic\" />
     <Folder Include="Tests\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
