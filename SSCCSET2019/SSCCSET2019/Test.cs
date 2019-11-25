@@ -1,5 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
+using SSCCSET2019.Logic;
+using SSCCSET2019.Pages;
 using System;
 namespace SSCCSET2019
 {
@@ -9,17 +11,16 @@ namespace SSCCSET2019
         [Test]
         public void TestHeaderOfMainPage()
         {
-            MainPageLOgic mpl = new MainPageLOgic();
+            MainPageLogic mpl = new MainPageLogic();
             MainPage.Driver.Navigate().GoToUrl("http://localhost/wordpress/wp-admin/");
 
             mpl.login();//Валідні дані зразу передаються в логіці
-            mpl.ClickingHeaderMainPage();
-
+            //mpl.ClickingHeaderMainPage();
         }
         [Test]
         public void TestQuickDrafts()
         {
-            MainPageLOgic mpl = new MainPageLOgic();
+            MainPageLogic mpl = new MainPageLogic();
             MainPage mp = new MainPage();
             MainPage.Driver.Navigate().GoToUrl("http://localhost/wordpress/wp-admin/");
 
@@ -31,7 +32,7 @@ namespace SSCCSET2019
         [Test]
         public void TestLinkInBlockNewsOnMainPage()
         {
-            MainPageLOgic mpl = new MainPageLOgic();
+            MainPageLogic mpl = new MainPageLogic();
             MainPage.Driver.Navigate().GoToUrl("http://localhost/wordpress/wp-admin/");
             mpl.login();
 
