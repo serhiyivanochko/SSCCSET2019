@@ -40,8 +40,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\ApplicationSource.cs" />
+    <Compile Include="Pages\Posts\QuikEditTag.cs" />
     <Compile Include="Pages\Posts\Tags.cs" />
-    <Compile Include="Test.cs" />
+    <Compile Include="Logic\TagPageLogic.cs" />
+    <Compile Include="Tools\Driver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
