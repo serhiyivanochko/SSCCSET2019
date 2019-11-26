@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using SSCCSET2019.Logic;
 using SSCCSET2019.Pages;
 using System;
@@ -10,17 +11,34 @@ namespace SSCCSET2019
     [TestFixture]
     public class Test
     {
+        [OneTimeSetUp]
+        public void SetUp()
+        {
+            //Як краще ? 
+            MainPage.Driver.Navigate().GoToUrl("http://localhost/wordpress/wp-admin/");
+            MainPage.Driver.FindElement(By.Id("user_login")).Click();
+            MainPage.Driver.FindElement(By.Id("user_login")).Clear();
+            MainPage.Driver.FindElement(By.Id("user_login")).SendKeys("vlodkomickovich@gmail.com");
+            MainPage.Driver.FindElement(By.Id("user_pass")).Click();
+            MainPage.Driver.FindElement(By.Id("user_pass")).Clear();
+            MainPage.Driver.FindElement(By.Id("user_pass")).SendKeys("vlodko27");
+            MainPage.Driver.FindElement(By.Id("wp-submit")).Click();
+        }
+        /*
+        [OneTimeTearDown]
+        public void CloseBrowser()
+        {
+           MainPage.Driver.Quit();
+        }*/
         [Test]
         public void TestHeaderOfMainPage()
         {
             MainPageLogic mpl = new MainPageLogic();
-            
-            MainPage.Driver.Navigate().GoToUrl("http://localhost/wordpress/wp-admin/");
-            Thread.Sleep(10000);
 
-            mpl.login();//Валідні дані зразу передаються в логіці
-            //mpl.ClickingHeaderMainPage();
-        }/*
+            mpl.write_to_inputTown_in_news("Lviv");
+        }
+
+        /*
         [Test]
         public void TestQuickDrafts()
         {

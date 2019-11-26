@@ -1,17 +1,16 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
+using System;
 using System.Threading;
 
 namespace SSCCSET2019.Pages
 {
     class MainPage
     {
-         public static IWebDriver Driver = new ChromeDriver();
-       
+        public static IWebDriver Driver = new ChromeDriver();
+        WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
         //Header
-       
-        IWebElement button_send = Driver.FindElement(By.Id("community-events-submit"));
-        /*
         IWebElement button_settings = Driver.FindElement(By.XPath("//*[@id='welcome-panel']/div/div/div[1]/a[1]"));
         IWebElement link_theme = Driver.FindElement(By.XPath("//*[@id='welcome-panel']/div/div/div[1]/p/a"));
         IWebElement link_firstRecord = Driver.FindElement(By.XPath("//*[@id='welcome-panel']/div/div/div[2]/ul/li[1]/a"));
@@ -24,9 +23,8 @@ namespace SSCCSET2019.Pages
         IWebElement link_learnMore = Driver.FindElement(By.ClassName("welcome-panel-close"));
 
         IWebElement button_header_close = Driver.FindElement(By.XPath("//*[@id='welcome-panel']/a"));
-        */
+        
         //Quick draft
-        /*
         IWebElement headline = Driver.FindElement(By.Id("title"));
         IWebElement content = Driver.FindElement(By.Id("content"));
         IWebElement button_save = Driver.FindElement(By.Id("save-post"));
@@ -34,10 +32,10 @@ namespace SSCCSET2019.Pages
 
         //News 
         IWebElement button_close = Driver.FindElement(By.ClassName("toggle-indicator"));
-        IWebElement button_edit = Driver.FindElement(By.ClassName("dashicons dashicons-edit"));
+        IWebElement button_edit = Driver.FindElement(By.XPath("//*[@id='community-events']/div/p/button/span"));
         IWebElement town_input = Driver.FindElement(By.Id("community-events-location"));
         IWebElement button_send = Driver.FindElement(By.Id("community-events-submit"));
-        IWebElement button_cancel = Driver.FindElement(By.ClassName("community-events-cancel button-link"));
+        IWebElement button_cancel = Driver.FindElement(By.XPath("//*[@id='dashboard_primary']/button/span[2]"));
         IWebElement link_1 = Driver.FindElement(By.XPath("//*[@id='dashboard_primary']/div/div[4]/div[1]/ul/li/a"));
         IWebElement link_2 = Driver.FindElement(By.XPath("//*[@id='dashboard_primary']/div/div[4]/div[2]/ul/li[1]/a"));
         IWebElement link_3 = Driver.FindElement(By.XPath("//*[@id='dashboard_primary']/div/div[4]/div[2]/ul/li[2]/a"));
@@ -49,16 +47,16 @@ namespace SSCCSET2019.Pages
         //Atomic methods
 
         //Header
-        /*
+        
         public MainPage buttonClick()
         {
             button_settings.Click();
-            return this;
+            return new MainPage();
         }
         public MainPage clickOn_Link_theme()
         {
             link_theme.Click();
-            return this;
+            return new MainPage();
         }
         public MainPage Link_firstRecord()
         {
@@ -105,7 +103,6 @@ namespace SSCCSET2019.Pages
             button_header_close.Click();
             return this;
         }
-        
         //Quick Draft
         public MainPage click_on_input_in_headline()
         {
@@ -219,6 +216,6 @@ namespace SSCCSET2019.Pages
         {
             link_news.Click();
             return this;
-        }*/
+        }
     }
 }
