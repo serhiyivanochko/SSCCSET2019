@@ -1,13 +1,16 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System.Threading;
 
 namespace SSCCSET2019.Pages
 {
     class MainPage
     {
          public static IWebDriver Driver = new ChromeDriver();
-
+       
         //Header
+       
+        IWebElement button_send = Driver.FindElement(By.Id("community-events-submit"));
         /*
         IWebElement button_settings = Driver.FindElement(By.XPath("//*[@id='welcome-panel']/div/div/div[1]/a[1]"));
         IWebElement link_theme = Driver.FindElement(By.XPath("//*[@id='welcome-panel']/div/div/div[1]/p/a"));
@@ -23,6 +26,7 @@ namespace SSCCSET2019.Pages
         IWebElement button_header_close = Driver.FindElement(By.XPath("//*[@id='welcome-panel']/a"));
         */
         //Quick draft
+        /*
         IWebElement headline = Driver.FindElement(By.Id("title"));
         IWebElement content = Driver.FindElement(By.Id("content"));
         IWebElement button_save = Driver.FindElement(By.Id("save-post"));
@@ -101,7 +105,7 @@ namespace SSCCSET2019.Pages
             button_header_close.Click();
             return this;
         }
-        */
+        
         //Quick Draft
         public MainPage click_on_input_in_headline()
         {
@@ -215,6 +219,6 @@ namespace SSCCSET2019.Pages
         {
             link_news.Click();
             return this;
-        }
+        }*/
     }
 }

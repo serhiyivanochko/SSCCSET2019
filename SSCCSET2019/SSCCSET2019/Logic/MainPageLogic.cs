@@ -26,7 +26,7 @@ namespace SSCCSET2019.Logic
             mainPage.Link_turnOffComments();
             mainPage.Link_learnMore();
             mainPage.Button_header_close();
-        }*/
+        } 
         //Testing block news of main page 
         public void ClickLinksInBlockNews()//тільки клік по лінках
         {
@@ -60,12 +60,13 @@ namespace SSCCSET2019.Logic
             mainPage.clear_town_input();
             mainPage.sendKeys_in_town_input(str);
         }
-        /*(public void clicking_buttons_in_header()
+         (public void clicking_buttons_in_header()
         {
             mainPage.buttonClick();
             mainPage.clickOn_Link_theme();
             mainPage.Button_header_close();
-        }*/
+        }
+         */
         //Login
         public void login()
         {
@@ -74,6 +75,7 @@ namespace SSCCSET2019.Logic
             MainPage.Driver.FindElement(By.Id("user_pass")).SendKeys("vlodko27");
             MainPage.Driver.FindElement(By.Id("wp-submit")).Click();
         }
+    
     }
 }
 
