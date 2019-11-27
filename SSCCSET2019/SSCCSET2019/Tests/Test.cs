@@ -1,10 +1,9 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
-using SSCCSET2019.Tools.Driver;
-using SSCCSET2019.Logic.TagsPageLogic;
-using System.Threading;
+using SSCCSET2019.Tools;
+using SSCCSET2019.Logic;
 
-namespace SSCCSET2019.Tests.Test
+namespace SSCCSET2019.Tests
 {
     [TestFixture()]
     class Test
@@ -24,12 +23,56 @@ namespace SSCCSET2019.Tests.Test
         [Test]
         public void TestCase()
         {
-            //TagsPageLogic tagsPage = new TagsPageLogic();
-            //string tagName = "Test Tag";
-            //string tagSlug = "Test Slug";
-            //string tagDescription = "Test Description";
-            //tagsPage.AddNewTagsWithSlugAndDescription(tagName, tagSlug, tagDescription);
-            //Assert.AreEqual(tagsPage.GetNameTag(), tagName); 
+            TagsPageLogic tagsPage = new TagsPageLogic();
+            string tagName = "Test Tag";
+            string tagSlug = "Test Slug";
+            tagsPage.AddNewTagsWithSlug(tagName, tagSlug);
+            bool temp = tagsPage.IfFoundedTags(tagName);
+            Assert.AreEqual(temp, true);
+        }
+        [Test]
+        public void TestAddNewTagsWithSlugAndDescription()
+        {
+            TagsPageLogic tagsPage = new TagsPageLogic();
+            string tagName = "Test Tag";
+            string tagSlug = "Test Slug";
+            string tagDescription = "Test Description";
+            tagsPage.AddNewTagsWithSlugAndDescription(tagName, tagSlug, tagDescription);
+            Assert.AreEqual(tagsPage.GetLastNameTag(), tagName);
+            Assert.AreEqual(tagsPage.GetLastSlugText(), tagSlug);
+            Assert.AreEqual(tagsPage.GetLastDescriptionText(), tagDescription);
+        }
+
+        [Test]
+        public void TestAddNewTagsWithSlug()
+        {
+            TagsPageLogic tagsPage = new TagsPageLogic();
+            string tagName = "Test Tag";
+            string tagSlug = "Test Slug";
+            tagsPage.AddNewTagsWithSlug(tagName, tagSlug);
+            Assert.AreEqual(tagsPage.GetLastNameTag(), tagName);
+            Assert.AreEqual(tagsPage.GetLastSlugText(), tagSlug);
+        }
+
+        [Test]
+        public void TestIfFoundedTags()
+        {
+            TagsPageLogic tagsPage = new TagsPageLogic();
+            string tagName = "Test Tag";
+            string tagSlug = "Test Slug";
+            tagsPage.AddNewTagsWithSlug(tagName, tagSlug);
+            bool temp = tagsPage.IfFoundedTags(tagName);
+            Assert.AreEqual(temp, true);
+        }
+
+        [Test]
+        public void TestNumberOfTags()
+        {
+            TagsPageLogic tagsPage = new TagsPageLogic();
+            string tagName = "Test Tag";
+            string tagSlug = "Test Slug";
+            tagsPage.AddNewTagsWithSlug(tagName, tagSlug);
+            Assert.AreEqual(tagsPage.NumberOfTags(), 1);
         }
         [TearDown]
         public void Close()

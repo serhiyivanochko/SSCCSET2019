@@ -4,16 +4,15 @@ namespace SSCCSET2019.Pages.Posts
 {
     class EditTags
     {
-        IWebDriver driver;
-
-        IWebElement nameLabel;
-        IWebElement slugLabel;
-        IWebElement descriptionLabel;
-        IWebElement nameEdit;
-        IWebElement slugEdit;
-        IWebElement descriptionEdit;
-        IWebElement updateButton;
-        IWebElement deleteButton;
+        private IWebDriver driver;
+        private IWebElement nameLabel;
+        private IWebElement slugLabel;
+        private IWebElement descriptionLabel;
+        private IWebElement nameEdit;
+        private IWebElement slugEdit;
+        private IWebElement descriptionEdit;
+        private IWebElement updateButton;
+        private IWebElement deleteButton;
 
         public EditTags(IWebDriver driver)
         {
@@ -25,9 +24,8 @@ namespace SSCCSET2019.Pages.Posts
             slugEdit = driver.FindElement(By.XPath("//*[@id='slug']"));
             descriptionEdit = driver.FindElement(By.XPath("//*[@id='description']"));
             updateButton = driver.FindElement(By.XPath("//*[@id='edittag']/div/input"));
-            deleteButton = driver.FindElement(By.XPath("//*[@id='delete - link']/a"));
+            deleteButton = driver.FindElement(By.XPath("//*[@id='delete-link']/a"));
         }
-
         public EditTags ClickInputName()
         {
             nameEdit.Click();
@@ -35,7 +33,7 @@ namespace SSCCSET2019.Pages.Posts
         }
         public EditTags ClickInputSlug()
         {
-           slugEdit.Click();
+            slugEdit.Click();
             return this;
         }
         public EditTags ClickInputDescription()

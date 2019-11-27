@@ -1,12 +1,9 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using OpenQA.Selenium.Interactions;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using SSCCSET2019.Pages.Posts.AddedTags;
 
-namespace SSCCSET2019.Pages.Tags
+namespace SSCCSET2019.Pages.Posts
 {
     class Tags
     {
@@ -38,9 +35,10 @@ namespace SSCCSET2019.Pages.Tags
         public List<AddedTags> listOfAddedTags;
 
         public Tags(IWebDriver driver)
-        {
+        { 
             this.driver = driver;
             elementAction = new SelectElement(driver.FindElement(By.Id("bulk-action-selector-top")));
+        
             actionSelector = driver.FindElement(By.Id("bulk-action-selector-top"));
             doActionButton = driver.FindElement(By.Id("doaction"));
             checkBoxAll = driver.FindElement(By.Id("cb-select-all-1"));
@@ -66,7 +64,6 @@ namespace SSCCSET2019.Pages.Tags
             nameLabel = driver.FindElement(By.XPath("//*[@id='addtag']/div[1]/label"));
             listOfAddedTags = CheckEnabledTags();
         }
-
         private List<AddedTags> CheckEnabledTags()
         {
             try
@@ -88,6 +85,14 @@ namespace SSCCSET2019.Pages.Tags
             }
             return tags;
         }
+        public Tags CheckAllCheckboxs(List<AddedTags> list)
+        {
+            foreach (var tags in list)
+            {
+                tags.CheckCheckbox();
+            }
+            return this;
+        }
         public Tags DeleteActionClick()
         {
             elementAction.SelectByText("Delete");
@@ -101,7 +106,7 @@ namespace SSCCSET2019.Pages.Tags
         public Tags ClickSearchTagsButton()
         {
             searchTagsButton.Click();
-            return this;
+            return new Tags(driver);
         }
         public Tags InputSearchTagsBox(string searchedTag)
         {
@@ -126,7 +131,7 @@ namespace SSCCSET2019.Pages.Tags
         public Tags ClickDescriptionSortingIndicator()
         {
             descriptionSortingIndicator.Click();
-            return this;
+            return new Tags(driver);
         }
         public Tags ClickSlugSortingIndicator()
         {
@@ -213,6 +218,11 @@ namespace SSCCSET2019.Pages.Tags
         public Tags ClickSlugEdit()
         {
             slugEdit.Click();
+            return this;
+        }
+        public Tags SelectDeleteAction()
+        {
+            elementAction.SelectByValue("delete");
             return this;
         }
         public Tags ClickDescriptionEdit()
