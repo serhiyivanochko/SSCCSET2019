@@ -5,7 +5,8 @@ using System;
 using OpenQA.Selenium.Chrome;
 using SSCCSET2019.Data.ApplicationSource;
 
-namespace SSCCSET2019.Tools.Driver
+namespace SSCCSET2019.Tools
+
 
 {
     class Driver

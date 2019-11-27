@@ -5,77 +5,61 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using SSCCSET2019.Pages.Posts;
 
-namespace SSCCSET2019.Pages.Posts.QuickEditTag
+namespace SSCCSET2019.Pages.Posts
 {
-    class QuikEditTag : Tags
+    class QuickEditTag
     {
-        IWebDriver driver;
+        private IWebDriver driver;
+        private IWebElement inputName;
+        private IWebElement inputSlug;
+        private IWebElement cancelButton;
+        private IWebElement updateTagButton;
 
-        IWebElement quickEditLabel;
-        IWebElement nameLabel;
-        IWebElement slugLabel;
-        IWebElement inputName;
-        IWebElement inputSlug;
-        IWebElement cancelButton;
-        IWebElement updateTagButton;
-
-
-        public QuikEditTag(IWebDriver driver) : base(driver)
+        public QuickEditTag(IWebDriver driver)
         {
-            quickEditLabel = driver.FindElement(By.XPath("//*[@id='edit-2']/td/fieldset/legend"));
-            nameLabel = driver.FindElement(By.XPath("//*[@id='edit-2']/td/fieldset/div/label[1]/span[1]"));
-            slugLabel = driver.FindElement(By.XPath("//*[@id='edit-2']/td/fieldset/div/label[2]/span[1]"));
-            inputName = driver.FindElement(By.XPath("//*[@id='edit-2']/td/fieldset/div/label[1]/span[2]/input"));
-            inputSlug = driver.FindElement(By.XPath("//*[@id='edit-2']/td/fieldset/div/label[2]/span[2]/input"));
-            cancelButton = driver.FindElement(By.XPath("//*[@id='edit-2']/td/div/button[1]"));
-            updateTagButton = driver.FindElement(By.XPath("//*[@id='edit-2']/td/div/button[2]"));
+            this.driver = driver;
+            inputSlug = driver.FindElement(By.CssSelector(".wp-list-table.widefat.fixed.striped.tags")).FindElement(By.XPath("//*[@name='slug']"));
+            cancelButton = driver.FindElement(By.CssSelector(".cancel.button.alignleft"));
+            inputName = driver.FindElement(By.XPath("//*[@name='name']"));
+            updateTagButton = driver.FindElement(By.CssSelector(".save.button.button-primary.alignright"));
         }
-
         public Tags ClickCancelButton()
         {
             cancelButton.Click();
             return new Tags(driver);
         }
-        public QuikEditTag ClickUpdateTagButton()
+        public QuickEditTag ClickUpdateTagButton()
         {
             updateTagButton.Click();
             return this;
         }
-
-        public QuikEditTag ClearInputName()
+        public QuickEditTag ClearInputName()
         {
             inputName.Clear();
             return this;
         }
-
-        public QuikEditTag ClearInputSlug()
+        public QuickEditTag ClearInputSlug()
         {
             inputSlug.Clear();
             return this;
         }
-
-        public QuikEditTag EditInputName(string newName)
+        public QuickEditTag EditInputName(string newName)
         {
             inputName.SendKeys(newName);
             return this;
         }
-
-        public QuikEditTag EditInputSlug(string newSlug)
+        public QuickEditTag EditInputSlug(string newSlug)
         {
             inputSlug.SendKeys(newSlug);
             return this;
         }
-
-        public QuikEditTag ClickInputName()
+        public QuickEditTag ClickInputName()
         {
             inputName.Click();
             return this;
         }
-
-        public QuikEditTag ClickInputSlug()
+        public QuickEditTag ClickInputSlug()
         {
             inputSlug.Click();
             return this;
