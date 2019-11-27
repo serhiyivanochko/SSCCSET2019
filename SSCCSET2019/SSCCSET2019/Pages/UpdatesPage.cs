@@ -9,12 +9,17 @@ namespace SSCCSET2019.Pages
 {
     class UpdatesPage
     {
+        private bool isVisible = true;
+        IWebElement hideShow;
+        private bool isVisiblePluginsAvailable = true;
+
         IWebDriver driver;
         IWebElement title;
         IWebElement lastcheckText;
         IWebElement checkButton;
         IWebElement checkConclusionText;
         IWebElement text3;
+        IWebElement aboutButton;
         IWebElement redownloadButton;
         IWebElement hideButton;
         IWebElement text4;
@@ -44,15 +49,17 @@ namespace SSCCSET2019.Pages
         IWebElement thanksText;
         IWebElement wordPressLink;
         IWebElement version;
-        public UpdatesPage(IWebDriver driver)
+        public UpdatesPage(IWebDriver webDriver)
         {
-            this.driver = driver;
+            this.driver = webDriver;
             title = driver.FindElement(By.XPath("//*[@id=\"wpbody - content\"]/div[3]/h1"));
             lastcheckText = driver.FindElement(By.XPath("//*[@id=\"wpbody - content\"]/div[3]/p[1]/text()"));
             checkButton = driver.FindElement(By.XPath("//*[@id=\"wpbody - content\"]/div[3]/p[1]/a"));
             text3 = driver.FindElement(By.XPath("//*[@id=\"wpbody - content\"]/div[3]/ul/li/p"));
             checkConclusionText = driver.FindElement(By.XPath("//*[@id=\"wpbody - content\"]/div[3]/h2[1]/text()"));
-            redownloadButton = driver.FindElement(By.Id("upgrade"));
+            aboutButton = driver.FindElement(By.XPath("//*[@id=\"wpbody - content\"]/div[3]/p[2]/a"));
+            hideShow = driver.FindElement(By.Id("#show-dismissed"));
+             redownloadButton = driver.FindElement(By.Id("upgrade"));
             hideButton = driver.FindElement(By.Id("dismiss"));
             text4 = driver.FindElement(By.XPath("//*[@id=\"wpbody - content\"]/div[3]/ul/li/form/p[2]/text()"));
             pluginsText = driver.FindElement(By.XPath("//*[@id=\"wpbody - content\"]/div[3]/h2[2]"));
@@ -77,14 +84,27 @@ namespace SSCCSET2019.Pages
             wordPressLink = driver.FindElement(By.XPath("//*[@id=\"footer - thankyou\"]/a"));
             version = driver.FindElement(By.Id("footer-upgrade"));
         }
-        public string Title()
-        {
-            return title.Text;
-        }
         public string CheckUpdates()
         {
             checkButton.Click();
             return "http://localhost/wp1/wp-admin/update-core.php?force-check=1";
+        }
+        public string AboutButton()
+        {
+            aboutButton.Click();
+            return "http://localhost/wp1/wp-admin/about.php";
+        }
+        public UpdatesPage HideButton()
+        {
+           if(hideButton != null)
+           {
+                hideButton.Click();
+           }
+           else
+           {
+                isVisible = false;
+           }
+            return this;
         }
         public string ReinstallUpdates()
         {
@@ -96,15 +116,41 @@ namespace SSCCSET2019.Pages
             hideButton.Click();
             return "http://localhost/wp1/wp-admin/update-core.php?action=upgrade-core&_wpnonce=7393171d49";
         }
-        public string UpdatePlugins()
+        public UpdatesPage PluginsAvailabe()
         {
-            updatePluginsButton.Click();
-            return "http://localhost/wp1/wp-admin/update-core.php?action=do-plugin-upgrade";
+            if (pluginsSelectAllButton == null)
+            {
+                isVisiblePluginsAvailable = false;
+            }
+            else
+            {
+                isVisiblePluginsAvailable = true;
+            }
+            return this;
         }
         public UpdatesPage SelectAllPlugins()
         {
-            pluginsSelectAllButton.Click();
-            return this;
+            if (isVisiblePluginsAvailable)
+            {
+                pluginsSelectAllButton.Click();
+                return this;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public string UpdatePlugins()
+        {
+            if (isVisiblePluginsAvailable)
+            {
+                updatePluginsButton.Click();
+                return "http://localhost/wp1/wp-admin/update-core.php?action=do-plugin-upgrade";
+            }
+            else
+            {
+                return null;
+            }
         }
         public UpdatesPage UntiSpamSelect()
         {

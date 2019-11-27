@@ -11,17 +11,16 @@ namespace SSCCSET2019.Tests
     [TestFixture]
     class UpdatesPageTest
     {
-        private IWebDriver driver;
+        IWebDriver driver;
         [SetUp]
         public void Setup()
         {
-
+            driver = Driver.GetDriver();
         }
         [Test]
         public void Test()
         {
             LoginPageLogic log1 = new LoginPageLogic();
-            driver.Navigate().GoToUrl("http://localhost/wp1/wp-admin/update-core.php");
             log1.Login();
             //UpdatesPageLogic up1 = new UpdatesPageLogic();
             //up1.MainUpdatesCheck();
@@ -29,7 +28,7 @@ namespace SSCCSET2019.Tests
         [TearDown]
         public void TearDown()
         {
-            driver.Close();
+            Driver.GetDriver().Close();
         }
     }
 }

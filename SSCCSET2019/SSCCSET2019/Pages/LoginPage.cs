@@ -13,9 +13,9 @@ namespace SSCCSET2019.Pages
         IWebElement login;
         IWebElement password;
         IWebElement submmit;
-        public LoginPage(IWebDriver driver)
+        public LoginPage(IWebDriver webDriver)
         {
-            this.driver = driver;
+            this.driver = webDriver;
             login = driver.FindElement(By.Id("user_login"));
             password = driver.FindElement(By.Id("user_pass"));
             submmit = driver.FindElement(By.Id("wp-submit"));

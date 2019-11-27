@@ -16,15 +16,11 @@ namespace SSCCSET2019.Logic
 {
     class LoginPageLogic
     {
-        LoginPage loginPage;
-        public LoginPageLogic()
-        {
-            ApplicationSource.SetBrowser("chrome");
-            var driver = Driver.GetDriver();
-            loginPage = new LoginPage(driver);
-        }
+        IWebDriver driver =  Driver.GetDriver();
         public void Login()
         {
+            driver.Navigate().GoToUrl("http://localhost/wp1/wp-admin/update-core.php");
+            LoginPage loginPage = new LoginPage(driver);
             loginPage.LoginClick();
             loginPage.LoginClear();
             loginPage.LoginInput();
