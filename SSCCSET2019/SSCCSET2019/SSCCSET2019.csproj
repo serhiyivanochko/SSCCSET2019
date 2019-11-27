@@ -31,12 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Activities.Extensions, Version=2.0.6.9, Culture=neutral, PublicKeyToken=23b0c89d0d5ad43f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Activities.UnitTesting.2.0.6.9\lib\Net45\Microsoft.Activities.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Activities.UnitTesting, Version=2.0.6.9, Culture=neutral, PublicKeyToken=30c1df11edd2bb96, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Activities.UnitTesting.2.0.6.9\lib\Net45\Microsoft.Activities.UnitTesting.dll</HintPath>
-    </Reference>
     <Reference Include="NuGet.Frameworks, Version=5.3.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\NuGet.Frameworks.5.3.1\lib\net40\NuGet.Frameworks.dll</HintPath>
     </Reference>
@@ -47,8 +41,6 @@
     <Reference Include="System.Activities" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing" />
-    <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
     <Reference Include="System.ServiceModel.Activities" />
     <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
@@ -59,7 +51,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\ApplicationSource.cs" />
+    <Compile Include="Logic\ActivityPageLogic.cs" />
     <Compile Include="Logic\TagsPageLogic.cs" />
+    <Compile Include="Logic\LoginPageLogic.cs" />
     <Compile Include="Pages\Posts\AddedTags.cs" />
     <Compile Include="Pages\Posts\EditTags.cs" />
     <Compile Include="Pages\Posts\Tags.cs" />
@@ -73,7 +67,6 @@
     <Compile Include="Pages\HomePage\Activity.cs" />
     <Compile Include="Pages\HomePage\AtGlance.cs" />
     <Compile Include="Pages\UpdatesPage.cs" />
-    <Compile Include="Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -86,8 +79,8 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.12.0\build\NUnit.props'))" />
     <Error Condition="!Exists('..\packages\NUnitTestAdapter.2.2.0\build\NUnitTestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnitTestAdapter.2.2.0\build\NUnitTestAdapter.props'))" />
-    <Error Condition="!Exists('..\packages\Selenium.Firefox.WebDriver.0.26.0\build\Selenium.Firefox.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.Firefox.WebDriver.0.26.0\build\Selenium.Firefox.WebDriver.targets'))" />
     <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.15.1\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.15.1\build\net35\NUnit3TestAdapter.props'))" />
+    <Error Condition="!Exists('..\packages\Selenium.Firefox.WebDriver.0.26.0\build\Selenium.Firefox.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.Firefox.WebDriver.0.26.0\build\Selenium.Firefox.WebDriver.targets'))" />
   </Target>
   <Import Project="..\packages\Selenium.Firefox.WebDriver.0.26.0\build\Selenium.Firefox.WebDriver.targets" Condition="Exists('..\packages\Selenium.Firefox.WebDriver.0.26.0\build\Selenium.Firefox.WebDriver.targets')" />
 </Project>

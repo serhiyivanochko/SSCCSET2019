@@ -25,6 +25,12 @@ namespace SSCCSET2019.Pages.HomePage
         private IWebElement unapprove;
         private IWebElement edit;
         private IWebElement undo;
+        private IWebElement allComments;
+        private IWebElement mineComment;
+        private IWebElement approvedComment;
+        private IWebElement trashComment;
+        private IWebElement spamcomment;
+        private IWebElement pendingComment;
         Actions actions;
         
         public ActivityElements(IWebDriver driver)
@@ -41,10 +47,19 @@ namespace SSCCSET2019.Pages.HomePage
             spam = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/p[2]/span[5]"));
             trash = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/p[2]/span[6]"));
             view = driver.FindElement(By.XPath(@"//*[@id='comment-1']/div/p[2]/span[7]"));
+            allComments = driver.FindElement(By.XPath(@"//*[@id='latest-comments']/ul[2]/li[1]/a"));
+            mineComment = driver.FindElement(By.XPath(@"//*[@id='latest-comments']/ul[2]/li[2]/a"));
+            pendingComment = driver.FindElement(By.XPath(@"//*[@id='latest-comments']/ul[2]/li[3]/a"));
+            approvedComment = driver.FindElement(By.XPath(@"//*[@id='latest-comments']/ul[2]/li[4]/a"));
+            spamcomment = driver.FindElement(By.XPath(@"//*[@id='latest-comments']/ul[2]/li[5]/a"));
+            trashComment = driver.FindElement(By.XPath(@"//*[@id='latest-comments']/ul[2]/li[6]/a"));
             //undo = driver.FindElement(By.XPath(@"//*[@id='undo-1']/div/span/a"));
-           
-        }
 
+        }
+        private void MakeVisible() {
+            actions.MoveToElement(comment);
+            actions.Perform();
+        }
         public ActivityElements HideOrShowActivity()
         {
             hideShow.Click();
@@ -61,9 +76,7 @@ namespace SSCCSET2019.Pages.HomePage
 
         public ActivityElements ClickOnReply()
         {
-            actions.MoveToElement(comment);
-            actions.Perform();
-            Thread.Sleep(5000);
+            MakeVisible();
             reply.Click();
             if (replyElements==null)
             {
@@ -77,59 +90,23 @@ namespace SSCCSET2019.Pages.HomePage
             }
 
         }
-       /* public ActivityElements SetTextInReplyTextField(string str)
+        
+        public ActivityElements ClickOnApprove()
         {
-            if (isVisible)
-            {
-                replyTextField.SendKeys(str);
-                return this;
-            }
-            else
-            {
-                return null;
-            }
-            
-        }
-        public ActivityElements ClickOnReplyTextField()
-        {
-            if (isVisible)
-            {
-                replyTextField.Click();
-                return this;
-            }
-            else
-            {
-                return null;
-            }
-            
-        }
+            MakeVisible();
+            approve.Click();
+            return this;
 
-        public ActivityElements ClearReplyTextField()
-        {
-            if (isVisible)
-            {
-                replyTextField.Clear();
-                return this;
-            }
-            else
-            {
-                return null;
-            }
-            
         }
-        public string GetTeaxtFromReplyTextField()
+       public ActivityElements ClickOnUnapprove()
         {
-            if (isVisible)
-            {
-                return replyTextField.Text;
-            }
-            else
-            {
-                return null;
-            }
-            
+            MakeVisible();
+            unapprove.Click();
+            return this;
+
         }
-*/
+       
+
         public string GetComentText()
         {
             if (isVisible)
@@ -169,43 +146,13 @@ namespace SSCCSET2019.Pages.HomePage
             }
             
         }
-       /* public ActivityElements ClickTApproveReplyToComment()
-        {
-            if (isVisible)
-            {
-                replyApprove.Click();
-                return this;
-            }
-            else
-            {
-                return null;
-            }
-           
-        }
-        public ActivityElements ClickCancelReplyToComment()
-        {
-            if (isVisible)
-            {
-                replyCancel.Click();
-                return this;
-            }
-            else
-            {
-                return null;
-            }
-            
-        }*/
+        
     }
 
     class ReplyElements : ActivityElements
     {
         IWebDriver driver;
-        private IWebElement allComments;
-        private IWebElement mineComment;
-        private IWebElement approvedComment;
-        private IWebElement trashComment;
-        private IWebElement spamcomment;
-        private IWebElement pendingComment;
+        
         private IWebElement TollbarBtnB;
         private IWebElement TollbarBtnI;
         private IWebElement TollbarBtnLink;
@@ -224,12 +171,6 @@ namespace SSCCSET2019.Pages.HomePage
         public ReplyElements(IWebDriver driver):base(driver)
         {
             this.driver = driver;
-            allComments = driver.FindElement(By.XPath(@"//*[@id='latest-comments']/ul[2]/li[1]/a"));
-            mineComment = driver.FindElement(By.XPath(@"//*[@id='latest-comments']/ul[2]/li[2]/a"));
-            pendingComment = driver.FindElement(By.XPath(@"//*[@id='latest-comments']/ul[2]/li[3]/a"));
-            approvedComment = driver.FindElement(By.XPath(@"//*[@id='latest-comments']/ul[2]/li[4]/a"));
-            spamcomment = driver.FindElement(By.XPath(@"//*[@id='latest-comments']/ul[2]/li[5]/a"));
-            trashComment = driver.FindElement(By.XPath(@"//*[@id='latest-comments']/ul[2]/li[6]/a"));
             TollbarBtnB = driver.FindElement(By.Id("qt_replycontent_strong"));
             TollbarBtnI = driver.FindElement(By.Id("qt_replycontent_em"));
             TollbarBtnLink = driver.FindElement(By.Id("qt_replycontent_link"));
@@ -251,6 +192,87 @@ namespace SSCCSET2019.Pages.HomePage
             replyCancel.Click();
             replyElements = null;
             return new ActivityElements(driver);
+        }
+
+        public ActivityElements SetTextInReplyTextField(string str)
+        {
+            if (replyElements != null)
+            {
+                replyTextField.SendKeys(str);
+                return this;
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+        public ActivityElements ClickOnReplyTextField()
+        {
+            if (replyElements != null)
+            {
+                replyTextField.Click();
+                return this;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public ActivityElements ClearReplyTextField()
+        {
+            if (replyElements != null)
+            {
+                replyTextField.Clear();
+                return this;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public string GetTeaxtFromReplyTextField()
+        {
+            if (replyElements != null)
+            {
+                
+                return replyTextField.Text;
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+
+        public ActivityElements ClickApproveReplyToComment()
+        {
+            if (replyElements != null)
+            {
+                replyApprove.Click();
+                replyElements = null;
+                return this;
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+        public ActivityElements ClickCancelReplyToComment()
+        {
+            if (replyElements != null)
+            {
+                replyCancel.Click();
+                replyElements = null;
+                return this;
+            }
+            else
+            {
+                return null;
+            }
+
         }
     }
 }
