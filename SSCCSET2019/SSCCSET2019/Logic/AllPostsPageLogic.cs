@@ -67,5 +67,12 @@ namespace SSCCSET2019.Logic
 
             return new AllPosts(driver,index-1);
         }
+
+        public AllPosts SelectBulkAction(int indexBulkActionSelector, int index)
+        {
+            allPostsPage.SelectBulkActionByIndex(indexBulkActionSelector, index);
+
+            return allPostsPage;
+        }
     }
 }

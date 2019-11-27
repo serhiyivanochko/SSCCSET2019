@@ -45,6 +45,12 @@ namespace SSCCSET2019.Pages.AllPostsPage
             ApplyBtn.Add(driver.FindElement(By.Id("doaction2")));
             SelectDate = new SelectElement(driver.FindElement(By.Id("filter-by-date")));
             SelectCategory = new SelectElement(driver.FindElement(By.Id("cat")));
+
+            SelectBulkAction = new List<SelectElement>();
+            SelectBulkAction.Add(new SelectElement(driver.FindElement(By.Id("bulk-action-selector-top"))));
+            SelectBulkAction.Add(new SelectElement(driver.FindElement(By.Id("bulk-action-selector-bottom"))));
+
+
             FilterBtn = driver.FindElement(By.Id("post-query-submit"));
             DisplayingSumLabel = driver.FindElement(By.XPath("//span[@class='displaying-num']"));
             Records = InitializeRecordsList(driver.FindElements(By.ClassName("iedit")));
@@ -266,6 +272,12 @@ namespace SSCCSET2019.Pages.AllPostsPage
         public List<RecordItem> GetRecordsList()
         {
             return Records;
+        }
+
+        public AllPosts SelectBulkActionByIndex(int indexOfBulk, int actionIndex)
+        {
+            SelectBulkAction[indexOfBulk - 1].SelectByIndex(actionIndex);
+            return this;
         }
     }
 }
