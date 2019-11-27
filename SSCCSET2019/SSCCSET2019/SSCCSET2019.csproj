@@ -39,7 +39,62 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommentModern.cs" />
+    <Compile Include="CommentsReview.cs" />
+    <Compile Include="InstrumentsEnabledConvector.cs" />
+    <Compile Include="InstrumentsExportReview.cs" />
+    <Compile Include="InstrumentsImportReview.cs" />
+    <Compile Include="LookMenuAdit.cs" />
+    <Compile Include="LookMenuReview.cs" />
+    <Compile Include="LookMenuSettings.cs" />
+    <Compile Include="LookThEdReview.cs" />
+    <Compile Include="LookTheEdAdd.cs" />
+    <Compile Include="LookTheEdSettings.cs" />
+    <Compile Include="LookThemeAdd.cs" />
+    <Compile Include="LookThemeRevision.cs" />
+    <Compile Include="LookVidgetsDamage.cs" />
+    <Compile Include="LookVidgetsDelete.cs" />
+    <Compile Include="LookVidgetsHTML.cs" />
+    <Compile Include="LookVidgetsReview.cs" />
+    <Compile Include="LooThemeReview.cs" />
+    <Compile Include="MediaLibraryAction.cs" />
+    <Compile Include="MediaLibraryFiles.cs" />
+    <Compile Include="MediaLibraryReview.cs" />
+    <Compile Include="PagesAllMan.cs" />
+    <Compile Include="PagesAllReview.cs" />
+    <Compile Include="PlaginsAddAdd.cs" />
+    <Compile Include="PlaginsAddReview.cs" />
+    <Compile Include="PlaginsSettedRemove.cs" />
+    <Compile Include="PlaginsSettedReview.cs" />
+    <Compile Include="RecondTagReview.cs" />
+    <Compile Include="RecordAllContent.cs" />
+    <Compile Include="RecordAllEnAction.cs" />
+    <Compile Include="RecordAllGrAction.cs" />
+    <Compile Include="RecordAllReview.cs" />
+    <Compile Include="RecordCategoryAdd.cs" />
+    <Compile Include="RecordCategoryReview.cs" />
+    <Compile Include="RecordTagAdd.cs" />
+    <Compile Include="ReviewWorkshopMain.cs" />
+    <Compile Include="SettingsDiscusionReview.cs" />
+    <Compile Include="SettingsGeneralReview.cs" />
+    <Compile Include="SettingsMediaReview.cs" />
+    <Compile Include="SettingsReadRewiew.cs" />
+    <Compile Include="SettingsReadVisibility.cs" />
+    <Compile Include="SettingsWriteUpdate.cs" />
+    <Compile Include="SettingWriteMail.cs" />
+    <Compile Include="SettingWriteReview.cs" />
     <Compile Include="Test.cs" />
+    <Compile Include="UsersAddReview.cs" />
+    <Compile Include="UsersAddRole.cs" />
+    <Compile Include="UsersAllContent.cs" />
+    <Compile Include="UsersAllEnAction.cs" />
+    <Compile Include="UsersAllReview.cs" />
+    <Compile Include="UsersMyReview.cs" />
+    <Compile Include="WorkshopMainContent.cs" />
+    <Compile Include="WorkshopMainMarkup.cs" />
+    <Compile Include="WorkshopMainNavigation.cs" />
+    <Compile Include="WorkshopUpdateHow.cs" />
+    <Compile Include="WorkshopUpdateReview.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
