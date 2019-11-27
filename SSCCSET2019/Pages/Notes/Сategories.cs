@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using OpenQA.Selenium;
 namespace SSCCSET2019.Pages.Notes
 {
@@ -6,6 +7,7 @@ namespace SSCCSET2019.Pages.Notes
     {
         private IWebDriver driver;
 
+        private List<IWebElement> categoryTable = new List<IWebElement>();
 
         private IWebElement name;
         private IWebElement nameDescription;
@@ -70,13 +72,19 @@ namespace SSCCSET2019.Pages.Notes
             this.transformCategoryInMarkURL = driver.FindElement(By.XPath("//*[@id=\"col - right\"]/div/div/p[2]/a"));
             this.descriptionBox = driver.FindElement(By.XPath("//*[@id=\"col-right\"]/div/div"));
             this.version = driver.FindElement(By.Id("footer-upgrade"));
+
+            this.categoryTable = driver.FindElements(By.Id("the-list"));
         }
 
         public void ClickName()
         {
             name.Click();
         }
-
+        public void EnterName(string str)
+        {
+            name.Clear();
+            name.SendKeys(str);
+        }
         public bool IsNameEnable()
         {
             return name.Enabled;
@@ -90,6 +98,12 @@ namespace SSCCSET2019.Pages.Notes
         public void PartOfURLClick()
         {
             partOfURL.Click();
+        }
+
+        public void EnterPartOfURL(string str)
+        {
+            partOfURL.Clear();
+            partOfURL.SendKeys(str);
         }
 
         public bool PartOfURLEnable()
