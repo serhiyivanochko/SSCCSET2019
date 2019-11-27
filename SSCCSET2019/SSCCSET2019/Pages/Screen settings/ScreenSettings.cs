@@ -7,13 +7,15 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using NUnit.Framework;
 using OpenQA.Selenium.Support.UI;
+using SSCCSET2019.Tools.Driver;
 
 namespace SSCCSET2019.Pages
 {
     
-    class ScreenSettings
+    public class ScreenSettings
     {
-        public enum Pages
+        
+        public enum Page
         {
             Main,
             Updates,
@@ -23,7 +25,7 @@ namespace SSCCSET2019.Pages
             Tags,
             Library,
             AddNewFile,
-            AllPages,
+            AllPages, 
             AddNewPage,
             Comments,
             Themes,
@@ -51,7 +53,8 @@ namespace SSCCSET2019.Pages
             PermanentLink,
             Confidence
         }
-        IWebDriver driver;
+      private IWebDriver driver;
+        
         public void BrowserStart()
         {
             driver = new FirefoxDriver();
@@ -86,20 +89,20 @@ namespace SSCCSET2019.Pages
         private IWebElement xfn;
         private IWebElement email;
         private IWebElement role;
-        public ScreenSettings(Pages p)
+        public ScreenSettings(Page p)
         {
             switch (p)
             {
-                case Pages.Main:
+                case Page.Main:
                     in_sight = driver.FindElement(By.Name("dashboard_right_now-hide"));
                     activity = driver.FindElement(By.Name("dashboard_activity-hide"));
                     quick_draft = driver.FindElement(By.Name("dashboard_quick_press-hide"));
                     news_of_wordpress = driver.FindElement(By.Name("dashboard_primary-hide"));
                     welcome = driver.FindElement(By.Id("wp_welcome_panel-hide"));
                     break;
-                case Pages.Updates:
+                case Page.Updates:
                     break;
-                case Pages.AllNotes:
+                case Page.AllNotes:
                     author = driver.FindElement(By.Name("author-hide"));
                     categories = driver.FindElement(By.Name("categories-hide"));
                     tags = driver.FindElement(By.Name("tags-hide"));
@@ -110,23 +113,23 @@ namespace SSCCSET2019.Pages
                     view_the_details = driver.FindElement(By.Id("expert-view-mode"));
                     apply = driver.FindElement(By.Name("screen-options-apply"));
                     break;
-                case Pages.AddNew:
+                case Page.AddNew:
                     break;
-                case Pages.Categories:
+                case Page.Categories:
                     description = driver.FindElement(By.Name("description-hide"));
                     part_of_the_link = driver.FindElement(By.Name("slug-hide"));
                     number = driver.FindElement(By.Name("posts-hide"));
                     numbers_of_notes = driver.FindElement(By.Id("edit_category_per_page"));
                     apply = driver.FindElement(By.Name("screen-options-apply"));
                     break;
-                case Pages.Tags:
+                case Page.Tags:
                     description = driver.FindElement(By.Name("description-hide"));
                     part_of_the_link = driver.FindElement(By.Name("slug-hide"));
                     number = driver.FindElement(By.Name("posts-hide"));
                     numbers_of_notes = driver.FindElement(By.Id("edit_post_tag_per_page"));
                     apply = driver.FindElement(By.Name("screen-options-apply"));
                     break;
-                case Pages.Library:
+                case Page.Library:
                     author = driver.FindElement(By.Name("author-hide"));
                     downloaded_for = driver.FindElement(By.Name("parent-hide"));
                     comments = driver.FindElement(By.Name("comments-hide"));
@@ -134,31 +137,31 @@ namespace SSCCSET2019.Pages
                     numbers_of_notes = driver.FindElement(By.Id("upload_per_page"));
                     apply = driver.FindElement(By.Name("screen-options-apply"));
                     break;
-                case Pages.AddNewFile:
-                    break;
-                case Pages.AllPages:
+                //case Page.AddNewFile:
+                //    break;
+                case Page.AllPages:
                     author = driver.FindElement(By.Name("author-hide"));
                     comments = driver.FindElement(By.Name("comments-hide"));
                     date = driver.FindElement(By.Name("date-hide"));
                     numbers_of_notes = driver.FindElement(By.Id("edit_page_per_page"));
                     apply = driver.FindElement(By.Name("screen-options-apply"));
                     break;
-                case Pages.AddNewPage:
-                    break;
-                case Pages.Comments:
+                //case Page.AddNewPage:
+                //    break;
+                case Page.Comments:
                     author = driver.FindElement(By.Name("author-hide"));
                     response = driver.FindElement(By.Name("response-hide"));
                     sent = driver.FindElement(By.Name("date-hide"));
                     numbers_of_notes = driver.FindElement(By.Id("edit_comments_per_page"));
                     apply = driver.FindElement(By.Name("screen-options-apply"));
                     break;
-                case Pages.Themes:
-                    break;
-                case Pages.Settings:
-                    break;
-                case Pages.Widgets:
-                    break;
-                case Pages.Menu:
+                //case Page.Themes:
+                //    break;
+                //case Page.Settings:
+                //    break;
+                //case Page.Widgets:
+                //    break;
+                case Page.Menu:
                     pages = driver.FindElement(By.Name("add-post-type-page-hide"));
                     posts = driver.FindElement(By.Name("add-post-type-post-hide"));
                     customs_link = driver.FindElement(By.Name("add-custon-links-hide"));
@@ -170,62 +173,100 @@ namespace SSCCSET2019.Pages
                     xfn = driver.FindElement(By.Name("xfn-hide"));
                     description = driver.FindElement(By.Name("description-hide"));
                     break;
-                case Pages.Editor:
-                    break;
-                case Pages.SettedPlugins:
+                //case Page.Editor:
+                //    break;
+                case Page.SettedPlugins:
                     description = driver.FindElement(By.Name("description-hide"));
                     numbers_of_notes = driver.FindElement(By.Id("plugins_per_page"));
                     apply = driver.FindElement(By.Name("screen-options-apply"));
                     break;
-                case Pages.AddNewPlugin:
-                    break;
-                case Pages.EditorOfPlugins:
-                    break;
-                case Pages.AllCustoms:
+                //case Page.AddNewPlugin:
+                //    break;
+                //case Page.EditorOfPlugins:
+                //    break;
+                case Page.AllCustoms:
                     email = driver.FindElement(By.Name("email-hide"));
                     role = driver.FindElement(By.Name("role-hide"));
                     posts = driver.FindElement(By.Name("posts-hide"));
                     numbers_of_notes = driver.FindElement(By.Id("users_per_page"));
                     apply = driver.FindElement(By.Name("screen-options-apply"));
                     break;
-                case Pages.AddCustom:
-                    break;
-                case Pages.YourAccount:
-                    break;
-                case Pages.Available:
-                    break;
-                case Pages.Import:
-                    break;
-                case Pages.Export:
-                    break;
-                case Pages.HealthOfSite:
-                    break;
-                case Pages.ExportData:
+                //case Page.AddCustom:
+                //    break;
+                //case Page.YourAccount:
+                //    break;
+                //case Page.Available:
+                //    break;
+                //case Page.Import:
+                //    break;
+                //case Page.Export:
+                //    break;
+                //case Page.HealthOfSite:
+                //    break;
+                case Page.ExportData:
                     numbers_of_notes = driver.FindElement(By.Id("export_personal_data_requests_per_page"));
                     apply = driver.FindElement(By.Name("screen-options-apply"));
-
                     break;
-                case Pages.RemoveData:
+                case Page.RemoveData:
                     numbers_of_notes = driver.FindElement(By.Id("remove_personal_data_requests_per_page"));
                     apply = driver.FindElement(By.Name("screen-options-apply"));
                     break;
-                case Pages.AtAll:
-                    break;
-                case Pages.Writing:
-                    break;
-                case Pages.Reading:
-                    break;
-                case Pages.Talking:
-                    break;
-                case Pages.Mediafiles:
-                    break;
-                case Pages.PermanentLink:
-                    break;
-                case Pages.Confidence:
-                    break;
+                //case Page.AtAll:
+                //    break;
+                //case Page.Writing:
+                //    break;
+                //case Page.Reading:
+                //    break;
+                //case Page.Talking:
+                //    break;
+                //case Page.Mediafiles:
+                //    break;
+                //case Page.PermanentLink:
+                //    break;
+                //case Page.Confidence:
+                //    break;
+
             }
         }
-        public ScreenSettings InSightSubmit(Pages p)
+        public ScreenSettings(IWebDriver driver) 
+        {
+            this.driver = driver;
+            VerifyWebElement();
+        }
+        private void VerifyWebElement()
+        {
+            IWebElement elem = in_sight;
+            elem = activity;
+            elem = quick_draft;
+            elem = news_of_wordpress;
+            elem = welcome;
+            elem = author;
+            elem = categories;
+            elem = tags;
+            elem = comments;
+            elem = date;
+            elem = numbers_of_notes;
+            elem = apply;
+            elem = view_as_list;
+            elem = view_the_details;
+            elem = description;
+            elem = part_of_the_link;
+            elem = number;
+            elem = downloaded_for;
+            elem = response;
+            elem = sent;
+            elem = pages;
+            elem = posts;
+            elem = customs_link;
+            elem = goal_of_link;
+            elem = title_atributes;
+            elem = class_css;
+            elem = xfn;
+            elem = email;
+            elem = role;
+            
+        }
+        public ScreenSettings InSightSubmit(Page p)
         {
             if (in_sight != null)
             {
@@ -233,13 +274,13 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public ScreenSettings ActivitySubmit(Pages p)
+        public ScreenSettings ActivitySubmit(Page p)
         {
             if (activity!= null){
                 activity.Click(); }
             return this;
         }
-        public ScreenSettings QuickDraftSubmit(Pages p)
+        public ScreenSettings QuickDraftSubmit(Page p)
         {
             if (quick_draft != null)
             {
@@ -247,7 +288,7 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public ScreenSettings NewsOfWordpressSubmit(Pages p)
+        public ScreenSettings NewsOfWordpressSubmit(Page p)
         {
             if (news_of_wordpress != null)
             {
@@ -255,7 +296,7 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public ScreenSettings WelcomeSubmit(Pages p)
+        public ScreenSettings WelcomeSubmit(Page p)
         {
             if (welcome != null)
             {
@@ -263,7 +304,7 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public ScreenSettings AuthorClick(Pages p)
+        public ScreenSettings AuthorClick(Page p)
         {
             if (author != null)
             {
@@ -271,7 +312,7 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public ScreenSettings CatedoriesClick(Pages p)
+        public ScreenSettings CatedoriesClick(Page p)
         {
             if (categories != null)
             {
@@ -279,7 +320,7 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public ScreenSettings TagsClick(Pages p)
+        public ScreenSettings TagsClick(Page p)
         {
             if (tags != null)
             {
@@ -287,7 +328,7 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public ScreenSettings CommentsClick(Pages p)
+        public ScreenSettings CommentsClick(Page p)
         {
             if (comments != null)
             {
@@ -295,7 +336,7 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public ScreenSettings DateClick(Pages p)
+        public ScreenSettings DateClick(Page p)
         {
             if (date != null)
             {
@@ -303,7 +344,7 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public ScreenSettings NumbersOfNotesClick(Pages p)
+        public ScreenSettings NumbersOfNotesClick(Page p)
         {
             if (numbers_of_notes != null)
             {
@@ -311,7 +352,7 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public ScreenSettings NumbersOfNotesClear(Pages p)
+        public ScreenSettings NumbersOfNotesClear(Page p)
         {
             if (numbers_of_notes != null)
             {
@@ -319,7 +360,7 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public string NumbersOfNotesSetText(Pages p)
+        public string NumbersOfNotesSetText(Page p)
         {
             if (numbers_of_notes != null)
             {
@@ -327,7 +368,7 @@ namespace SSCCSET2019.Pages
             }
             return "";
         }
-        public ScreenSettings ApplyClick(Pages p)
+        public ScreenSettings ApplyClick(Page p)
         {
             if (apply != null)
             {
@@ -335,7 +376,7 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public ScreenSettings ViewAsListClick(Pages p)
+        public ScreenSettings ViewAsListClick(Page p)
         {
             if (view_as_list != null)
             {
@@ -343,7 +384,7 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public ScreenSettings ViewTheDetailsClick(Pages p)
+        public ScreenSettings ViewTheDetailsClick(Page p)
         {
             if (view_the_details != null)
             {
@@ -351,7 +392,7 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public ScreenSettings DescriptionClick(Pages p)
+        public ScreenSettings DescriptionClick(Page p)
         {
             if (description != null)
             {
@@ -359,7 +400,7 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public ScreenSettings PartOfTheLinkClick(Pages p)
+        public ScreenSettings PartOfTheLinkClick(Page p)
         {
             if (part_of_the_link != null)
             {
@@ -367,7 +408,7 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public ScreenSettings NumberClick(Pages p)
+        public ScreenSettings NumberClick(Page p)
         {
             if (number != null)
             {
@@ -375,7 +416,7 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public ScreenSettings DownloadedForClick(Pages p)
+        public ScreenSettings DownloadedForClick(Page p)
         {
             if (downloaded_for != null)
             {
@@ -383,7 +424,7 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public ScreenSettings ResponseClick(Pages p)
+        public ScreenSettings ResponseClick(Page p)
         {
             if (response != null)
             {
@@ -391,7 +432,7 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public ScreenSettings SentClick(Pages p)
+        public ScreenSettings SentClick(Page p)
         {
             if (sent != null)
             {
@@ -399,7 +440,7 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public ScreenSettings PagesClick(Pages p)
+        public ScreenSettings PagesClick(Page p)
         {
             if (pages != null)
             {
@@ -407,7 +448,7 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public ScreenSettings PostsClick(Pages p)
+        public ScreenSettings PostsClick(Page p)
         {
             if (posts != null)
             {
@@ -415,7 +456,7 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public ScreenSettings CustomsLinkClick(Pages p)
+        public ScreenSettings CustomsLinkClick(Page p)
         {
             if (customs_link != null)
             {
@@ -423,7 +464,7 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public ScreenSettings GoalOfLinkClick(Pages p)
+        public ScreenSettings GoalOfLinkClick(Page p)
         {
             if (goal_of_link != null)
             {
@@ -431,7 +472,7 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public ScreenSettings TitleAtributesClick(Pages p)
+        public ScreenSettings TitleAtributesClick(Page p)
         {
             if (title_atributes != null)
             {
@@ -439,7 +480,7 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public ScreenSettings ClassCssClick(Pages p)
+        public ScreenSettings ClassCssClick(Page p)
         {
             if (class_css != null)
             {
@@ -447,7 +488,7 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public ScreenSettings XfnClick(Pages p)
+        public ScreenSettings XfnClick(Page p)
         {
             if (xfn != null)
             {
@@ -455,7 +496,7 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public ScreenSettings EmailClick(Pages p)
+        public ScreenSettings EmailClick(Page p)
         {
             if (email != null)
             {
@@ -463,7 +504,7 @@ namespace SSCCSET2019.Pages
             }
             return this;
         }
-        public ScreenSettings RoleClick(Pages p)
+        public ScreenSettings RoleClick(Page p)
         {
             if (role != null)
             {
