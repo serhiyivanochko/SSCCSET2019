@@ -11,10 +11,9 @@ namespace SSCCSET2019
     [TestFixture]
     public class Test
     {
-        [OneTimeSetUp]
+        [SetUp]
         public void SetUp()
         {
-            //Як краще ? 
             MainPage.Driver.Navigate().GoToUrl("http://localhost/wordpress/wp-admin/");
             MainPage.Driver.FindElement(By.Id("user_login")).Click();
             MainPage.Driver.FindElement(By.Id("user_login")).Clear();
@@ -24,43 +23,37 @@ namespace SSCCSET2019
             MainPage.Driver.FindElement(By.Id("user_pass")).SendKeys("vlodko27");
             MainPage.Driver.FindElement(By.Id("wp-submit")).Click();
         }
-        /*
-        [OneTimeTearDown]
-        public void CloseBrowser()
-        {
-           MainPage.Driver.Quit();
-        }*/
+       
         [Test]
-        public void TestHeaderOfMainPage()
+        public void TestNewsBlock()
         {
             MainPageLogic mpl = new MainPageLogic();
-
-            mpl.write_to_inputTown_in_news("Lviv");
-        }
-
+            mpl.ClickLinksInBlockNews();
+        } 
         /*
+        [Test]
+        public void TestHeader()
+        {
+            MainPageLogic mpl = new MainPageLogic();
+            mpl.ClickingHeaderMainPage();
+        }
         [Test]
         public void TestQuickDrafts()
         {
             MainPageLogic mpl = new MainPageLogic();
-            MainPage mp = new MainPage();
-            MainPage.Driver.Navigate().GoToUrl("http://localhost/wordpress/wp-admin/");
 
-            mpl.login();
             mpl.write_to_input_headline_in_quickDrafts("Headline");
             mpl.write_to_input_content_in_quickDrafts("Some contents");
-            mp.Button_save();//Виклик атомарної операції в тесті (Як правильно ?)
+            mpl.click_on_button_save_in_quick_drafts();
         }
         [Test]
-        public void TestLinkInBlockNewsOnMainPage()
+        public void Write_to_inputTown_in_news() //Fail alltime
         {
             MainPageLogic mpl = new MainPageLogic();
-            MainPage.Driver.Navigate().GoToUrl("http://localhost/wordpress/wp-admin/");
-            mpl.login();
 
-            mpl.ClickLinksInBlockNews();
             mpl.write_to_inputTown_in_news("TownName");
-
-        }*/
+            mpl.click_button_send_inNews();
+        }
+        */
     }
 }

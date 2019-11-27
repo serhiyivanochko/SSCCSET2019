@@ -61,161 +61,159 @@ namespace SSCCSET2019.Pages
         public MainPage Link_firstRecord()
         {
             link_firstRecord.Click();
-            return this;
+            return new MainPage();
         }
         public MainPage Link_createPage()
         {
             link_createPage.Click();
-            return this;
+            return new MainPage();
         }
         public MainPage Link_setMainPage()
         {
             link_setMainPage.Click();
-            return this;
+            return new MainPage();
         }
         public MainPage Link_lookSite()
         {
             link_lookSite.Click();
-            return this;
+            return new MainPage();
         }
         public MainPage Link_vidgets()
         {
             link_vidgets.Click();
-            return this;
+            return new MainPage();
         }
         public MainPage Link_menu()
         {
             link_menu.Click();
-            return this;
+            return new MainPage();
         }
         public MainPage Link_turnOffComments()
         {
             link_turnOffComments.Click();
-            return this;
+            return new MainPage();
         }
         public MainPage Link_learnMore()
         {
             link_learnMore.Click();
-            return this;
+            return new MainPage();
         }
         public MainPage Button_header_close()
         {
             button_header_close.Click();
-            return this;
+            return new MainPage();
         }
         //Quick Draft
         public MainPage click_on_input_in_headline()
         {
             headline.Click();
-            return this;
-
+            return new MainPage();
         }
         public MainPage clear_input_in_headline()
         {
             headline.Clear();
-            return this;
-
+            return new MainPage();
         }
         public MainPage sendKeys_in_input_in_headline(string str)
         {
             headline.SendKeys(str);
-            return this;
+            return new MainPage();
         }
         public MainPage click_on_input_Content()
         {
             content.Click();
-            return this;
+            return new MainPage();
         }
         public MainPage clear_input_Content()
         {
             content.Clear();
-            return this;
+            return new MainPage();
         }
         public MainPage sendKeys_in_input_Content(string str)
         {
             content.SendKeys(str);
-            return this;
+            return new MainPage();
         }
         public MainPage Button_save()
         {
             button_save.Click();
-            return this;
+            return new MainPage();
         }
         public MainPage Button_hide()
         {
             button_hide.Click();
-            return this;
+            return new MainPage();
         }
         //News
         public MainPage Button_close()
         {
             button_close.Click();
-            return this;
+            return new MainPage();
         }
         public MainPage Button_edit()
         {
             button_edit.Click();
-            return this;
+            return new MainPage();
         }
         public MainPage click_on_town_input()
         {
             town_input.Click();
-            return this;
+            return new MainPage();
         }
         public MainPage clear_town_input()
         {
             town_input.Clear();
-            return this;
+            return new MainPage();
         }
         public MainPage sendKeys_in_town_input(string str)
         {
             town_input.SendKeys(str);
-            return this;
+            return new MainPage();
         }
         public MainPage Button_send()
         {
             button_send.Click();
-            return this;
+            return new MainPage();
         }
         public MainPage Button_cancel()
         {
             button_cancel.Click();
-            return this;
+            return new MainPage();
         }
         public MainPage click_Link_1()
         {
             link_1.Click();
-            return this;
+            return new MainPage();
         }
         public MainPage click_Link_2()
         {
             link_2.Click();
-            return this;
+            return new MainPage();
         }
         public MainPage click_Link_3()
         {
             link_3.Click();
-            return this;
+            return new MainPage();
         }
         public MainPage click_Link_4()
         {
             link_4.Click();
-            return this;
+            return new MainPage();
         }
         public MainPage click_Link_meetings()
         {
             link_meetings.Click();
-            return this;
+            return new MainPage();
         }
         public MainPage click_Link_wordcamp()
         {
             link_wordcamp.Click();
-            return this;
+            return new MainPage();
         }
         public MainPage click_Link_news()
         {
             link_news.Click();
-            return this;
+            return new MainPage();
         }
     }
 }
