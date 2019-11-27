@@ -74,14 +74,14 @@ namespace SSCCSET2019.Pages.HomePage
             return this;
         }
 
-        public ActivityElements ClickOnReply()
+        public ReplyElements ClickOnReply()
         {
             MakeVisible();
             reply.Click();
             if (replyElements==null)
             {
                 replyElements = new ReplyElements(driver);
-                return this;
+                return replyElements;
             }
             else
             {
@@ -191,10 +191,10 @@ namespace SSCCSET2019.Pages.HomePage
         {
             replyCancel.Click();
             replyElements = null;
-            return new ActivityElements(driver);
+            return  new ActivityElements(driver);
         }
 
-        public ActivityElements SetTextInReplyTextField(string str)
+        public ReplyElements SetTextInReplyTextField(string str)
         {
             if (replyElements != null)
             {
@@ -207,7 +207,7 @@ namespace SSCCSET2019.Pages.HomePage
             }
 
         }
-        public ActivityElements ClickOnReplyTextField()
+        public ReplyElements ClickOnReplyTextField()
         {
             if (replyElements != null)
             {
@@ -220,7 +220,7 @@ namespace SSCCSET2019.Pages.HomePage
             }
         }
 
-        public ActivityElements ClearReplyTextField()
+        public ReplyElements ClearReplyTextField()
         {
             if (replyElements != null)
             {
@@ -232,7 +232,7 @@ namespace SSCCSET2019.Pages.HomePage
                 return null;
             }
         }
-        public string GetTeaxtFromReplyTextField()
+        public string GetTextFromReplyTextField()
         {
             if (replyElements != null)
             {
@@ -252,27 +252,12 @@ namespace SSCCSET2019.Pages.HomePage
             {
                 replyApprove.Click();
                 replyElements = null;
-                return this;
+                return new ActivityElements(driver);
             }
             else
             {
                 return null;
-            }
-
-        }
-        public ActivityElements ClickCancelReplyToComment()
-        {
-            if (replyElements != null)
-            {
-                replyCancel.Click();
-                replyElements = null;
-                return this;
-            }
-            else
-            {
-                return null;
-            }
-
+            }                
         }
     }
 }

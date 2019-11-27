@@ -15,11 +15,11 @@ namespace SSCCSET2019.Logic
         public void MakeReply(string replyText) 
         {
             Activity act = new Activity(driver);
-            act.elements.ClickOnReply();
-            act.elements.replyElements.ClickOnReplyTextField();
-            act.elements.replyElements.ClearReplyTextField();
-            act.elements.replyElements.SetTextInReplyTextField(replyText);
-            act.elements.replyElements.ClickApproveReplyToComment();
+            act.elements.ClickOnReply()
+            .ClickOnReplyTextField()
+            .ClearReplyTextField()
+            .SetTextInReplyTextField(replyText)
+            .ClickApproveReplyToComment();
         }
     }
 }

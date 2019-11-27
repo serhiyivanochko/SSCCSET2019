@@ -16,13 +16,13 @@ namespace SSCCSET2019.Logic.LoginPageLogic
         {
             driver.Navigate().GoToUrl("http://localhost/wordpress/wp-admin/edit-tags.php?taxonomy=post_tag");
             LoginPage logIn = new LoginPage(driver);            
-            logIn.ClickOnLoginField();
-            logIn.ClearLoginField();
-            logIn.SetTextInLoginField(login);
-            logIn.ClickOnPasswordField();
-            logIn.ClearPasswordField();
-            logIn.SetTextInPasswordField(password);
-            logIn.ClickSubmitButton();
+            logIn.ClickOnLoginField()
+            .ClearLoginField()
+            .SetTextInLoginField(login)
+            .ClickOnPasswordField()
+            .ClearPasswordField()
+            .SetTextInPasswordField(password)
+            .ClickSubmitButton();
             //return new MainPage();
             driver.Navigate().GoToUrl("http://localhost/wordpress/wp-admin/");
         }
