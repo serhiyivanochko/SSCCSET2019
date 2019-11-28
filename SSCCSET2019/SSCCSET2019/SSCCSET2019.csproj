@@ -53,11 +53,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\ApplicationSource.cs" />
+    <Compile Include="Logic\ActivityPageLogic.cs" />
     <Compile Include="Logic\TagsPageLogic.cs" />
+    <Compile Include="Logic\LoginPageLogic.cs" />
     <Compile Include="Pages\Posts\AddedTags.cs" />
     <Compile Include="Pages\Posts\EditTags.cs" />
-    <Compile Include="Pages\Posts\QuickEditTag.cs" />
     <Compile Include="Pages\Posts\Tags.cs" />
+    <Compile Include="Tests\Test.cs" />
+    <Compile Include="Tools\Driver.cs" />
+    <Compile Include="Logic\MainPageLogic.cs" />
+    <Compile Include="Pages\HomePage\ActivityElements.cs" />
+    <Compile Include="Pages\HomePage\AtGlanceElements.cs" />
+    <Compile Include="Pages\LogInPage\LoginPage.cs" />
+    <Compile Include="Pages\MainPage.cs" />
+    <Compile Include="Pages\HomePage\Activity.cs" />
+    <Compile Include="Pages\HomePage\AtGlance.cs" />
+    <Compile Include="Pages\UpdatesPage.cs" />
     <Compile Include="Tests\TagsPageTest.cs" />
     <Compile Include="Tools\Driver.cs" />
   </ItemGroup>
