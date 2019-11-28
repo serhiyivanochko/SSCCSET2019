@@ -3,14 +3,18 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Threading;
+using SSCCSET2019.Pages.HomePage;
+using SSCCSET2019;
 
 namespace SSCCSET2019.Pages
 {
     class MainPage
     {
         public static IWebDriver Driver = new ChromeDriver();
-        WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+      
         //Header
+
+        //public Activity activity = new Activity();
         IWebElement button_settings = Driver.FindElement(By.XPath("//*[@id='welcome-panel']/div/div/div[1]/a[1]"));
         IWebElement link_theme = Driver.FindElement(By.XPath("//*[@id='welcome-panel']/div/div/div[1]/p/a"));
         IWebElement link_firstRecord = Driver.FindElement(By.XPath("//*[@id='welcome-panel']/div/div/div[2]/ul/li[1]/a"));
@@ -20,7 +24,7 @@ namespace SSCCSET2019.Pages
         IWebElement link_vidgets = Driver.FindElement(By.XPath("//*[@id='welcome-panel']/div/div/div[3]/ul/li[1]/div/a[1]"));
         IWebElement link_menu = Driver.FindElement(By.XPath("//*[@id='welcome-panel']/div/div/div[3]/ul/li[1]/div/a[2]"));
         IWebElement link_turnOffComments = Driver.FindElement(By.XPath("//*[@id='welcome-panel']/div/div/div[3]/ul/li[2]/a"));
-        IWebElement link_learnMore = Driver.FindElement(By.ClassName("welcome-panel-close"));
+        IWebElement link_learnMore = Driver.FindElement(By.XPath("//*[@id='welcome-panel']/div/div/div[3]/ul/li[3]/a"));
 
         IWebElement button_header_close = Driver.FindElement(By.XPath("//*[@id='welcome-panel']/a"));
         
@@ -48,60 +52,49 @@ namespace SSCCSET2019.Pages
 
         //Header
         
-        public MainPage buttonClick()
+        public void button_settings_Click()
         {
-            button_settings.Click();
-            return new MainPage();
+            button_settings.Click();      
         }
-        public MainPage clickOn_Link_theme()
+        public void clickOn_Link_theme()
         {
             link_theme.Click();
-            return new MainPage();
         }
-        public MainPage Link_firstRecord()
+        public void Link_firstRecord()
         {
             link_firstRecord.Click();
-            return new MainPage();
         }
-        public MainPage Link_createPage()
+        public void Link_createPage()
         {
             link_createPage.Click();
-            return new MainPage();
         }
-        public MainPage Link_setMainPage()
+        public void Link_setMainPage()
         {
             link_setMainPage.Click();
-            return new MainPage();
         }
-        public MainPage Link_lookSite()
+        public void Link_lookSite()
         {
             link_lookSite.Click();
-            return new MainPage();
         }
-        public MainPage Link_vidgets()
+        public void Link_vidgets()
         {
             link_vidgets.Click();
-            return new MainPage();
         }
-        public MainPage Link_menu()
+        public void Link_menu()
         {
             link_menu.Click();
-            return new MainPage();
         }
-        public MainPage Link_turnOffComments()
+        public void Link_turnOffComments()
         {
             link_turnOffComments.Click();
-            return new MainPage();
         }
-        public MainPage Link_learnMore()
+        public void Link_learnMore()
         {
             link_learnMore.Click();
-            return new MainPage();
         }
-        public MainPage Button_header_close()
+        public void Button_header_close()
         {
-            button_header_close.Click();
-            return new MainPage();
+            button_header_close.Click();          
         }
         //Quick Draft
         public MainPage click_on_input_in_headline()
@@ -145,75 +138,61 @@ namespace SSCCSET2019.Pages
             return new MainPage();
         }
         //News
-        public MainPage Button_close()
+        public void Button_close()
         {
-            button_close.Click();
-            return new MainPage();
+            button_close.Click();          
         }
-        public MainPage Button_edit()
+        public void Button_edit()
         {
             button_edit.Click();
-            return new MainPage();
         }
-        public MainPage click_on_town_input()
+        public void click_on_town_input()
         {
             town_input.Click();
-            return new MainPage();
         }
-        public MainPage clear_town_input()
+        public void clear_town_input()
         {
             town_input.Clear();
-            return new MainPage();
         }
-        public MainPage sendKeys_in_town_input(string str)
+        public void sendKeys_in_town_input(string str)
         {
             town_input.SendKeys(str);
-            return new MainPage();
         }
-        public MainPage Button_send()
+        public void Button_send()
         {
             button_send.Click();
-            return new MainPage();
         }
-        public MainPage Button_cancel()
+        public void Button_cancel()
         {
             button_cancel.Click();
-            return new MainPage();
         }
-        public MainPage click_Link_1()
+        public void click_Link_1()
         {
             link_1.Click();
-            return new MainPage();
         }
-        public MainPage click_Link_2()
+        public void click_Link_2()
         {
-            link_2.Click();
-            return new MainPage();
+            link_2.Click();           
         }
-        public MainPage click_Link_3()
+        public void click_Link_3()
         {
-            link_3.Click();
-            return new MainPage();
+            link_3.Click();        
         }
-        public MainPage click_Link_4()
+        public void click_Link_4()
         {
             link_4.Click();
-            return new MainPage();
         }
-        public MainPage click_Link_meetings()
+        public void click_Link_meetings()
         {
             link_meetings.Click();
-            return new MainPage();
         }
-        public MainPage click_Link_wordcamp()
+        public void click_Link_wordcamp()
         {
             link_wordcamp.Click();
-            return new MainPage();
         }
-        public MainPage click_Link_news()
+        public void click_Link_news()
         {
             link_news.Click();
-            return new MainPage();
         }
     }
 }

@@ -24,19 +24,24 @@ namespace SSCCSET2019
             MainPage.Driver.FindElement(By.Id("wp-submit")).Click();
         }
        
+        [TearDown]
+        public void TearDown()
+        {
+            MainPage.Driver.Close();
+        }
         [Test]
-        public void TestNewsBlock()
+        public void TestBlockNews()
         {
             MainPageLogic mpl = new MainPageLogic();
             mpl.ClickLinksInBlockNews();
-        } 
-        /*
+        }
         [Test]
         public void TestHeader()
         {
             MainPageLogic mpl = new MainPageLogic();
             mpl.ClickingHeaderMainPage();
         }
+        /*
         [Test]
         public void TestQuickDrafts()
         {
