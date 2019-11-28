@@ -11,7 +11,6 @@ namespace SSCCSET2019.Pages.Media
         {
             this.driver = driver;
         }
-        
     }
     public abstract class ACommonComponent : ADeleteItemComponent
     {
