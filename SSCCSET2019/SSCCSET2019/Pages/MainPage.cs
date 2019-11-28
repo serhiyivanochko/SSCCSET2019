@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 
 namespace SSCCSET2019.Pages
 {
@@ -27,7 +26,7 @@ namespace SSCCSET2019.Pages
         IWebElement content = Driver.FindElement(By.Id("content"));
         IWebElement button_save = Driver.FindElement(By.Id("save-post"));
         IWebElement button_hide = Driver.FindElement(By.XPath("//*[@id='dashboard_quick_press']/button"));
-        
+
         //News 
         IWebElement button_close = Driver.FindElement(By.ClassName("toggle-indicator"));
         IWebElement button_edit = Driver.FindElement(By.ClassName("dashicons dashicons-edit"));

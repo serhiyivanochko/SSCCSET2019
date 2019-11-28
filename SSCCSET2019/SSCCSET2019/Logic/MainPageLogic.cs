@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using SSCCSET2019.Pages;
+﻿using SSCCSET2019.Pages;
 
 namespace SSCCSET2019.Logic
 {
@@ -23,13 +19,13 @@ namespace SSCCSET2019.Logic
             mainPage.Link_turnOffComments();
             mainPage.Link_learnMore();
             mainPage.Button_header_close();
-            
+
         }
         //Quick Drafts 
         public void TestQuickDraft()
         {
             mainPage.writeTo_headline("Lorem ipsum");  //How do it properly 
-            mainPage.write_Content("Some story");    
+            mainPage.write_Content("Some story");
             mainPage.Button_save();
             mainPage.Button_hide();
         }
