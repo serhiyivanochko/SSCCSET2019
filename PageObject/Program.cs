@@ -12,7 +12,9 @@ namespace Wordpress
     {
         static void Main(string[] args)
         {
-            
+            IWebDriver driver = new FirefoxDriver();
+            driver.Navigate().GoToUrl("http://localhost/wordpress-abc/wp-admin/media-new.php");
+
         }
     }   
 }
