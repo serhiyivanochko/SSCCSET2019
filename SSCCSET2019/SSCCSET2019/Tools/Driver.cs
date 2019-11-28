@@ -5,12 +5,14 @@ using System;
 using OpenQA.Selenium.Chrome;
 using SSCCSET2019.Data.ApplicationSource;
 
-namespace SSCCSET2019.Tools
+namespace SSCCSET2019.Tools.Driver
+
 {
     class Driver
     {
         private static IWebDriver driver;
         private Driver() { }
+
         public static IWebDriver GetDriver()
         {
             if (driver == null)
@@ -23,7 +25,7 @@ namespace SSCCSET2019.Tools
                 {
                     driver = new FirefoxDriver();
                 }
-                else if(ApplicationSource.GetBrowserName().ToLower().Equals("internetexplorer"))
+                else if (ApplicationSource.GetBrowserName().ToLower().Equals("internetexplorer"))
                 {
                     driver = new InternetExplorerDriver();
                 }

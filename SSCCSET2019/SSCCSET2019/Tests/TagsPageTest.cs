@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
-using SSCCSET2019.Tools;
+using SSCCSET2019.Tools.Driver;
 using SSCCSET2019.Logic;
 
 namespace SSCCSET2019.Tests
@@ -34,7 +34,7 @@ namespace SSCCSET2019.Tests
         public void TestAddNewTagsWithSlugAndDescription()
         {
             TagsPageLogic tagsPage = new TagsPageLogic();
-            string tagName = "Test Tag";
+            string tagName = "1Test Tag";
             string tagSlug = "Test Slug";
             string tagDescription = "Test Description";
             tagsPage.AddNewTagsWithSlugAndDescription(tagName, tagSlug, tagDescription);
@@ -77,7 +77,7 @@ namespace SSCCSET2019.Tests
         [TearDown]
         public void Close()
         {
-            Driver.GetDriver().Close();
+          //  Driver.GetDriver().Close();
         }
     }
 }
