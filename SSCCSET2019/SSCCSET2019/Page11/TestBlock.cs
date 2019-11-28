@@ -9,7 +9,7 @@ using OpenQA.Selenium.Chrome;
 
 namespace Tests
 {
-    class FiltersBlock
+    class FiltersBlock:ATopComponent
     {
         IWebDriver driver;
 
