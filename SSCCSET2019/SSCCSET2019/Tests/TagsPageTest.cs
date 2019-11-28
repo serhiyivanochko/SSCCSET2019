@@ -6,7 +6,7 @@ using SSCCSET2019.Logic;
 namespace SSCCSET2019.Tests
 {
     [TestFixture()]
-    class Test
+    class TagsPageTest
     {
         [SetUp]
         public void Setup()

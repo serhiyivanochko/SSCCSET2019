@@ -58,7 +58,7 @@
     <Compile Include="Pages\Posts\EditTags.cs" />
     <Compile Include="Pages\Posts\QuickEditTag.cs" />
     <Compile Include="Pages\Posts\Tags.cs" />
-    <Compile Include="Tests\Test.cs" />
+    <Compile Include="Tests\TagsPageTest.cs" />
     <Compile Include="Tools\Driver.cs" />
   </ItemGroup>
   <ItemGroup>

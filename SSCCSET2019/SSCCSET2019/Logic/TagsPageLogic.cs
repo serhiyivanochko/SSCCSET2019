@@ -126,6 +126,7 @@ namespace SSCCSET2019.Logic
         public List<AddedTags> SortTagsListBySlug()
         {
             Tags tags = new Tags(Driver.GetDriver());
+           // Driver.GetDriver()
             tags = tags.ClickDescriptionSortingIndicator();
             List<AddedTags> sortedList = tags.listOfAddedTags.OrderBy(x => x.GetSlugText()).ToList();
             return sortedList;
