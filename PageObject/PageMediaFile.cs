@@ -10,6 +10,8 @@ namespace Wordpress
 {
     class PageMediaFile
     {
+        private bool browserUploader = false;
+        private bool multifileBootloader = true;
         IWebDriver driver;
         IWebElement _download_new_media;
         IWebElement _helper_link;
@@ -33,18 +35,18 @@ namespace Wordpress
         }
         public PageMediaFile ClicOnTheButUrlBrowserLoader()
         {
-            bool browserLoader = false;
-            bool multifileBootloader = true;
-            if (browserLoader == false && multifileBootloader == true)
+            if (browserUploader == false && multifileBootloader == true)
             {
                 _url_browser_loader.Click();
                 new BrowserUploader();
             }
-            if (browserLoader == true && multifileBootloader == false)
+            if (browserUploader == true && multifileBootloader == false)
             {
                 _multi_file_bootloader.Click();
                 new MultiFileBootloader();
             }
+            browserUploader = !browserUploader;
+            multifileBootloader = !multifileBootloader;
             return this;
         }
         public PageMediaFile ClicOnTheButHelpLink()
