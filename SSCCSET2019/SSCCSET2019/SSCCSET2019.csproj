@@ -54,12 +54,17 @@
   <ItemGroup>
     <Compile Include="Data\ApplicationSource.cs" />
     <Compile Include="Logic\ActivityPageLogic.cs" />
+    <Compile Include="Logic\MediaLogic\LibraryGridLogic.cs" />
     <Compile Include="Logic\TagsPageLogic.cs" />
     <Compile Include="Logic\LoginPageLogic.cs" />
     <Compile Include="Pages\Posts\AddedTags.cs" />
     <Compile Include="Pages\Posts\QuickEditTag.cs" />
+    <Compile Include="Pages\Media\ACommonComponent.cs" />
+    <Compile Include="Pages\Media\ADeleteItemComponent.cs" />
+    <Compile Include="Pages\Media\LibraryGrid.cs" />
     <Compile Include="Pages\Posts\EditTags.cs" />
     <Compile Include="Pages\Posts\Tags.cs" />
+    <Compile Include="Tests\LibraryGridTest.cs" />
     <Compile Include="Tests\Test.cs" />
     <Compile Include="Logic\MainPageLogic.cs" />
     <Compile Include="Pages\HomePage\ActivityElements.cs" />
