@@ -28,7 +28,6 @@ namespace SSCCSET2019.Logic
             loginPage.PasswordClear();
             loginPage.PasswordInput();
             loginPage.SubmmitBotton();
-            //return ?????;
         }
     }
 }

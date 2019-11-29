@@ -6,23 +6,24 @@ namespace SSCCSET2019.Logic
 {
     class UpdatesPageLogic
     {
-        public void MainUpdatesCheck()
+        public UpdatesPage MainUpdatesCheck()
         {
             UpdatesPage updatesPage = new UpdatesPage(Driver.GetDriver());
-            updatesPage.CheckUpdates(); // якщо воно переходить на іншу сторінку має чи та сторінка equals тій шо я задам сам чи як? 
-            //Assert.AreEqual(?? , "http://localhost/wp1/wp-admin/update-core.php?force-check=1");
+            updatesPage.CheckUpdates();
+            return new UpdatesPage(Driver.GetDriver());
         }
-        public void AboutWordpress()
+        /*public UpdatesPage AboutWordpress()
         {
             UpdatesPage updatesPage = new UpdatesPage(Driver.GetDriver());
-            updatesPage.AboutButton(); 
-            //Assert.AreEqual(?? , "http://localhost/wp1/wp-admin/update-core.php?force-check=1");
-        }
-        /*public string UpdatePlugins()    сторінка оновлення , пропадає якщо один раз оновити!
+            updatesPage.AboutButton();
+            return new UpdatesPage(Driver.GetDriver());
+        }*/
+        public UpdatesPage UpdatePlugins()    //сторінка оновлення , пропадає якщо один раз оновити!
         {
+            UpdatesPage updatesPage = new UpdatesPage(Driver.GetDriver());
             updatesPage.SelectAllPlugins();
             updatesPage.UpdatePlugins();
-            return "http://localhost/wp1/wp-admin/update-core.php?action=do-plugin-upgrade";
-        }*/
+            return new UpdatesPage(Driver.GetDriver());
+        }
     }
 }

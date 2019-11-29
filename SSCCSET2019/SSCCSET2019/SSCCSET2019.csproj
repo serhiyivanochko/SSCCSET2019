@@ -47,8 +47,14 @@
     <Compile Include="Data\ApplicationSource.cs" />
     <Compile Include="Logic\LoginPageLogic.cs" />
     <Compile Include="Logic\UpdatesPageLogic.cs" />
+    <Compile Include="Pages\Hiden.cs" />
     <Compile Include="Pages\LoginPage.cs" />
+    <Compile Include="Pages\UpdatePluginsElements.cs" />
+    <Compile Include="Pages\UpdatePlugins.cs" />
+    <Compile Include="Pages\UpdatesHelp.cs" />
+    <Compile Include="Pages\UpdatesHelpElements.cs" />
     <Compile Include="Pages\UpdatesPage.cs" />
+    <Compile Include="Pages\Visible.cs" />
     <Compile Include="Test.cs" />
     <Compile Include="Tests\UpdatesPageTest.cs" />
     <Compile Include="Tools\Driver.cs" />
