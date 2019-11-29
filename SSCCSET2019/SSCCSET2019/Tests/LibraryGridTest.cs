@@ -70,7 +70,7 @@ namespace LibraryGridTest
         {
             string actual = library.DeleteItem(index, accept)
                 .GetCurrentItems();
-            Console.WriteLine(actual.ToString());
+            
             string expected = "sorted.txt";
             Assert.AreEqual(expected, actual);
         }
