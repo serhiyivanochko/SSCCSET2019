@@ -25,7 +25,7 @@ namespace SSCCSET2019.Tools.Driver
                 {
                     driver = new FirefoxDriver();
                 }
-                else if(ApplicationSource.GetBrowserName().ToLower().Equals("internetexplorer"))
+                else if (ApplicationSource.GetBrowserName().ToLower().Equals("internetexplorer"))
                 {
                     driver = new InternetExplorerDriver();
                 }
